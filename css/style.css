@@ -1,0 +1,171 @@
+html{
+  scroll-behavior: smooth;
+}
+
+body {
+    background-color: #000B29;
+}
+.wrapper{
+    width: 900px;
+    margin: 0 auto;
+
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    font-family: 'Mate SC', serif;
+    color: #F8F5F2;
+}
+
+h1{
+    font-weight: 600;
+    font-size: 32px;
+    padding: 20px, 0;
+    text-align: center;
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 30px;
+    padding: 10px, 0;
+    text-align: center;
+}
+
+.index-intro{
+    display: block;
+
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 400px;
+    border: 1px solid #000B29;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+  
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front {
+    background-color: #000B29;
+    color: black;
+  }
+  
+  /* Style the back side */
+  .flip-card-back {
+    background-color: #D70026;
+    color: #F8F5F2;
+    transform: rotateY(180deg);
+    font-size: 15px;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #D70026;
+  }
+
+  
+  li {
+    float: right;
+    list-style-type: none;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  
+  li a:hover {
+    background-color: #D70026;
+  }
+  
+  .input-container {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  /* Style the form icons */
+  .icon {
+    padding: 10px;
+    background: #D70026;
+    color: #000B29;
+    min-width: 50px;
+    text-align: center;
+  }
+  
+  /* Style the input fields */
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    outline:#D70026;
+  }
+  
+  .input-field:focus {
+    border: 2px solid #000B29;
+  }
+  
+  /* Set a style for the submit button */
+  .btn {
+    background-color: #D70026;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .btn:hover {
+    opacity: 1;
+  }
+  
+  label{
+    color:#D70026;
+  }
+  .reveal-if-active {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: scale(0.8);
+    transition: 0.5s;
+  }
+    input[type="radio"]:checked,
+    input[type="checkbox"]:checked{
+      opacity: 1;
+      max-height: 100px;
+      overflow: visible;
+      padding: 10px 20px;
+      transform: scale(1);
+    }
+  
+    
+  
