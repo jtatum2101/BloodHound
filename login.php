@@ -3,6 +3,10 @@
 include_once 'header.php';
 
 ?>
+<?php
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,23 +21,28 @@ include_once 'header.php';
     <link href="https://fonts.googleapis.com/css2?family=Mate+SC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
     <div class="wrapper">
         <section class="box">
-            <h1>Log In:</h1>
-            <br>
-            <br>
+            <h1 style="font-size: 60px;">Log In:</h1>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post"
+                style="max-width:500px;margin:auto">
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Email" name="email" />
+                </div>
+                <div class="input-container">
+                    <i class="fa fa-key icon"></i>
+                    <input class="input-field" type="password" placeholder="Password" name="psw" />
+                </div>
+                <button type="submit" value="Submit" class="btn">Log In</button>
+            </form>
+
+                <br>
+                <br>
         </section>
     </div>
 </body>
