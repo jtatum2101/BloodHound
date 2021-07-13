@@ -1,6 +1,33 @@
 <?php
 
 include_once 'header.php';
+include 'config.php';
+
+include 'database.php';
+
+$email = $password = $pwd = '';
+
+$email = $_POST['email'];
+$pwd = $_POST['psw'];
+$psw = MD5($pwd);
+$query = "SELECT * FROM users WHERE Email='$email' AND Password='$password'";
+
+$result = mysqli_query($db, $query);
+
+if(mysqli_num_rows($result) > 0){
+
+    while ($row = mysqli_fetch_array($result)){
+        $id = $row['id'];
+        $email = $row['Email'];
+        session_start();
+        $_SESSION['id'] = $id;
+        $_SESSION['email'] = $email;
+    }
+    header("Location: dashboard.php");
+
+} else{
+    echo 'Invalid password or email';
+}
 
 ?>
 
