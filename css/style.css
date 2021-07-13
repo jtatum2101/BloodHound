@@ -55,6 +55,7 @@ body {
   z-index: 2;
   position:absolute;
   display:flex;
+  top: 485px;
   bottom:30px;
   left:50%;
   transform: translateX(-50%);
@@ -65,7 +66,8 @@ body {
   width: 5px;
   height: 5px;
   margin: 10px;
-  border-radius: 100%;
+  border-radius: 30%;
+  size: 3px;
   cursor:pointer;
 }
 
@@ -73,6 +75,7 @@ body {
 .wrapper{
   width:fit-content;
   margin: 0 auto;
+  position:sticky;
 
 }
 
