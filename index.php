@@ -18,7 +18,7 @@ include_once 'header.php';
 
 <body>
     <div class="img-slider" style="margin-left: 300px;margin-top: 20px;">
-    <div class="slide active">
+        <div class="slide active">
             <img src="img/bloodhound.jpeg" alt="" style="height: 532.9px;">
             <div class="info">
                 <h1 style="margin-top: 60px; padding-left: 20px;">Welcome to BloodHound!</h1>
@@ -29,14 +29,16 @@ include_once 'header.php';
             <img src="img/police_2.jpeg" alt="">
             <div class="info">
                 <h1 style="margin-top: 60px; padding-left: 20px;">What is BloodHound?</h1>
-                <p style="background: rgba(215, 0, 39, 0.3);margin-left: 145px;">Blood Hound is a Crime Record Management System Website for Police Officer and Admins. Become a member to learn more.</p>
+                <p style="background: rgba(215, 0, 39, 0.3);margin-left: 145px;">Blood Hound is a Crime Record
+                    Management System Website for Police Officer and Admins. Become a member to learn more.</p>
             </div>
         </div>
         <div class="slide">
             <img src="img/slide_3.jpeg" alt="" style="height: 532.9px;">
             <div class="info">
                 <h1 style="margin-top: 60px; padding-left: 20px;">Our Main Goal?</h1>
-                <p style="background: rgba(215, 0, 39, 0.3);margin-left: 145px;">BloodHound's main goal is to develop the best software applications to share throughout the United States.</p>
+                <p style="background: rgba(215, 0, 39, 0.3);margin-left: 145px;">BloodHound's main goal is to develop
+                    the best software applications to share throughout the United States.</p>
             </div>
         </div>
         <div class="slide">
@@ -44,12 +46,12 @@ include_once 'header.php';
             <div class="info">
                 <h1 style="margin-top: 60px; padding-left: 20px;">Contact Us!</h1>
                 <p style="padding-right: 50px;">Email: BloodHoundCrime@bloodhound.org</p>
-                <p style="padding-right: 50px;">Phone: (662)-707-4255</p>
+                <p style="padding-right: 50px; border-radius: 0px;">Phone: (662)-707-4255</p>
 
             </div>
         </div>
         <div class="navigation">
-            
+
             <div class="btn active"></div>
             <div class="btn"></div>
             <div class="btn"></div>
@@ -74,21 +76,23 @@ include_once 'header.php';
             btns[manual].classList.add('active');
         }
 
-            btns.forEach((btn, i) => {
-                btn.addEventListener("click", () => {
-                    manualNav(i);
-                    currentSlide = i;
-                });
+        btns.forEach((btn, i) => {
+            btn.addEventListener("click", () => {
+                manualNav(i);
+                currentSlide = i;
             });
+        });
         var repeat = function(activeClass) {
             let active = document.getElementsByClassName('active');
             let i = 1;
 
             var repeater = () => {
                 setTimeout(function() {
+                    var slides = document.querySelectorAll('.slide');
                     slides[i].classList.add('active');
                     btns[i].classList.add('active');
                     i++;
+
                     slides[i].classList.remove('active');
                     btns[i].classList.add('active');
 
@@ -100,7 +104,7 @@ include_once 'header.php';
                     }
                     repeater();
 
-                }, 10000);
+                }, 6000);
             }
             repeater();
         }
