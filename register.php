@@ -1,6 +1,61 @@
 <?php
 include_once 'header.php';
 ?>
+<?php
+if($_POST){
+ 
+    // include database connection
+    include 'database.php';
+ 
+    try{
+ 
+        // insert query
+        $query = "INSERT INTO users (full_name, email, psw, role, police_id, admin_id, date_joined) VALUES (:full_name, :email, :psw, :role, :police_id, :admin_id, :date_joined)";
+ 
+        // prepare query for execution
+        $stmt = $con->prepare($query);
+ 
+        // posted values
+        $full_name=htmlspecialchars(strip_tags($_POST['full_name']));
+        $email=htmlspecialchars(strip_tags($_POST['email']));
+        $psw=htmlspecialchars(strip_tags($_POST['psw']));
+        $role=htmlspecialchars(strip_tags($_POST['role']));
+        $police_id=htmlspecialchars(strip_tags($_POST['police_id']));
+        $admin_id=htmlspecialchars(strip_tags($_POST['admin_id']));
+        
+        // Clean police and admin ids
+        $police_id = (empty($police_id)) ? NULL : $police_id;
+        $admin_id = (empty($admin_id)) ? NULL : $admin_id;
+ 
+        // bind the parameters
+        $stmt->bindParam(':full_name', $full_name);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':psw', $psw);
+        $stmt->bindParam(':role', $role);
+        $stmt->bindParam(':police_id', $police_id);
+        $stmt->bindParam(':admin_id', $admin_id);
+
+
+        // specify when this record was inserted to the database
+        $date_joined=date('Y-m-d H:i:s');
+        $stmt->bindParam(':date_joined', $date_joined);
+        
+ 
+        // Execute the query
+        if($stmt->execute()){
+            echo "<div class='alert alert-success'>Record was saved.</div>";
+        }else{
+            echo "<div class='alert alert-danger'>Unable to save record." . $stmt->errorInfo()[2] . "</div>";
+        }
+ 
+    }
+ 
+    // show error
+    catch(PDOException $exception){
+        die('ERROR: ' . $exception->getMessage());
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,10 +84,11 @@ include_once 'header.php';
             <h1 style="font-size: 60px;">Sign Up:</h1>
             <br>
             <br>
-            <form action="signup.inc.php" style="max-width:500px;margin:auto">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post"
+                style="max-width:500px;margin:auto">
                 <div class="input-container">
                     <i class="fa fa-user icon"></i>
-                    <input class="input-field" type="text" placeholder="Full Name" name="name" />
+                    <input class="input-field" type="text" placeholder="Full Name" name="full_name" />
                 </div>
                 <br>
                 <div class="input-container">
@@ -51,15 +107,15 @@ include_once 'header.php';
                     <br>
                     <input type="radio" id="officer" name="role" value="officer" />
                     <label for="officer">Police Officer</label><br>
-                    <input class="input-field" type="number" placeholder="Police ID (Officer)" />
+                    <input class="input-field" name="police_id" type="number" placeholder="Police ID (Officer)" />
                     <input type="radio" id="admin" name="role" value="admin" />
                     <label for="admin">Adminstration</label>
-                    <input class="input-field" type="number" placeholder="Admin ID (Admin)" />
+                    <input class="input-field" name="admin_id" type="number" placeholder="Admin ID (Admin)" />
                 </div>
 
                 <br>
 
-                <button type="submit" class="btn">Register</button>
+                <button type="submit" value="Save" class="btn">Register</button>
             </form>
 
 
