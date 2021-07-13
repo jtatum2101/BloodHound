@@ -32,34 +32,29 @@ include_once 'header.php';
             <form action="signup.inc.php" style="max-width:500px;margin:auto">
                 <div class="input-container">
                     <i class="fa fa-user icon"></i>
-                    <input class="input-field" type="text" placeholder="Full Name" name="name">
+                    <input class="input-field" type="text" placeholder="Full Name" name="name" />
                 </div>
                 <br>
                 <div class="input-container">
                     <i class="fa fa-envelope icon"></i>
-                    <input class="input-field" type="text" placeholder="Email" name="email">
+                    <input class="input-field" type="text" placeholder="Email" name="email" />
                 </div>
                 <br>
 
                 <div class="input-container">
                     <i class="fa fa-key icon"></i>
-                    <input class="input-field" type="password" placeholder="Password" name="psw">
+                    <input class="input-field" type="password" placeholder="Password" name="psw" />
                 </div>
                 <br>
                 <div class="input-container">
                     <i class="fa fa-users icon"></i>
                     <br>
-                    <input type="radio" id="citizen" name="role" value="citizen">
-                    <label for="citizen">Citizen</label><br>
-                    <input type="radio" id="officer" name="role" value="officer">
+                    <input type="radio" id="officer" name="role" value="officer" />
                     <label for="officer">Police Officer</label><br>
-                    <div class="reveal-if-active">
-                        <input class="input-field reveal-if-active" type="text" id="police-id" placeholder="Police ID"></input>
-                    </div>
-
-                    <input type="radio" id="admin" name="role" value="admin">
+                    <input class="input-field" type="number" placeholder="Police ID (Officer)" />
+                    <input type="radio" id="admin" name="role" value="admin" />
                     <label for="admin">Adminstration</label>
-
+                    <input class="input-field" type="number" placeholder="Admin ID (Admin)" />
                 </div>
 
                 <br>

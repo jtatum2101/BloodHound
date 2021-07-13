@@ -4,7 +4,7 @@
         <ui>
             <li><a href="register.php">Register</a></li>
             <li><a href="login.php">Log in</a></li>
-            <li><a href="#About">About Us</a></li>
+            <li><a href="index.php">Home</a></li>
         </ui>
 
     </div>
