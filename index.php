@@ -44,7 +44,7 @@ include_once 'header.php';
             <div class="info">
                 <h1 style="margin-top: 60px; padding-left: 20px;">Contact Us!</h1>
                 <p style="padding-right: 50px;">Email: BloodHoundCrime@bloodhound.org</p>
-                <p style="padding-right: 50px;">Phone: (555)-555-5555</p>
+                <p style="padding-right: 50px;">Phone: (662)-707-4255</p>
 
             </div>
         </div>
