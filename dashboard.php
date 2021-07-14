@@ -1,3 +1,5 @@
 <?php
-echo "you are signed in sucessfully!";
+
+echo "you are signed in successfully!";
+
 ?>

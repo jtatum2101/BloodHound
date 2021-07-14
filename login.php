@@ -5,8 +5,6 @@ include 'config.php';
 
 include 'database.php';
 
-
-
 $email = $_POST['email'];
 $psw = $_POST['psw'];
 $query = "SELECT * FROM users WHERE email='$email' AND psw='$psw'";
@@ -31,44 +29,49 @@ if(mysqli_num_rows($result) > 0){
 ?>
 
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BloodHound | Log In!</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mate+SC&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+    <head>
+        <title>BloodHound | Log In!</title>
+        <!--Made with love by Mutiullah Samim -->
 
-<body>
-    <div class="wrapper">
-        <section class="box">
-            <h1 style="font-size: 60px;">Log In:</h1>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post"
-                style="max-width:500px;margin:auto">
-                <div class="input-container">
-                    <i class="fa fa-envelope icon"></i>
-                    <input class="input-field" type="text" placeholder="Email" name="email" />
-                </div>
-                <div class="input-container">
-                    <i class="fa fa-key icon"></i>
-                    <input class="input-field" type="password" placeholder="Password" name="psw" />
-                </div>
-                <button type="submit" value="Login" class="btn">Log In</button>
-            </form>
+        <!--Bootsrap 4 CDN-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-                <br>
-                <br>
-        </section>
+        <!--Fontawesome CDN-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+            integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    </head>
+
     </div>
-</body>
+    <div class="main">
+        <div class="col-md-6 col-sm-12">
+            <div class="login-form text-center">
+                <form method="post">
+                    <div class="form-group text-center">
+                        <label>Email</label>
+                        <input type="text" class="form-control text-center" style="text-align: center; margin-left: 300px;"
+                            placeholder="Email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" placeholder="password" name="psw"
+                            style="text-align: center; margin-left: 300px;">
+                    </div>
+                    <button type="submit" value="Login" class="btn btn-black"
+                        style="text-align: center; margin-left: 600px;">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
 </html>
