@@ -5,22 +5,21 @@ include 'config.php';
 
 include 'database.php';
 
-$email = $password = $pwd = '';
+
 
 $email = $_POST['email'];
-$pwd = $_POST['psw'];
-$psw = MD5($pwd);
-$query = "SELECT * FROM users WHERE Email='$email' AND Password='$password'";
-
+$psw = $_POST['psw'];
+$query = "SELECT email FROM users WHERE email='$email' AND psw='$psw'";
+$stmt = $con -> prepare($query);
 $result = mysqli_query($db, $query);
 
 if(mysqli_num_rows($result) > 0){
 
     while ($row = mysqli_fetch_array($result)){
-        $id = $row['id'];
-        $email = $row['Email'];
+        $psw = $row['psw'];
+        $email = $row['email'];
         session_start();
-        $_SESSION['id'] = $id;
+        $_SESSION['psw'] = $psw;
         $_SESSION['email'] = $email;
     }
     header("Location: dashboard.php");
@@ -63,7 +62,7 @@ if(mysqli_num_rows($result) > 0){
                     <i class="fa fa-key icon"></i>
                     <input class="input-field" type="password" placeholder="Password" name="psw" />
                 </div>
-                <button type="submit" value="Submit" class="btn">Log In</button>
+                <button type="submit" value="Login" class="btn">Log In</button>
             </form>
 
                 <br>
