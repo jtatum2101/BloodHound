@@ -9,7 +9,7 @@ include 'database.php';
 
 $email = $_POST['email'];
 $psw = $_POST['psw'];
-$query = "SELECT email FROM users WHERE email='$email' AND psw='$psw'";
+$query = "SELECT * FROM users WHERE email='$email' AND psw='$psw'";
 $stmt = $con -> prepare($query);
 $result = mysqli_query($db, $query);
 
