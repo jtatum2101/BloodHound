@@ -56,72 +56,190 @@ if($_POST){
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BloodHound | Sign Up!</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mate+SC&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script type="text/javascript" href="js/script.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap Elegant Sign Up Form with Icons</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <style>
+    body {
+        color: #999;
+        background: #f5f5f5;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .form-control,
+    .form-control:focus,
+    .input-group-addon {
+        border-color: #e1e1e1;
+        border-radius: 0;
+        background: #F8F5F2;
+    }
+
+    .signup-form {
+        width: 390px;
+        margin: 0 auto;
+        padding: 30px 0;
+    }
+
+    .signup-form h2 {
+        color: #636363;
+        margin: 0 0 15px;
+        text-align: center;
+    }
+
+    .signup-form .lead {
+        font-size: 14px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .signup-form form {
+        border-radius: 1px;
+        margin-bottom: 15px;
+        background: #F8F5F2;
+        border: 1px solid #f3f3f3;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+
+    .signup-form .form-group {
+        margin-bottom: 20px;
+    }
+
+    .signup-form label {
+        font-weight: normal;
+        font-size: 13px;
+    }
+
+    .signup-form .form-control {
+        min-height: 38px;
+        box-shadow: none !important;
+        border-width: 0 0 1px 0;
+    }
+
+    .signup-form .input-group-addon {
+        max-width: 42px;
+        text-align: center;
+        background: none;
+        border-bottom: 1px solid #e1e1e1;
+        padding-left: 5px;
+    }
+
+    .signup-form .btn,
+    .signup-form .btn:active {
+        font-size: 16px;
+        color: #000B29;
+        font-weight: bold;
+        background: #D70026 !important;
+        border-radius: 3px;
+        border: none;
+        min-width: 140px;
+    }
+
+    .signup-form .btn:hover,
+    .signup-form .btn:focus {
+        background: #000B29 !important;
+        color: #D70026;
+    }
+
+    .signup-form a {
+        color: #F8F5F2;
+        text-decoration: none;
+    }
+
+    .signup-form a:hover {
+        text-decoration: underline;
+    }
+
+    .signup-form .fa {
+        font-size: 21px;
+        position: relative;
+        top: 8px;
+    }
+
+    .signup-form .fa-paper-plane {
+        font-size: 17px;
+    }
+
+    .signup-form .fa-check {
+        color: #fff;
+        left: 9px;
+        top: 18px;
+        font-size: 7px;
+        position: absolute;
+    }
+    .register{
+        background-image: url("img/2ndslide.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    span{
+        background: #F8F5F2;
+    }
+    input{
+        background: #F8F5F2; 
+    }
+    </style>
 </head>
 
-<body>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <div class="wrapper">
-        <section id="About" class="index-intro">
-            <h1 style="font-size: 60px;">Sign Up:</h1>
-            <br>
-            <br>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post"
-                style="max-width:500px;margin:auto">
-                <div class="input-container">
-                    <i class="fa fa-user icon"></i>
-                    <input class="input-field" type="text" placeholder="Full Name" name="full_name" />
+<body class="register">
+    <div class="signup-form">
+        <form action="/examples/actions/confirmation.php" method="post">
+            <h2>Sign Up</h2>
+            <p class="lead">Become a Member of Bloodhound!</p>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <input type="text" class="form-control" name="full_name" placeholder="Full Name" required="required">
                 </div>
-                <br>
-                <div class="input-container">
-                    <i class="fa fa-envelope icon"></i>
-                    <input class="input-field" type="text" placeholder="Email" name="email" />
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                    <input type="email" class="form-control" name="email" placeholder="Email Address"
+                        required="required">
                 </div>
-                <br>
-
-                <div class="input-container">
-                    <i class="fa fa-key icon"></i>
-                    <input class="input-field" type="password" placeholder="Password" name="psw" />
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                    <input type="password" class="form-control" name="psw" placeholder="Password" required="required">
                 </div>
+            </div>
+            <div class="form-group">
+                <i class="fa fa-users"></i>
                 <br>
-                <div class="input-container">
-                    <i class="fa fa-users icon"></i>
-                    <br>
-                    <input type="radio" id="officer" name="role" value="officer" />
-                    <label for="officer">Police Officer</label><br>
-                    <input class="input-field" name="police_id" type="number" placeholder="Police ID (Officer)" />
-                    <input type="radio" id="admin" name="role" value="admin" />
-                    <label for="admin">Adminstration</label>
-                    <input class="input-field" name="admin_id" type="number" placeholder="Admin ID (Admin)" />
-                </div>
-
                 <br>
+                <input type="radio" id="officer" name="role" value="officer" />
+                <label for="officer">Police Officer</label>
+                <br>
+                <input class="form-control" name="police_id" type="number" placeholder="Police ID (Officer)" />
+                <input type="radio" id="admin" name="role" value="admin" />
+                <label for="admin">Adminstration</label>
+                <input class="form-control" name="admin_id" type="number" placeholder="Admin ID (Admin)" />
 
-                <button type="submit" value="Save" class="btn">Register</button>
-            </form>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-block btn-lg" style="background-color: #D70026;">Sign Up</button>
+            </div>
+            <p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#">Terms &amp;
+                    Conditions</a>, and <a href="#">Privacy Policy</a>.</p>
+        </form>
+        <div class="text-center">Already have an account? <a href="login.php">Login here</a>.</div>
+    </div>
+    </div>
 
-
-
-        </section>
-        </p>
 </body>
 
 </html>
+
