@@ -1,11 +1,11 @@
 <?php
 
-include_once('header.php');
-include_once('database.php');
+include_once'header.php';
 session_start();
 
 if($_POST){
-
+    include'database.php';
+    include 'config.php';
     if($validLoginCredentials){
         $_SESSION['user'] = array(
             'email' => $email,

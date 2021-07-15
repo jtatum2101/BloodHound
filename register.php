@@ -63,7 +63,7 @@ if($_POST){
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Bootstrap Elegant Sign Up Form with Icons</title>
+    <title>BloodHound | Sign Up!</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -194,7 +194,7 @@ if($_POST){
 
 <body class="register">
     <div class="signup-form">
-        <form action="/examples/actions/confirmation.php" method="post">
+        <form method="post">
             <h2>Sign Up</h2>
             <p class="lead">Become a Member of Bloodhound!</p>
             <div class="form-group">
