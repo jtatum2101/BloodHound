@@ -206,13 +206,13 @@ if(mysqli_num_rows($result) > 0){
                     <input type="password" class="form-control" name="psw" placeholder="Password" required="required">
                 </div>
             </div>
-            
+
             <div class="form-group">
-                <button type="submit" value="Log In" class="btn btn-block btn-lg" style="background-color: #D70026;">Log In</button>
+                <button type="submit" value="Log In" class="btn btn-block btn-lg" style="background-color: #D70026;">Log
+                    In</button>
             </div>
-            <p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#" style="color: #D70026;">Terms &amp;
-                    Conditions</a>, and <a href="#" style="color: #D70026;">Privacy Policy</a>.</p>
-</form>
+
+        </form>
     </div>
     </div>
 

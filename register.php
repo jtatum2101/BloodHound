@@ -232,10 +232,10 @@ if($_POST){
             <div class="form-group">
                 <button type="submit" class="btn btn-block btn-lg" style="background-color: #D70026;">Sign Up</button>
             </div>
-            <p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#">Terms &amp;
-                    Conditions</a>, and <a href="#">Privacy Policy</a>.</p>
+            <p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#" style="color: #D70026;">Terms &amp;
+                    Conditions</a>, and <a href="#" style="color: #D70026;">Privacy Policy</a>.</p>
         </form>
-        <div class="text-center">Already have an account? <a href="login.php">Login here</a>.</div>
+        <div class="text-center" style="color: #F8F5F2;">Already have an account? <a href="login.php">Login here</a>.</div>
     </div>
     </div>
 

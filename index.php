@@ -24,6 +24,10 @@ include_once 'header.php';
 
 <body style="background-color: #D70026">
 
+    <div class="container">
+        <h1 class="text-center" style="color: #000B29; font-size: 75px;">Welcome to BloodHound!</h1>
+    </div>
+
     <div class="container mt-3">
 
 
@@ -88,6 +92,30 @@ include_once 'header.php';
         });
         $(".carousel-control-next").click(function() {
             $("#myCarousel").carousel("next");
+        });
+    });
+    $(document).ready(function() {
+        // Add smooth scrolling to all links
+        $("a").on('click', function(event) {
+
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+                // Prevent default anchor click behavior
+                event.preventDefault();
+
+                // Store hash
+                var hash = this.hash;
+
+                // Using jQuery's animate() method to add smooth page scroll
+                // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800, function() {
+
+                    // Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+            } // End if
         });
     });
     </script>
@@ -177,7 +205,7 @@ include_once 'header.php';
         });
     });
     </script>
-    <div id="#moreInfo" class="container-lg">
+    <div id="moreInfo" class="container-lg">
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-title">FAQs:</h1>
@@ -346,7 +374,7 @@ include_once 'header.php';
         opacity: 0.8;
     }
     </style>
-    <div class="contact-form">
+    <div id="contact" class="contact-form">
         <form method="post">
             <h1>Contact Us</h1>
             <p class="hint-text">We'd love to hear from you, please drop us a line if you've any query related to our
