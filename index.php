@@ -22,10 +22,10 @@ include_once 'header.php';
     </style>
 </head>
 
-<body style="background-color: #D70026">
+<body style="background-color: #5A4E4D">
 
     <div class="container">
-        <h1 class="text-center" style="color: #000B29; font-size: 75px;">Welcome to BloodHound!</h1>
+        <h1 class="text-center" style="color: #8593AE; font-size: 75px;">Welcome to BloodHound!</h1>
     </div>
 
     <div class="container mt-3">
@@ -139,7 +139,7 @@ include_once 'header.php';
     }
 
     .accordion .card-header .btn {
-        color: #000B29;
+        color: #8593AE;
         font-size: 1.04rem;
         text-align: left;
         position: relative;
@@ -153,7 +153,7 @@ include_once 'header.php';
         position: absolute;
         left: 0;
         top: 9px;
-        color: #000B29;
+        color: #8593AE;
     }
 
     .accordion .card-header .btn:hover {
@@ -161,7 +161,7 @@ include_once 'header.php';
     }
 
     .accordion .card-body {
-        color: #000B29;
+        color: #8593AE;
         padding: 0.5rem 3rem;
     }
 
@@ -209,7 +209,7 @@ include_once 'header.php';
     <div class="container-lg">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-title" style="color:#000B29">FAQs:</h1>
+                <h1 class="page-title" style="color:#8593AE">FAQs:</h1>
                 <div class="accordion" id="accordionExample">
                     <div class="card">
                         <div class="card-header" id="headingOne">
@@ -294,7 +294,7 @@ include_once 'header.php';
     }
 
     body {
-        background: #D70026;
+        background: #5A4E4D;
         /* Fallback for browsers that don't support gradients */
         font-family: "Varela Round", sans-serif;
     }
@@ -341,18 +341,18 @@ include_once 'header.php';
     }
 
     .contact-form .btn {
-        background: #D70026;
+        background: #5A4E4D;
         font-size: 16px;
         min-height: 50px;
         border: none;
-        color: #000B29;
+        color: #8593AE;
     }
 
     .contact-form .btn:hover,
     .contact-form .btn:focus {
-        background: #000B29;
+        background: #8593AE;
         outline: none;
-        color: #D70026;
+        color: #5A4E4D;
     }
 
     .contact-form .btn i {

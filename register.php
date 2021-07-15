@@ -138,9 +138,9 @@ if($_POST){
     .signup-form .btn,
     .signup-form .btn:active {
         font-size: 16px;
-        color: #000B29;
+        color: #8593AE;
         font-weight: bold;
-        background: #D70026 !important;
+        background: #5A4E4D !important;
         border-radius: 3px;
         border: none;
         min-width: 140px;
@@ -148,8 +148,8 @@ if($_POST){
 
     .signup-form .btn:hover,
     .signup-form .btn:focus {
-        background: #000B29 !important;
-        color: #D70026;
+        background: #8593AE !important;
+        color: #5A4E4D;
     }
 
     .signup-form a {
@@ -230,10 +230,10 @@ if($_POST){
 
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-block btn-lg" style="background-color: #D70026;">Sign Up</button>
+                <button type="submit" class="btn btn-block btn-lg" style="background-color: #5A4E4D;">Sign Up</button>
             </div>
-            <p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#" style="color: #D70026;">Terms &amp;
-                    Conditions</a>, and <a href="#" style="color: #D70026;">Privacy Policy</a>.</p>
+            <p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#" style="color: #5A4E4D;">Terms &amp;
+                    Conditions</a>, and <a href="#" style="color: #5A4E4D;">Privacy Policy</a>.</p>
         </form>
         <div class="text-center" style="color: #F8F5F2;">Already have an account? <a href="login.php">Login here</a>.</div>
     </div>

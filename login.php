@@ -131,9 +131,9 @@ if(mysqli_num_rows($result) > 0){
     .signup-form .btn,
     .signup-form .btn:active {
         font-size: 16px;
-        color: #000B29;
+        color: #8593AE;
         font-weight: bold;
-        background: #D70026 !important;
+        background: #5A4E4D !important;
         border-radius: 3px;
         border: none;
         min-width: 140px;
@@ -141,8 +141,8 @@ if(mysqli_num_rows($result) > 0){
 
     .signup-form .btn:hover,
     .signup-form .btn:focus {
-        background: #000B29 !important;
-        color: #D70026;
+        background: #8593AE !important;
+        color: #5A4E4D;
     }
 
     .signup-form a {
@@ -208,7 +208,7 @@ if(mysqli_num_rows($result) > 0){
             </div>
 
             <div class="form-group">
-                <button type="submit" value="Log In" class="btn btn-block btn-lg" style="background-color: #D70026;">Log
+                <button type="submit" value="Log In" class="btn btn-block btn-lg" style="background-color: #5A4E4D;">Log
                     In</button>
             </div>
 
