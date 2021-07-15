@@ -1,4 +1,4 @@
-# BloodHound (PHP, PHPMyAdmin, MySQL)
+# BloodHound (PHP, HTML/CSS, PHPMyAdmin, MySQL)
 ## Crime Record Management System
 
 # Project Description and Motivation:
@@ -38,6 +38,14 @@ I made two other Crime Record Management System Projects, one in Java and one in
       - Sentence (Min and Max)
       - Arrest Date 
       - Possible Release date
+    - Also can change profile settings like password.
+  ### Admin:
+    - Full control over the website.
+    - Can view all users on the website and have the option to delete their profile
+    - Can view all record and have the option to delete the record
+    - Can assign police officers to counties and remove them.
+    - Can also add and remove counties to the systems.
+    - Has the ability to update and delete records. The admin can also delete users, as well as assign officers to a ceratin county and state.
     - Updating a record requirement: 
       - Name of Criminal
       - Date of Arrest 
@@ -48,12 +56,7 @@ I made two other Crime Record Management System Projects, one in Java and one in
       - County
       - Name of Criminal 
       - Date of Arrest 
-  ### Admin:
-    - Full control over the website.
-    - Can view all users on the website and have the option to delete their profile
-    - Can view all record and have the option to delete the record
-    - Can assign police officers to counties and remove them.
-    - Can also add and remove counties to the systems.
+    
     
 ## Third Week(Profile page for the different users):
   - The user will be shown their profile details that will include that their ability to change their password or recover their password. 

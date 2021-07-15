@@ -71,7 +71,7 @@ include_once 'header.php';
     $(document).ready(function() {
         // Activate Carousel with a specified interval
         $("#myCarousel").carousel({
-            interval: 100,
+            interval: 900,
             wrap: true
         });
 
@@ -205,10 +205,11 @@ include_once 'header.php';
         });
     });
     </script>
-    <div id="moreInfo" class="container-lg">
+    <hr id="moreInfo">
+    <div class="container-lg">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-title">FAQs:</h1>
+                <h1 class="page-title" style="color:#000B29">FAQs:</h1>
                 <div class="accordion" id="accordionExample">
                     <div class="card">
                         <div class="card-header" id="headingOne">
@@ -374,7 +375,8 @@ include_once 'header.php';
         opacity: 0.8;
     }
     </style>
-    <div id="contact" class="contact-form">
+    <hr id="contact">
+    <div class="contact-form">
         <form method="post">
             <h1>Contact Us</h1>
             <p class="hint-text">We'd love to hear from you, please drop us a line if you've any query related to our
