@@ -25,7 +25,7 @@ include_once 'header.php';
 <body style="background-color: #5A4E4D">
 
     <div class="container">
-        <h1 class="text-center" style="color: #8593AE; font-size: 75px;">Welcome to BloodHound!</h1>
+        <h1 class="text-center" style="color: #8593AE; font-size: 75px; font-family: ">Welcome to BloodHound!</h1>
     </div>
 
     <div class="container mt-3">

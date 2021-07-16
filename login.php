@@ -16,11 +16,22 @@ if(mysqli_num_rows($result) > 0){
     while ($row = mysqli_fetch_array($result)){
         $psw = $row['psw'];
         $email = $row['email'];
+        $role = $row['role'];
         session_start();
         $_SESSION['psw'] = $psw;
         $_SESSION['email'] = $email;
+        $_SESSION['role'] = $role;
     }
-    header("Location: dashboard.php");
+    if(isset($_SESSION['role'])){
+        if($_SESSION['role'] == 'admin'){
+            header("Location: dashboard-admin.php");
+        }else if($_SESSION['role'] == 'officer'){
+            header("Location: dashboard.php");
+        }
+    }else{
+        
+    }
+    
 
 } else{
     echo 'Invalid password or email';
