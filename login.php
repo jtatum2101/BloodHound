@@ -29,7 +29,7 @@ if(mysqli_num_rows($result) > 0){
             header("Location: dashboard.php");
         }
     }else{
-        
+        die("error : This page does not exist. 404" );
     }
     
 
