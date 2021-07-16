@@ -56,7 +56,7 @@ a:hover {
 #sidenav .logo {
     width: 100%;
     padding: 20px 50px;
-    background: #101010;
+    background-color: #5A4E4D;
     display: block;
 }
 
@@ -75,7 +75,7 @@ a:hover {
 
 #sidenav .menu ul {
     list-style: none;
-    background: #101010;
+    background-color: #5A4E4D;
     padding: 10% 0;
     margin: 0;
 }
@@ -93,6 +93,7 @@ a:hover {
     color: rgba(255, 255, 255, 0.7);
     font-weight: 300;
     display: block;
+    background-color: #5A4E4D;
 }
 
 #sidenav .menu ul li a:hover {

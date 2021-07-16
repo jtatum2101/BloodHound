@@ -13,17 +13,6 @@ if($_POST){
         );
     }   
 }
-/*
-if (isset($_SESSION['role'])){
-    echo 'This is your role for this website: ' . $_SESSION['role'];
-}else{
-    echo 'Did not grab the role of the user, man! Sorry!';
-}
-if(isset($_SESSION['email'])){
-        echo 'you are logged in successfully, ' .  $_SESSION['email'];
-    } else{
-        echo 'Logged in was not completed! Try again.';
-    }
 
     function getUserRole($email)
     {
@@ -37,7 +26,6 @@ if(isset($_SESSION['email'])){
             return false;
         }
     }
-*/
 ?>
 
 <!DOCTYPE html>
@@ -92,7 +80,7 @@ a:hover {
 #sidenav .logo {
     width: 100%;
     padding: 20px 50px;
-    background: #101010;
+    background-color: #5A4E4D;
     display: block;
 }
 
@@ -111,7 +99,7 @@ a:hover {
 
 #sidenav .menu ul {
     list-style: none;
-    background: #101010;
+    background-color: #5A4E4D;
     padding: 10% 0;
     margin: 0;
 }
@@ -129,6 +117,7 @@ a:hover {
     color: rgba(255, 255, 255, 0.7);
     font-weight: 300;
     display: block;
+    background-color: #5A4E4D;
 }
 
 #sidenav .menu ul li a:hover {
