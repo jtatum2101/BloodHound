@@ -207,7 +207,7 @@ $(document).ready(function() {
     $('.menu').niceScroll({
         cursorcolor: '#999999', // Changing the scrollbar color
         cursorwidth: 4, // Changing the scrollbar width
-        cursorborder: 'none', // Rempving the scrollbar border
+        cursorborder: 'none', // Removing the scrollbar border
     });
 
     // when opening the sidebar
@@ -258,8 +258,6 @@ $(document).ready(function() {
                                 <li><a href="#">Links</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#" class="logout">Login</a></li>
                     </ul>
                 </div>
             </div>
