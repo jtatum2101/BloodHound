@@ -5,6 +5,7 @@ if($_POST){
     include'database.php';
     include 'config.php';
     $role = $row['role'];
+    $full_name = $row['full_name'];
     if($validLoginCredentials){
         $_SESSION['user'] = array(
             'email' => $email,
@@ -288,7 +289,7 @@ $(document).ready(function() {
                             <h2 class="clearfix mb-0">
                                 <a class="btn btn-link" style="font-size: 20px; font-family: 'Playfair Display', serif;"
                                     data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                                    aria-controls="collapseOne"><i class="fa fa-chevron-circle-down"></i> My Profile</a>
+                                    aria-controls="collapseOne"><i class="fa fa-chevron-circle-down"></i><?php echo $_SESSION['full_name']?></a>
                             </h2>
                         </div>
                         <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
