@@ -231,7 +231,7 @@ a:hover {
 
 .accordion .card-body {
     color: #8593AE;
-    padding: 0.5rem 3rem;
+    padding: 0rem 0rem;
 }
 
 .page-title {
@@ -298,18 +298,23 @@ $(document).ready(function() {
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             Profile</a></li>
+                                            <hr>
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Profile
                                             Settings</a></li>
+                                            <hr>
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Change
                                             Password</a></li>
+                                            <hr>
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Recover
                                             Password</a></li>
+                                            <hr>
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Log
                                             Out</a></li>
+                                            <hr>
                                 </ul>
                             </div>
                         </div>
@@ -326,19 +331,23 @@ $(document).ready(function() {
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                             data-parent="#accordionExample">
                             <div class="card-body">
-                                <ul>
+                                <ul style="text-align: left;">
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Create
                                             A Record</a></li>
+                                            <hr>
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             My Records</a></li>
+                                            <hr>
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             My Records by Charge</a></li>
+                                            <hr>
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             My Records by Name</a></li>
+                                            <hr>
                                 </ul>
 
                             </div>

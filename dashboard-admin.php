@@ -208,7 +208,7 @@ a:hover {
 
 .accordion .card-body {
     color: #8593AE;
-    padding: 0.5rem 3rem;
+    padding: 0rem 0rem;
 }
 
 .page-title {
@@ -274,18 +274,23 @@ $(document).ready(function() {
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             Profile</a></li>
+                                            <hr>
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Profile
                                             Settings</a></li>
+                                            <hr>
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Change
                                             Password</a></li>
+                                            <hr>
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Recover
                                             Password</a></li>
+                                            <hr>
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Log
                                             Out</a></li>
+                                            <hr>
                                 </ul>
                             </div>
                         </div>
@@ -306,13 +311,16 @@ $(document).ready(function() {
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             All Users</a></li>
+                                            <hr>
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Delete
                                             A User</a></li>
+                                            <hr>
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Assign
                                             An Officer to A
                                             County</a></li>
+                                            <hr>
                                 </ul>
 
                             </div>
@@ -334,20 +342,25 @@ $(document).ready(function() {
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Edit
                                             A Record</a></li>
+                                            <hr>
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             All Records</a></li>
+                                            <hr>
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             A Record By Charge</a>
+                                            <hr>
                                     </li>
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             A Record By Name</a>
+                                            <hr>
                                     </li>
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Delete
                                             A Record</a></li>
+                                            <hr>
                                 </ul>
                             </div>
                         </div>
@@ -368,12 +381,15 @@ $(document).ready(function() {
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Create
                                             A County</a></li>
+                                            <hr>
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Edit
                                             A County</a></li>
+                                            <hr>
                                     <li><a href="#"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Delete
                                             A County</a></li>
+                                            <hr>
                                 </ul>
                             </div>
                         </div>
