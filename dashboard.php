@@ -295,23 +295,23 @@ $(document).ready(function() {
                             data-parent="#accordionExample">
                             <div class="card-body">
                                 <ul>
-                                    <li><a href="#"
+                                    <li><a href="officer-profile/officer-profile.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             Profile</a></li>
                                             <hr>
-                                    <li><a href="#"
+                                    <li><a href="officer-profile/officer-profile-settings.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Profile
                                             Settings</a></li>
                                             <hr>
-                                    <li><a href="#"
+                                    <li><a href="officer-profile/officer-profile-change-password.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Change
                                             Password</a></li>
                                             <hr>
-                                    <li><a href="#"
+                                    <li><a href="officer-profile/officer-profile-recover-password.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Recover
                                             Password</a></li>
                                             <hr>
-                                    <li><a href="#"
+                                    <li><a href="logout.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Log
                                             Out</a></li>
                                             <hr>
@@ -332,19 +332,19 @@ $(document).ready(function() {
                             data-parent="#accordionExample">
                             <div class="card-body">
                                 <ul style="text-align: left;">
-                                    <li><a href="#"
+                                    <li><a href="officer-record/officer-create-record.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Create
                                             A Record</a></li>
                                             <hr>
-                                    <li><a href="#"
+                                    <li><a href="officer-record/officer-view-my-records.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             My Records</a></li>
                                             <hr>
-                                    <li><a href="#"
+                                    <li><a href="officer-record/officer-view-by-charge.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             My Records by Charge</a></li>
                                             <hr>
-                                    <li><a href="#"
+                                    <li><a href="officer-record/officer-view-by-name.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             My Records by Name</a></li>
                                             <hr>

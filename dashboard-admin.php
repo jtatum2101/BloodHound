@@ -271,26 +271,26 @@ $(document).ready(function() {
                             data-parent="#accordionExample">
                             <div class="card-body">
                                 <ul>
-                                    <li><a href="#"
+                                    <li><a href="admin-profile/admin-profile.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             Profile</a></li>
-                                            <hr>
-                                    <li><a href="#"
+                                    <hr>
+                                    <li><a href="admin-profile/admin-profile-settings.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Profile
                                             Settings</a></li>
-                                            <hr>
-                                    <li><a href="#"
+                                    <hr>
+                                    <li><a href="admin-profile/admin-profile-change-password.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Change
                                             Password</a></li>
-                                            <hr>
-                                    <li><a href="#"
+                                    <hr>
+                                    <li><a href="admin-profile/admin-profile-recover-password.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Recover
                                             Password</a></li>
-                                            <hr>
-                                    <li><a href="#"
+                                    <hr>
+                                    <li><a href="logout.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Log
                                             Out</a></li>
-                                            <hr>
+                                    <hr>
                                 </ul>
                             </div>
                         </div>
@@ -308,19 +308,14 @@ $(document).ready(function() {
                             data-parent="#accordionExample">
                             <div class="card-body">
                                 <ul>
-                                    <li><a href="#"
+                                    <li><a href="admin-users/admin-view-all-users.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             All Users</a></li>
-                                            <hr>
-                                    <li><a href="#"
+                                    <hr>
+                                    <li><a href="admin-users/admin/delete-an-user.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Delete
                                             A User</a></li>
-                                            <hr>
-                                    <li><a href="#"
-                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Assign
-                                            An Officer to A
-                                            County</a></li>
-                                            <hr>
+                                    <hr>
                                 </ul>
 
                             </div>
@@ -339,28 +334,28 @@ $(document).ready(function() {
                             data-parent="#accordionExample">
                             <div class="card-body">
                                 <ul>
-                                    <li><a href="#"
+                                    <li><a href="admin-records/admin-records-edit.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Edit
                                             A Record</a></li>
-                                            <hr>
-                                    <li><a href="#"
+                                    <hr>
+                                    <li><a href="admin-records/admin-records-view-all-records.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             All Records</a></li>
-                                            <hr>
-                                    <li><a href="#"
+                                    <hr>
+                                    <li><a href="admin-records/admin-records-view-by-charge.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             A Record By Charge</a>
-                                            <hr>
+                                        <hr>
                                     </li>
-                                    <li><a href="#"
+                                    <li><a href="admin-records/admin-records-view-by-name.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             A Record By Name</a>
-                                            <hr>
+                                        <hr>
                                     </li>
-                                    <li><a href="#"
+                                    <li><a href="admin-records/admin-records-delete.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Delete
                                             A Record</a></li>
-                                            <hr>
+                                    <hr>
                                 </ul>
                             </div>
                         </div>
@@ -378,18 +373,23 @@ $(document).ready(function() {
                             data-parent="#accordionExample">
                             <div class="card-body">
                                 <ul>
-                                    <li><a href="#"
+                                    <li><a href="admin-counties/admin-counties-create.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Create
                                             A County</a></li>
-                                            <hr>
-                                    <li><a href="#"
+                                    <hr>
+                                    <li><a href="admin-counties/admin-counties-edit.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Edit
                                             A County</a></li>
-                                            <hr>
-                                    <li><a href="#"
+                                    <hr>
+                                    <li><a href="admin-counties/admin-counties-delete.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Delete
                                             A County</a></li>
-                                            <hr>
+                                    <hr>
+                                    <li><a href="admin-counties/admin-counties-assign-officer-to-county.php"
+                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Assign
+                                            An Officer to A
+                                            County</a></li>
+                                    <hr>
                                 </ul>
                             </div>
                         </div>
