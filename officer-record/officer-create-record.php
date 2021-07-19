@@ -41,7 +41,7 @@ if($_POST){
     if($stmt->execute()){
         echo Post completed!;
     }else{
-        echo Try again! . $stmt->errorInfo()[2]
+        echo Try again! . $stmt->errorInfo()[2];
     }
 
 
