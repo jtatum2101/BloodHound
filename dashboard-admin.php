@@ -253,7 +253,7 @@ $(document).ready(function() {
 });
 </script>
 
-<body>
+<body style="background-color: #5A4E4D;">
     <div class="app">
         <div id="sidenav">
             <div class="wrapper">
@@ -401,7 +401,7 @@ $(document).ready(function() {
             <br>
         </div>
         <div class="container">
-            <img src="img/navbarlogo.png" alt="Logo" style="padding-left: 400px;" />
+            <img src="img/navbarlogo.png" alt="Logo" style="padding-left: 400px; margin-top: 300px;" />
             <br>
             <br>
             <br>
