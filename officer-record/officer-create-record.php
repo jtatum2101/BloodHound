@@ -26,6 +26,7 @@ if($_POST){
     $mugshot = (empty($mugshot)) ? NULL : $mugshot;
 
     $stmt->bindParam(':criminal_name', $criminal_name);
+    $criminal_birth_date= date('Y-m-d');
     $stmt->bindParam(':criminal_birth_date', $criminal_birth_date);
     $stmt->bindParam(':criminal_weight', $criminal_weight);
     $stmt->bindParam(':criminal_height', $criminal_height);
@@ -33,10 +34,21 @@ if($_POST){
     $stmt->bindParam(':criminal_hair_color', $criminal_hair_color);
     $stmt->bindParam(':criminal_ethnicity', $criminal_ethnicity);
     $stmt->bindParam(':criminal_charges', $criminal_charges);
+    $criminal_date_of_arrest=date('Y-m-d');
     $stmt->bindParam(':criminal_date_of_arrest', $criminal_date_of_arrest);
     $stmt->bindParam(':criminal_county_of_arrest', $criminal_county_of_arrest);
     $stmt->bindParam(':author_of_record', $author_of_record);
+    if($stmt->execute()){
+        echo Post completed!;
+    }else{
+        echo Try again! . $stmt->errorInfo()[2]
+    }
 
 
+
+    catch(PDOException $exception){
+        die('ERROR ' . $exception->getMessage());
+
+    }
 }
 ?>
