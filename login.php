@@ -17,10 +17,12 @@ if(mysqli_num_rows($result) > 0){
         $psw = $row['psw'];
         $email = $row['email'];
         $role = $row['role'];
+        $full_name = $row['full_name'];
         session_start();
         $_SESSION['psw'] = $psw;
         $_SESSION['email'] = $email;
         $_SESSION['role'] = $role;
+        $_SESSION['full_name'] = $full_name;
     }
     if(isset($_SESSION['role'])){
         if($_SESSION['role'] == 'admin'){

@@ -264,7 +264,8 @@ $(document).ready(function() {
                             <h2 class="clearfix mb-0">
                                 <a class="btn btn-link" style="font-size: 20px; font-family: 'Playfair Display', serif;"
                                     data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                                    aria-controls="collapseOne"><i class="fa fa-chevron-circle-down"></i> My Profile</a>
+                                    aria-controls="collapseOne"><i class="fa fa-chevron-circle-down"></i>
+                                    <?php echo $_SESSION['full_name'] ?></a>
                             </h2>
                         </div>
                         <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
@@ -398,6 +399,15 @@ $(document).ready(function() {
                 </div>
             </div>
             <br>
+        </div>
+        <div class="container">
+            <img src="img/navbarlogo.png" alt="Logo" style="padding-left: 400px;" />
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            
         </div>
 </body>
 
