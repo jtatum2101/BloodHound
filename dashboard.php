@@ -41,6 +41,9 @@ if($_POST){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 <style>
 body {
@@ -70,7 +73,7 @@ a:hover {
     bottom: 0;
     left: 0;
     z-index: 99999;
-    background: #101010;
+    background: #8593AE;
 }
 
 #sidenav.open {
@@ -187,73 +190,165 @@ a:hover {
     }
 }
 
-/*# sourceMappingURL=app.main.css.map */
+.accordion .card {
+    background: none;
+    border: none;
+}
+
+.accordion .card .card-header {
+    background: none;
+    border: none;
+    padding: .4rem 1rem;
+    font-family: "Roboto", sans-serif;
+}
+
+.accordion .card-header h2 span {
+    float: left;
+    margin-top: 10px;
+}
+
+.accordion .card-header .btn {
+    color: #5A4E4D;
+    font-size: 1.04rem;
+    text-align: left;
+    position: relative;
+    font-weight: 500;
+    padding-left: 2rem;
+}
+
+.accordion .card-header i {
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 9px;
+    color: #5A4E4D;
+}
+
+.accordion .card-header .btn:hover {
+    color: #F8F5F2;
+}
+
+.accordion .card-body {
+    color: #8593AE;
+    padding: 0.5rem 3rem;
+}
+
+.page-title {
+    margin: 3rem 0 3rem 1rem;
+    font-family: "Roboto", sans-serif;
+    position: relative;
+}
+
+.page-title::after {
+    content: "";
+    width: 80px;
+    position: absolute;
+    height: 3px;
+    border-radius: 1px;
+    background: #F8F5F2;
+    left: 0;
+    bottom: -15px;
+}
+
+.accordion .highlight .btn {
+    color: #F8F5F2;
+}
+
+.accordion .highlight i {
+    transform: rotate(180deg);
+    color: #F8F5F2;
+}
 </style>
 
 <script>
 $(document).ready(function() {
-
-    $('.menu').niceScroll({
-        cursorcolor: '#999999', // Changing the scrollbar color
-        cursorwidth: 4, // Changing the scrollbar width
-        cursorborder: 'none', // Removing the scrollbar border
+    // Add minus icon for collapse element which is open by default
+    $(".collapse.show").each(function() {
+        $(this).prev(".card-header").addClass("highlight");
     });
 
-    // when opening the sidebar
-    $('.nav-icon').on('click', function() {
-        // open sidebar
-        $('.menu').toggleClass('open');
-    });
-
-    // if dismiss or overlay was clicked
-    $('#dismiss').on('click', function() {
-        $('#sidenav').removeClass('open');
+    // Highlight open collapsed element 
+    $(".card-header .btn").click(function() {
+        $(".card-header").not($(this).parents()).removeClass("highlight");
+        $(this).parents(".card-header").toggleClass("highlight");
     });
 });
 </script>
+
 
 <body>
     <div class="app">
         <div id="sidenav">
             <div class="wrapper">
-                <div class="logo">
-                    <a href="#" style="color: #5A4E4D;">BloodHound</a>
-                    <a href="#" class="nav-icon pull-right"><i class="fa fa-bars"></i></a>
-                </div>
-                <div class="menu">
-                    <ul>
-                        <li class="active"><a href="#" style="color: #5A4E4D;">Home</a></li>
-                        <!-- If login as admin -->
-                        <li>
-                            <a href="#" style="color: #5A4E4D;">My Profile:</a>
-                            <ul>
-                                <li><a href="#" style="color: #5A4E4D;">View Profile</a></li>
-                                <li><a href="#" style="color: #5A4E4D;">Change Password</a></li>
-                                <li><a href="#" style="color: #5A4E4D;">Recover Password</a></li>
-                                <li><a href="#" style="color: #5A4E4D;">Profile Picture</a></li>
-                                <li><a href="#" style="color: #5A4E4D;" class="logout">Log Out</a></li>
-                            </ul>
-                        </li>
-                        <!-- End If login as admin -->
-                        <li>
-                            <a href="#" style="color: #5A4E4D;">Records:</a>
-                            <ul>
-                                <li><a href="#" style="color: #5A4E4D;">Create A New Record</a></li>
-                                <li><a href="#" style="color: #5A4E4D;">View My Records</a></li>
-                                <li><a href="#" style="color: #5A4E4D;">View My Records by Name</a></li>
-                                <li><a href="#" style="color: #5A4E4D;">View My Records by County</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <p style="font-size: 18px; color: #5A4E4D;"><i class="fa fa-copyright">BloodHound Crime
-                                    Record Management Inc. 2021</i></p>
-                        </li>
+                <h1 class="page-title" style="color:#5A4E4D; font-family: 'Playfair Display', serif;">BloodHound:</h1>
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="clearfix mb-0">
+                                <a class="btn btn-link" style="font-size: 20px; font-family: 'Playfair Display', serif;"
+                                    data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                                    aria-controls="collapseOne"><i class="fa fa-chevron-circle-down"></i> My Profile</a>
+                            </h2>
+                        </div>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <ul>
+                                    <li><a href="#"
+                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
+                                            Profile</a></li>
+                                    <li><a href="#"
+                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Profile
+                                            Settings</a></li>
+                                    <li><a href="#"
+                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Change
+                                            Password</a></li>
+                                    <li><a href="#"
+                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Recover
+                                            Password</a></li>
+                                    <li><a href="#"
+                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Log
+                                            Out</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h2 class="mb-0">
+                                <a style="font-size: 20px; font-family: 'Playfair Display', serif;"
+                                    class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                                    aria-expanded="false" aria-controls="collapseTwo"><i
+                                        class="fa fa-chevron-circle-down"></i>Records</a>
+                            </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <ul>
+                                    <li><a href="#"
+                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Create
+                                            A Record</a></li>
+                                    <li><a href="#"
+                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
+                                            My Records</a></li>
+                                    <li><a href="#"
+                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
+                                            My Records by Charge</a></li>
+                                    <li><a href="#"
+                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
+                                            My Records by Name</a></li>
+                                </ul>
 
-                    </ul>
-                    <li>
-                    </li>
-                    </ul>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+            <br>
         </div>
-    </div>
+</body>
+
+</html>
