@@ -109,7 +109,7 @@ a:hover {
 }
 
 #sidenav .menu ul li.active {
-    border-left: solid 4px red;
+    border-left: solid 4px #F8F5F2;
 }
 
 #sidenav .menu ul li a {
@@ -125,7 +125,7 @@ a:hover {
 }
 
 #sidenav .menu ul li a.logout:hover {
-    color: red;
+    color: #F8F5F2;
 }
 
 #sidenav .menu ul li ul {
@@ -179,7 +179,7 @@ a:hover {
     }
 
     #sidenav .menu ul {
-        border-top: solid 1px #333;
+        border-top: solid 1px #5A4E4D;
     }
 
     #sidenav .menu ul li {
@@ -217,36 +217,41 @@ $(document).ready(function() {
         <div id="sidenav">
             <div class="wrapper">
                 <div class="logo">
-                    <a href="#">Dashboard</a>
+                    <a href="#" style="color: #5A4E4D;">BloodHound</a>
                     <a href="#" class="nav-icon pull-right"><i class="fa fa-bars"></i></a>
                 </div>
                 <div class="menu">
                     <ul>
-                        <li class="active"><a href="#">Home</a></li>
+                        <li class="active"><a href="#" style="color: #5A4E4D;">Home</a></li>
                         <!-- If login as admin -->
                         <li>
-                            <a href="#">My Account</a>
+                            <a href="#" style="color: #5A4E4D;">My Profile:</a>
                             <ul>
-                                <li><a href="#">Posts</a></li>
-                                <li><a href="#">Comments</a></li>
-                                <li><a href="#">Categories</a></li>
-                                <li><a href="#">Media</a></li>
-                                <li><a href="#">Create New Post</a></li>
-                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#" style="color: #5A4E4D;">View Profile</a></li>
+                                <li><a href="#" style="color: #5A4E4D;">Change Password</a></li>
+                                <li><a href="#" style="color: #5A4E4D;">Recover Password</a></li>
+                                <li><a href="#" style="color: #5A4E4D;">Profile Picture</a></li>
+                                <li><a href="#" style="color: #5A4E4D;" class="logout">Log Out</a></li>
                             </ul>
                         </li>
                         <!-- End If login as admin -->
-                        <li><a href="#">About Us</a></li>
                         <li>
-                            <a href="#">Category</a>
+                            <a href="#" style="color: #5A4E4D;">Records:</a>
                             <ul>
-                                <li><a href="#">Articles</a></li>
-                                <li><a href="#">Images</a></li>
-                                <li><a href="#">Galleries</a></li>
-                                <li><a href="#">Videos</a></li>
-                                <li><a href="#">Links</a></li>
+                                <li><a href="#" style="color: #5A4E4D;">Create A New Record</a></li>
+                                <li><a href="#" style="color: #5A4E4D;">View My Records</a></li>
+                                <li><a href="#" style="color: #5A4E4D;">View My Records by Name</a></li>
+                                <li><a href="#" style="color: #5A4E4D;">View My Records by County</a></li>
                             </ul>
                         </li>
+                        <li>
+                            <p style="font-size: 18px; color: #5A4E4D;"><i class="fa fa-copyright">BloodHound Crime
+                                    Record Management Inc. 2021</i></p>
+                        </li>
+
+                    </ul>
+                    <li>
+                    </li>
                     </ul>
                 </div>
             </div>

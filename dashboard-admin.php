@@ -101,7 +101,7 @@ a:hover {
 }
 
 #sidenav .menu ul li a.logout:hover {
-    color: red;
+    color: #F8F5F2;
 }
 
 #sidenav .menu ul li ul {
@@ -193,7 +193,7 @@ $(document).ready(function() {
         <div id="sidenav">
             <div class="wrapper">
                 <div class="logo">
-                    <a href="#">Dashboard</a>
+                    <a href="#">BloodHound</a>
                     <a href="#" class="nav-icon pull-right"><i class="fa fa-bars"></i></a>
                 </div>
                 <div class="menu">
@@ -201,30 +201,21 @@ $(document).ready(function() {
                         <li class="active"><a href="#">Home</a></li>
                         <!-- If login as admin -->
                         <li>
-                            <a href="#">My Account</a>
+                            <a href="#">Profile</a>
                             <ul>
-                                <li><a href="#">Posts</a></li>
-                                <li><a href="#">Comments</a></li>
-                                <li><a href="#">Categories</a></li>
-                                <li><a href="#">Media</a></li>
-                                <li><a href="#">Create New Post</a></li>
-                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">View Profile</a></li>
+                                <li><a href="#">Profile Settings</a></li>
+                                <li><a href="#">Change Profile Picture</a></li>
+                                <li><a href="#" class="logout"></a></li>
                             </ul>
                         </li>
                         <!-- End If login as admin -->
-                        <li><a href="#">About Us</a></li>
                         <li>
-                            <a href="#">Category</a>
+                            <a href="#">Records</a>
                             <ul>
-                                <li><a href="#">Articles</a></li>
-                                <li><a href="#">Images</a></li>
-                                <li><a href="#">Galleries</a></li>
-                                <li><a href="#">Videos</a></li>
-                                <li><a href="#">Links</a></li>
+                            <li><a href="#">Create A New Record.</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#" class="logout">Login</a></li>
                     </ul>
                 </div>
             </div>
