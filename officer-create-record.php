@@ -1,29 +1,29 @@
 <?php
+
 session_start();
 if($_POST){
     include 'database.php';
-    include 'config.php';
+
     try{
         $query = "INSERT INTO records (mugshot, criminal_name, criminal_birth_date, criminal_weight, criminal_height, criminal_eye_color, criminal_hair_color, criminal_ethnicity, criminal_charges, criminal_date_of_arrest, criminal_county_of_arrest, author_of_record) VALUES ( :mugshot, :criminal_name, :criminal_birth_date, :criminal_weight, :criminal_height, :criminal_eye_color, :criminal_hair_color, :criminal_ethnicity, :criminal_charges, :criminal_date_of_arrest, :criminal_county_of_arrest, :author_of_record)";
         $stmt = $con->prepare($query);
 
 
-        $mugshot=htmlspecialchars(strip_tags($_POST['mugshot']));
+        $mugshot= htmlspecialchars(strip_tags($_POST['mugshot']));
         $criminal_name=htmlspecialchars(strip_tags($_POST['criminal_name']));
-        $criminal_birth_date=htmlspecialchars(strip_tags($_POST['criminal_birth_date']));
-        $criminal_weight=htmlspecialchars(strip_tags($_POST['criminal_weight']));
-        $criminal_height=htmlspecialchars(strip_tags($_POST['criminal_height']));
+        $criminal_weight= $_POST['criminal_weight'];
+        $criminal_height= $_POST['criminal_height'];
         $criminal_eye_color=htmlspecialchars(strip_tags($_POST['criminal_eye_color']));
         $criminal_hair_color=htmlspecialchars(strip_tags($_POST['criminal_hair_color']));
         $criminal_ethnicity=htmlspecialchars(strip_tags($_POST['criminal_ethnicity']));
         $criminal_charges=htmlspecialchars(strip_tags($_POST['criminal_charges']));
-        $criminal_date_of_arrest=htmlspecialchars(strip_tags($_POST['criminal_date_of_arrest']));
+        $criminal_date_of_arrest = $_POST['criminal_date_of_arrest'];
         $criminal_county_of_arrest=htmlspecialchars(strip_tags($_POST['criminal_county_of_arrest']));
         $author_of_record=htmlspecialchars(strip_tags($_POST['author_of_record']));
 
 
         $mugshot = (empty($mugshot)) ? NULL : $mugshot;
-
+        $stmt->bindParam(':mugshot', $mugshot);
         $stmt->bindParam(':criminal_name', $criminal_name);
         $criminal_birth_date= date('Y-m-d');
         $stmt->bindParam(':criminal_birth_date', $criminal_birth_date);
@@ -37,11 +37,11 @@ if($_POST){
         $stmt->bindParam(':criminal_date_of_arrest', $criminal_date_of_arrest);
         $stmt->bindParam(':criminal_county_of_arrest', $criminal_county_of_arrest);
         $stmt->bindParam(':author_of_record', $author_of_record);
+
         if($stmt->execute()){
-            header("Location: officer-record/officer-view-my-records.php");
-            echo 'Post completed!';
+            header("Location: officer-view-my-records.php");
         }else{
-            echo 'Try again!' . $stmt->errorInfo()[2];
+            echo 'Try again,' . $stmt->errorInfo()[0] . "!";
         }
     }
 
@@ -481,19 +481,19 @@ $(document).ready(function() {
                             data-parent="#accordionExample">
                             <div class="card-body">
                                 <ul style="text-align: left;">
-                                    <li><a href="officer-record/officer-create-record.php"
+                                    <li><a href="officer-create-record.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Create
                                             A Record</a></li>
                                     <hr>
-                                    <li><a href="officer-record/officer-view-my-records.php"
+                                    <li><a href="officer-view-my-records.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             My Records</a></li>
                                     <hr>
-                                    <li><a href="officer-record/officer-view-by-charge.php"
+                                    <li><a href="officer-view-by-charge.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             My Records by Charge</a></li>
                                     <hr>
-                                    <li><a href="officer-record/officer-view-by-name.php"
+                                    <li><a href="officer-view-by-name.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             My Records by Name</a></li>
                                     <hr>

@@ -1,6 +1,8 @@
 <?php
 
 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -307,19 +309,19 @@ $(document).ready(function() {
                             data-parent="#accordionExample">
                             <div class="card-body">
                                 <ul style="text-align: left;">
-                                    <li><a href="officer-record/officer-create-record.php"
+                                    <li><a href="officer-create-record.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Create
                                             A Record</a></li>
                                             <hr>
-                                    <li><a href="officer-record/officer-view-my-records.php"
+                                    <li><a href="officer-view-my-records.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             My Records</a></li>
                                             <hr>
-                                    <li><a href="officer-record/officer-view-by-charge.php"
+                                    <li><a href="officer-view-by-charge.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             My Records by Charge</a></li>
                                             <hr>
-                                    <li><a href="officer-record/officer-view-by-name.php"
+                                    <li><a href="officer-view-by-name.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             My Records by Name</a></li>
                                             <hr>
