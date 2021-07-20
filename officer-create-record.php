@@ -612,7 +612,7 @@ $(document).ready(function() {
                         <span class="input-group-addon">
                             <i class="fa fa-id-badge"></i>
                         </span>
-                        <input type="text" class="form-control" name="author_of_record" placeholder="Officer"
+                        <input type="text" class="form-control" name="author_of_record" placeholder="Who filed this report"
                             required="required">
                     </div>
                 </div>

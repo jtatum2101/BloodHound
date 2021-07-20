@@ -4,11 +4,11 @@ session_start();
 include_once 'config.php';
 include_once 'database.php';
 if($_POST){
-        $criminal_name = $_GET['criminal_name'];
-        $criminal_date_of_arrest = $_GET['criminal_date_of_arrest'];
-        $criminal_county_of_arrest = $_GET['criminal_county_of_arrest'];
-        $author_of_record = $_GET['author_of_record'];
-        $query = "SELECT * FROM records WHERE author_of_record = ?";
+        $criminal_name = isset($_POST['criminal_name']);
+        $criminal_date_of_arrest = isset($_POST['criminal_date_of_arrest']);
+        $criminal_county_of_arrest = isset($_POST['criminal_county_of_arrest']);
+        $author_of_record = isset($_POST['author_of_record']);
+        $query = "SELECT * FROM records WHERE criminal_name= ?";
         $stmt = $con -> prepare($query);
         $result = mysqli_query($db, $query);
 
@@ -18,11 +18,18 @@ if($_POST){
                 $criminal_date_of_arrest = $row['criminal_date_of_arrest'];
                 $criminal_county_of_arrest = $row['criminal_county_of_arrest'];
                 $author_of_record = $row['author_of_record'];
-                session_start(records);
+                session_start();
                 $_SESSION['criminal_name'] = $criminal_name;
                 $_SESSION['criminal_date_of_arrest'] = $criminal_date_of_arrest;
                 $_SESSION['criminal_county_of_arrest'] = $criminal_county_of_arrest;
                 $_SESSION['author_of_record'] = $author_of_record;
+            }
+            if(isset($SESSION['author_of_record'])){
+                if($_SESSION['author_of_record'] == 'Bob Dylan'){
+                    echo 'Welcome ' . $_SESSION['author_of_record'] . "!";
+                }else{
+                    die('error: Something went wrong!');
+                }
             }
         
         }else{
@@ -369,7 +376,7 @@ $(document).ready(function() {
             <br>
         </div>
         <table>
-            <thead><?php echo $_SESSION['criminal_county_of_arrest']?></thead>
+            <thead><?php echo $_SESSION['criminal_name']?></thead>
         </table>
 </body>
 
