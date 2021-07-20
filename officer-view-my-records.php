@@ -1,15 +1,15 @@
 <?php
 
-
-include 'config.php';
-include 'database.php';
-if(isset($_POST)){
-    
-    try{
-        $criminal_name = isset($_POST['criminal_name']) ? $_POST['criminal_name'] : die('ERROR: Record ID not found.');
-        $criminal_date_of_arrest = $_POST['criminal_date_of_arrest'];
-        $criminal_county_of_arrest = $_POST['criminal_county_of_arrest'];
-        $query = "SELECT criminal_name, criminal_date_of_arrest, criminal_county_of_arrest FROM records WHERE criminal_name = ?";
+session_start();
+include_once 'config.php';
+include_once 'database.php';
+if($_POST){
+        $criminal_name = $_GET['criminal_name'];
+        $criminal_date_of_arrest = $_GET['criminal_date_of_arrest'];
+        $criminal_county_of_arrest = $_GET['criminal_county_of_arrest'];
+        $author_of_record = $_GET['author_of_record'];
+        $query = "SELECT * FROM records WHERE author_of_record = ?";
+        $stmt = $con -> prepare($query);
         $result = mysqli_query($db, $query);
 
         if(mysqli_num_rows($result) > 0){
@@ -17,17 +17,19 @@ if(isset($_POST)){
                 $criminal_name = $row['criminal_name'];
                 $criminal_date_of_arrest = $row['criminal_date_of_arrest'];
                 $criminal_county_of_arrest = $row['criminal_county_of_arrest'];
-                session_start();
+                $author_of_record = $row['author_of_record'];
+                session_start(records);
                 $_SESSION['criminal_name'] = $criminal_name;
                 $_SESSION['criminal_date_of_arrest'] = $criminal_date_of_arrest;
                 $_SESSION['criminal_county_of_arrest'] = $criminal_county_of_arrest;
+                $_SESSION['author_of_record'] = $author_of_record;
             }
         
+        }else{
+            echo 'Try again!';
         }
-    }
-    catch(PDOException $exception){
-        die('ERROR: ' . $exception->getMessage());
-    }
+
+        
     
 
 }
@@ -367,7 +369,7 @@ $(document).ready(function() {
             <br>
         </div>
         <table>
-            <thead><?php echo $_SESSION['criminal_name']?></thead>
+            <thead><?php echo $_SESSION['criminal_county_of_arrest']?></thead>
         </table>
 </body>
 
