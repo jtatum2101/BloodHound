@@ -395,7 +395,7 @@ body {
 }
 
 .register {
-    background-image: url("img/2ndslide.jpg");
+    background-color: #5A4E4D;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -508,7 +508,7 @@ $(document).ready(function() {
             <br>
         </div>
         <div class="signup-form">
-            <form method="post">
+            <form method="post" style="margin-left: 100px;margin-right: -100px;">
                 <h2>Create A Report</h2>
                 <p>Create a criminal record by providing this information!</p>
                 <div class="form-group">

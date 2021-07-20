@@ -1,6 +1,37 @@
 <?php
-session_start();
+
+
+include 'config.php';
 include 'database.php';
+if(isset($_POST)){
+    
+    try{
+        $criminal_name = isset($_POST['criminal_name']) ? $_POST['criminal_name'] : die('ERROR: Record ID not found.');
+        $criminal_date_of_arrest = $_POST['criminal_date_of_arrest'];
+        $criminal_county_of_arrest = $_POST['criminal_county_of_arrest'];
+        $query = "SELECT criminal_name, criminal_date_of_arrest, criminal_county_of_arrest FROM records WHERE criminal_name = ?";
+        $result = mysqli_query($db, $query);
+
+        if(mysqli_num_rows($result) > 0){
+            while($row = mysqli_fetch_array($result)){
+                $criminal_name = $row['criminal_name'];
+                $criminal_date_of_arrest = $row['criminal_date_of_arrest'];
+                $criminal_county_of_arrest = $row['criminal_county_of_arrest'];
+                session_start();
+                $_SESSION['criminal_name'] = $criminal_name;
+                $_SESSION['criminal_date_of_arrest'] = $criminal_date_of_arrest;
+                $_SESSION['criminal_county_of_arrest'] = $criminal_county_of_arrest;
+            }
+        
+        }
+    }
+    catch(PDOException $exception){
+        die('ERROR: ' . $exception->getMessage());
+    }
+    
+
+}
+
 
 ?>
 
@@ -253,7 +284,7 @@ $(document).ready(function() {
 </script>
 
 
-<body>
+<body style="margin-left: 300px;">
     <div class="app">
         <div id="sidenav">
             <div class="wrapper">
@@ -264,7 +295,8 @@ $(document).ready(function() {
                             <h2 class="clearfix mb-0">
                                 <a class="btn btn-link" style="font-size: 20px; font-family: 'Playfair Display', serif;"
                                     data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                                    aria-controls="collapseOne"><i class="fa fa-chevron-circle-down"></i><?php echo $_SESSION['full_name']?></a>
+                                    aria-controls="collapseOne"><i
+                                        class="fa fa-chevron-circle-down"></i><?php echo $_SESSION['full_name']?></a>
                             </h2>
                         </div>
                         <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
@@ -274,23 +306,23 @@ $(document).ready(function() {
                                     <li><a href="officer-profile/officer-profile.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             Profile</a></li>
-                                            <hr>
+                                    <hr>
                                     <li><a href="officer-profile/officer-profile-settings.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Profile
                                             Settings</a></li>
-                                            <hr>
+                                    <hr>
                                     <li><a href="officer-profile/officer-profile-change-password.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Change
                                             Password</a></li>
-                                            <hr>
+                                    <hr>
                                     <li><a href="officer-profile/officer-profile-recover-password.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Recover
                                             Password</a></li>
-                                            <hr>
+                                    <hr>
                                     <li><a href="logout.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Log
                                             Out</a></li>
-                                            <hr>
+                                    <hr>
                                 </ul>
                             </div>
                         </div>
@@ -311,19 +343,19 @@ $(document).ready(function() {
                                     <li><a href="officer-create-record.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Create
                                             A Record</a></li>
-                                            <hr>
+                                    <hr>
                                     <li><a href="officer-view-my-records.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             My Records</a></li>
-                                            <hr>
+                                    <hr>
                                     <li><a href="officer-view-by-charge.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             My Records by Charge</a></li>
-                                            <hr>
+                                    <hr>
                                     <li><a href="officer-view-by-name.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             My Records by Name</a></li>
-                                            <hr>
+                                    <hr>
                                 </ul>
 
                             </div>
@@ -334,6 +366,9 @@ $(document).ready(function() {
             </div>
             <br>
         </div>
+        <table>
+            <thead><?php echo $_SESSION['criminal_name']?></thead>
+        </table>
 </body>
 
 </html>
