@@ -281,10 +281,6 @@ $(document).ready(function() {
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Change
                                             Password</a></li>
                                             <hr>
-                                    <li><a href="officer-profile/officer-profile-recover-password.php"
-                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Recover
-                                            Password</a></li>
-                                            <hr>
                                     <li><a href="logout.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Log
                                             Out</a></li>
