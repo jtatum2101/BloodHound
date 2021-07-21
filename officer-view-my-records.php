@@ -14,7 +14,7 @@ if ($result = $con->query($query)) {
     foreach ($result as $row) {
         $result = $db->query($query);
         $allMugshot=mysqli_fetch_array($result);
-        echo '<img src="data:image/jpeg;base64,'.base64_encode( $allMugshot['mugshot'] ).'"/>';
+        echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['mugshot'] ).'"/>';
         $col1name = $row['id'];
         $col2name = $row["criminal_name"];
         $col3name = $row["criminal_birth_date"];
