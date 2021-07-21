@@ -13,6 +13,9 @@ if ($result = $con->query($query)) {
 
     foreach ($result as $row) {
         $result = $db->query($query);
+        //$imagick = new Imagick();
+        //$imagick->readImageBlob($row['mugshot']);        
+        //echo $imagick.getFormat();
         $allMugshot=mysqli_fetch_array($result);
         echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['mugshot'] ).'"/>';
         $col1name = $row['id'];

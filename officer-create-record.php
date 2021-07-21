@@ -4,23 +4,40 @@ session_start();
 if($_POST){
     include 'database.php';
     include 'config.php';
-        $query = "INSERT INTO records (mugshot, criminal_name, criminal_birth_date, criminal_weight, criminal_height, criminal_eye_color, criminal_hair_color, criminal_ethnicity, criminal_charges, criminal_date_of_arrest, criminal_county_of_arrest, author_of_record) VALUES ('".$_POST["mugshot"]."','".$_POST["criminal_name"]."','".$_POST["criminal_birth_date"]."','" .$_POST["criminal_weight"]."','" .$_POST["criminal_height"]."','".$_POST["criminal_eye_color"]."','".$_POST["criminal_hair_color"]."','".$_POST["criminal_ethnicity"]."','".$_POST["criminal_charges"]."','".$_POST["criminal_date_of_arrest"]."','".$_POST["criminal_county_of_arrest"]."','".$_POST["author_of_record"]."')";
+        $query = "INSERT INTO records (mugshot, criminal_name, criminal_birth_date, criminal_weight, criminal_height, criminal_eye_color, criminal_hair_color, criminal_ethnicity, criminal_charges, criminal_date_of_arrest, criminal_county_of_arrest, author_of_record) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $con->prepare($query);
         
-        $stmt->bind_param($_POST['mugshot'], $mugshot);
-        $stmt->bind_param($_POST['criminal_name'], $criminal_name);
-        $criminal_birth_date= date('Y-m-d');
-        $stmt->bind_param($_POST['criminal_birth_date'], $criminal_birth_date);
-        $stmt->bind_param($_POST['criminal_weight'], $criminal_weight);
-        $stmt->bind_param($_POST['criminal_height'], $criminal_height);
-        $stmt->bind_param($_POST['criminal_eye_color'], $criminal_eye_color);
-        $stmt->bind_param($_POST['criminal_hair_color'], $criminal_hair_color);
-        $stmt->bind_param($_POST['criminal_ethnicity'], $criminal_ethnicity);
-        $stmt->bind_param($_POST['criminal_charges'], $criminal_charges);
-        $criminal_date_of_arrest=date('Y-m-d');
-        $stmt->bind_param($_POST['criminal_date_of_arrest'], $criminal_date_of_arrest);
-        $stmt->bind_param($_POST['criminal_county_of_arrest'], $criminal_county_of_arrest);
-        $stmt->bind_param($_POST['author_of_record'], $author_of_record);
+        $params = [
+            file_get_contents($_FILES['mugshot']['tmp_name']),
+            $_POST['criminal_name'],
+            $_POST['criminal_birth_date'],
+            $_POST['criminal_weight'],
+            $_POST['criminal_height'],
+            $_POST['criminal_eye_color'],
+            $_POST['criminal_hair_color'],
+            $_POST['criminal_ethnicity'],
+            $_POST['criminal_charges'],
+            $_POST['criminal_date_of_arrest'],
+            $_POST['criminal_county_of_arrest'],
+            $_POST['author_of_record']
+        ];
+
+        $stmt->bind_param('bsssssssssss', $params);
+
+        // $stmt->bind_param(file_get_contents($_FILES['mugshot']['tmp_name']), $mugshot);
+        // $stmt->bind_param($_POST['criminal_name'], $criminal_name);
+        // $criminal_birth_date= date('Y-m-d');
+        // $stmt->bind_param($_POST['criminal_birth_date'], $criminal_birth_date);
+        // $stmt->bind_param($_POST['criminal_weight'], $criminal_weight);
+        // $stmt->bind_param($_POST['criminal_height'], $criminal_height);
+        // $stmt->bind_param($_POST['criminal_eye_color'], $criminal_eye_color);
+        // $stmt->bind_param($_POST['criminal_hair_color'], $criminal_hair_color);
+        // $stmt->bind_param($_POST['criminal_ethnicity'], $criminal_ethnicity);
+        // $stmt->bind_param($_POST['criminal_charges'], $criminal_charges);
+        // $criminal_date_of_arrest=date('Y-m-d');
+        // $stmt->bind_param($_POST['criminal_date_of_arrest'], $criminal_date_of_arrest);
+        // $stmt->bind_param($_POST['criminal_county_of_arrest'], $criminal_county_of_arrest);
+        // $stmt->bind_param($_POST['author_of_record'], $author_of_record);
         $stmt->execute();
         if($stmt->execute()){
             header("Location: officer-view-my-records.php");
@@ -486,7 +503,7 @@ $(document).ready(function() {
             <br>
         </div>
         <div class="signup-form">
-            <form method="post" style="margin-left: 100px;margin-right: -100px;">
+            <form method="post" style="margin-left: 100px;margin-right: -100px;" enctype="multipart/form-data">
                 <h2>Create A Report</h2>
                 <p>Create a criminal record by providing this information!</p>
                 <div class="form-group">
@@ -595,13 +612,14 @@ $(document).ready(function() {
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" name="submit" class="btn btn-block btn-lg" style="background-color: #5A4E4D;">Create
+                    <button type="submit" name="submit" class="btn btn-block btn-lg"
+                        style="background-color: #5A4E4D;">Create
                         Record</button>
                 </div>
 
             </form>
-            
-                   
+
+
         </div>
 
 
