@@ -1,47 +1,52 @@
 <?php
 
 session_start();
-include_once 'config.php';
-include_once 'database.php';
-if($_POST){
-        $criminal_name = isset($_POST['criminal_name']);
-        $criminal_date_of_arrest = isset($_POST['criminal_date_of_arrest']);
-        $criminal_county_of_arrest = isset($_POST['criminal_county_of_arrest']);
-        $author_of_record = isset($_POST['author_of_record']);
-        $query = "SELECT * FROM records WHERE criminal_name= ?";
-        $stmt = $con -> prepare($query);
-        $result = mysqli_query($db, $query);
+?>
+<?php
+ include_once 'config.php';
+ include_once 'database.php';
 
-        if(mysqli_num_rows($result) > 0){
-            while($row = mysqli_fetch_array($result)){
-                $criminal_name = $row['criminal_name'];
-                $criminal_date_of_arrest = $row['criminal_date_of_arrest'];
-                $criminal_county_of_arrest = $row['criminal_county_of_arrest'];
-                $author_of_record = $row['author_of_record'];
-                session_start();
-                $_SESSION['criminal_name'] = $criminal_name;
-                $_SESSION['criminal_date_of_arrest'] = $criminal_date_of_arrest;
-                $_SESSION['criminal_county_of_arrest'] = $criminal_county_of_arrest;
-                $_SESSION['author_of_record'] = $author_of_record;
-            }
-            if(isset($SESSION['author_of_record'])){
-                if($_SESSION['author_of_record'] == 'Bob Dylan'){
-                    echo 'Welcome ' . $_SESSION['author_of_record'] . "!";
-                }else{
-                    die('error: Something went wrong!');
-                }
-            }
-        
-        }else{
-            echo 'Try again!';
-        }
+ $query = "SELECT * FROM records WHERE author_of_record = 'Bob Dylan'";
+echo "<b> <center>Database Output</center> </b> <br> <br>";
+$stmt = $con->prepare($query);
+if ($result = $con->query($query)) {
 
-        
-    
+    foreach ($result as $row) {
+        $result = $db->query($query);
+        $allMugshot=mysqli_fetch_array($result);
+        echo '<img src="data:image/jpeg;base64,'.base64_encode( $allMugshot['mugshot'] ).'"/>';
+        $col1name = $row['id'];
+        $col2name = $row["criminal_name"];
+        $col3name = $row["criminal_birth_date"];
+        $col4name = $row["criminal_weight"];
+        $col5name = $row["criminal_height"];
+        $col6name = $row['criminal_eye_color'];
+        $col7name = $row['criminal_hair_color'];
+        $col8name = $row['criminal_ethnicity'];
+        $col9name = $row['criminal_charges'];
+        $col10name = $row['criminal_date_of_arrest'];
+        $col11name = $row['criminal_county_of_arrest'];
+        $col12name = $row['author_of_record'];
+
+        echo "\n";
+        echo '<b>'.$col1name.'<br />';
+        echo '</b>'.$col2name. '<br />';
+        echo $col3name.'<br />';
+        echo $col4name.'<br />';
+        echo $col5name. '<br />';
+        echo $col6name. '<br />';
+        echo $col7name. '<br />';
+        echo $col8name. '<br />';
+        echo $col9name. '<br />';
+        echo $col10name. '<br />';
+        echo $col11name. '<br />';
+        echo $col12name. '<br />';
+        $stmt ->execute();
+    }
+    $con->close();
+
 
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -370,10 +375,11 @@ $(document).ready(function() {
                 </div>
             </div>
             <br>
+
         </div>
-        <table>
-            <thead><?php echo $_SESSION['criminal_name']?></thead>
-        </table>
+    </div>
+    </div>
 </body>
+
 
 </html>

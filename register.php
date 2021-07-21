@@ -6,39 +6,43 @@ if($_POST){
  
     // include database connection
     include 'database.php';
- 
-    try{
- 
+    include 'config.php';
         // insert query
-        $query = "INSERT INTO users (full_name, email, psw, role, police_id, admin_id, date_joined) VALUES (:full_name, :email, :psw, :role, :police_id, :admin_id, :date_joined)";
+        $query = "INSERT INTO users (full_name, email, psw, role, police_id, admin_id, date_joined) VALUES ('".$_POST["full_name"]."', '".$_POST["email"]."', '".$_POST["psw"]."', '".$_POST["role"]."', '".$_POST["police_id"]."', '".$_POST["admin_id"]."', ':date_joined')";
  
         // prepare query for execution
-        $stmt = $con->prepare($query);
+        if (mysqli_query($db, $query)) {
+            echo "New record created successfully";
+          } else {
+            echo "Error: " . $query . "<br>" . mysqli_error($con);
+          }
+          
+          mysqli_close($con);
  
         // posted values
-        $full_name=htmlspecialchars(strip_tags($_POST['full_name']));
-        $email=htmlspecialchars(strip_tags($_POST['email']));
-        $psw=htmlspecialchars(strip_tags($_POST['psw']));
-        $role=htmlspecialchars(strip_tags($_POST['role']));
-        $police_id=htmlspecialchars(strip_tags($_POST['police_id']));
-        $admin_id=htmlspecialchars(strip_tags($_POST['admin_id']));
+        // $full_name=htmlspecialchars(strip_tags($_POST['full_name']));
+        // $email=htmlspecialchars(strip_tags($_POST['email']));
+        // $psw=htmlspecialchars(strip_tags($_POST['psw']));
+        // $role=htmlspecialchars(strip_tags($_POST['role']));
+        // $police_id=htmlspecialchars(strip_tags($_POST['police_id']));
+        // $admin_id=htmlspecialchars(strip_tags($_POST['admin_id']));
         
         // Clean police and admin ids
         $police_id = (empty($police_id)) ? NULL : $police_id;
         $admin_id = (empty($admin_id)) ? NULL : $admin_id;
  
         // bind the parameters
-        $stmt->bindParam(':full_name', $full_name);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':psw', $psw);
-        $stmt->bindParam(':role', $role);
-        $stmt->bindParam(':police_id', $police_id);
-        $stmt->bindParam(':admin_id', $admin_id);
+        $stmt->bind_param($_POST['full_name'], $full_name);
+        $stmt->bind_param($_POST['email'], $email);
+        $stmt->bind_param($_POST['psw'], $psw);
+        $stmt->bind_param($_POST['role'], $role);
+        $stmt->bind_param($_POST['police_id'], $police_id);
+        $stmt->bind_param($_POST['admin_id'], $admin_id);
 
 
         // specify when this record was inserted to the database
         $date_joined=date('Y-m-d H:i:s');
-        $stmt->bindParam(':date_joined', $date_joined);
+        $stmt->bind_param(':date_joined', $date_joined);
         
  
         // Execute the query
@@ -49,12 +53,6 @@ if($_POST){
         }
  
     }
- 
-    // show error
-    catch(PDOException $exception){
-        die('ERROR: ' . $exception->getMessage());
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -178,16 +176,19 @@ if($_POST){
         font-size: 7px;
         position: absolute;
     }
-    .register{
+
+    .register {
         background-image: url("img/2ndslide.jpg");
         background-repeat: no-repeat;
         background-size: cover;
     }
-    span{
+
+    span {
         background: #F8F5F2;
     }
-    input{
-        background: #F8F5F2; 
+
+    input {
+        background: #F8F5F2;
     }
     </style>
 </head>
@@ -200,7 +201,8 @@ if($_POST){
             <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input type="text" class="form-control" name="full_name" placeholder="Full Name" required="required">
+                    <input type="text" class="form-control" name="full_name" placeholder="Full Name"
+                        required="required">
                 </div>
             </div>
             <div class="form-group">
@@ -232,14 +234,15 @@ if($_POST){
             <div class="form-group">
                 <button type="submit" class="btn btn-block btn-lg" style="background-color: #5A4E4D;">Sign Up</button>
             </div>
-            <p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#" style="color: #5A4E4D;">Terms &amp;
+            <p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#"
+                    style="color: #5A4E4D;">Terms &amp;
                     Conditions</a>, and <a href="#" style="color: #5A4E4D;">Privacy Policy</a>.</p>
         </form>
-        <div class="text-center" style="color: #F8F5F2;">Already have an account? <a href="login.php">Login here</a>.</div>
+        <div class="text-center" style="color: #F8F5F2;">Already have an account? <a href="login.php">Login here</a>.
+        </div>
     </div>
     </div>
 
 </body>
 
 </html>
-

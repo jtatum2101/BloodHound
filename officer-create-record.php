@@ -3,53 +3,33 @@
 session_start();
 if($_POST){
     include 'database.php';
-
-    try{
-        $query = "INSERT INTO records (mugshot, criminal_name, criminal_birth_date, criminal_weight, criminal_height, criminal_eye_color, criminal_hair_color, criminal_ethnicity, criminal_charges, criminal_date_of_arrest, criminal_county_of_arrest, author_of_record) VALUES ( :mugshot, :criminal_name, :criminal_birth_date, :criminal_weight, :criminal_height, :criminal_eye_color, :criminal_hair_color, :criminal_ethnicity, :criminal_charges, :criminal_date_of_arrest, :criminal_county_of_arrest, :author_of_record)";
+    include 'config.php';
+        $query = "INSERT INTO records (mugshot, criminal_name, criminal_birth_date, criminal_weight, criminal_height, criminal_eye_color, criminal_hair_color, criminal_ethnicity, criminal_charges, criminal_date_of_arrest, criminal_county_of_arrest, author_of_record) VALUES ('".$_POST["mugshot"]."','".$_POST["criminal_name"]."','".$_POST["criminal_birth_date"]."','" .$_POST["criminal_weight"]."','" .$_POST["criminal_height"]."','".$_POST["criminal_eye_color"]."','".$_POST["criminal_hair_color"]."','".$_POST["criminal_ethnicity"]."','".$_POST["criminal_charges"]."','".$_POST["criminal_date_of_arrest"]."','".$_POST["criminal_county_of_arrest"]."','".$_POST["author_of_record"]."')";
         $stmt = $con->prepare($query);
-
-
-        $mugshot= htmlspecialchars(strip_tags($_POST['mugshot']));
-        $criminal_name=htmlspecialchars(strip_tags($_POST['criminal_name']));
-        $criminal_weight= $_POST['criminal_weight'];
-        $criminal_height= $_POST['criminal_height'];
-        $criminal_eye_color=htmlspecialchars(strip_tags($_POST['criminal_eye_color']));
-        $criminal_hair_color=htmlspecialchars(strip_tags($_POST['criminal_hair_color']));
-        $criminal_ethnicity=htmlspecialchars(strip_tags($_POST['criminal_ethnicity']));
-        $criminal_charges=htmlspecialchars(strip_tags($_POST['criminal_charges']));
-        $criminal_date_of_arrest = $_POST['criminal_date_of_arrest'];
-        $criminal_county_of_arrest=htmlspecialchars(strip_tags($_POST['criminal_county_of_arrest']));
-        $author_of_record=htmlspecialchars(strip_tags($_POST['author_of_record']));
-
-
-        $mugshot = (empty($mugshot)) ? NULL : $mugshot;
-        $stmt->bindParam(':mugshot', $mugshot);
-        $stmt->bindParam(':criminal_name', $criminal_name);
+        
+        $stmt->bind_param($_POST['mugshot'], $mugshot);
+        $stmt->bind_param($_POST['criminal_name'], $criminal_name);
         $criminal_birth_date= date('Y-m-d');
-        $stmt->bindParam(':criminal_birth_date', $criminal_birth_date);
-        $stmt->bindParam(':criminal_weight', $criminal_weight);
-        $stmt->bindParam(':criminal_height', $criminal_height);
-        $stmt->bindParam(':criminal_eye_color', $criminal_eye_color);
-        $stmt->bindParam(':criminal_hair_color', $criminal_hair_color);
-        $stmt->bindParam(':criminal_ethnicity', $criminal_ethnicity);
-        $stmt->bindParam(':criminal_charges', $criminal_charges);
+        $stmt->bind_param($_POST['criminal_birth_date'], $criminal_birth_date);
+        $stmt->bind_param($_POST['criminal_weight'], $criminal_weight);
+        $stmt->bind_param($_POST['criminal_height'], $criminal_height);
+        $stmt->bind_param($_POST['criminal_eye_color'], $criminal_eye_color);
+        $stmt->bind_param($_POST['criminal_hair_color'], $criminal_hair_color);
+        $stmt->bind_param($_POST['criminal_ethnicity'], $criminal_ethnicity);
+        $stmt->bind_param($_POST['criminal_charges'], $criminal_charges);
         $criminal_date_of_arrest=date('Y-m-d');
-        $stmt->bindParam(':criminal_date_of_arrest', $criminal_date_of_arrest);
-        $stmt->bindParam(':criminal_county_of_arrest', $criminal_county_of_arrest);
-        $stmt->bindParam(':author_of_record', $author_of_record);
-
+        $stmt->bind_param($_POST['criminal_date_of_arrest'], $criminal_date_of_arrest);
+        $stmt->bind_param($_POST['criminal_county_of_arrest'], $criminal_county_of_arrest);
+        $stmt->bind_param($_POST['author_of_record'], $author_of_record);
+        $stmt->execute();
         if($stmt->execute()){
             header("Location: officer-view-my-records.php");
         }else{
             echo 'Try again,' . $stmt->errorInfo()[0] . "!";
         }
+        $stmt->close();
+        $con->close();
     }
-
-    catch(PDOException $exception){
-        die('ERROR: ' . $exception->getMessage());
-    }
-
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -456,7 +436,7 @@ $(document).ready(function() {
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Change
                                             Password</a></li>
                                     <hr>
-                                
+
                                     <hr>
                                     <li><a href="logout.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Log
@@ -610,16 +590,18 @@ $(document).ready(function() {
                         <span class="input-group-addon">
                             <i class="fa fa-id-badge"></i>
                         </span>
-                        <input type="text" class="form-control" name="author_of_record" placeholder="Who filed this report"
-                            required="required">
+                        <input type="text" class="form-control" name="author_of_record"
+                            placeholder="Who filed this report" required="required">
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-block btn-lg" style="background-color: #5A4E4D;">Create
+                    <button type="submit" name="submit" class="btn btn-block btn-lg" style="background-color: #5A4E4D;">Create
                         Record</button>
                 </div>
 
             </form>
+            
+                   
         </div>
 
 
