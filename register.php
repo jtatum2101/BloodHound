@@ -5,44 +5,37 @@ include_once 'header.php';
 if($_POST){
  
     // include database connection
-    include 'database.php';
     include 'config.php';
         // insert query
-        $query = "INSERT INTO users (full_name, email, psw, role, police_id, admin_id, date_joined) VALUES ('".$_POST["full_name"]."', '".$_POST["email"]."', '".$_POST["psw"]."', '".$_POST["role"]."', '".$_POST["police_id"]."', '".$_POST["admin_id"]."', ':date_joined')";
- 
+        $query = "INSERT INTO users (full_name, email, psw, role, police_id, admin_id, date_joined) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $full_name= $_POST['full_name'];
+        $email= $_POST['email'];
+        $psw= $_POST['psw'];
+        $role= $_POST['role'];
+        $police_id= $_POST['police_id'];
+        $admin_id= $_POST['admin_id'];
+        $stmt->bind_param('sssssss', $full_name, $email, $psw, $role, $police_id, $admin_id);
         // prepare query for execution
         if (mysqli_query($db, $query)) {
             echo "New record created successfully";
           } else {
-            echo "Error: " . $query . "<br>" . mysqli_error($con);
+            echo "Error: " . $query . "<br>" . mysqli_error($db);
           }
           
-          mysqli_close($con);
+          mysqli_close($db);
  
         // posted values
-        // $full_name=htmlspecialchars(strip_tags($_POST['full_name']));
-        // $email=htmlspecialchars(strip_tags($_POST['email']));
-        // $psw=htmlspecialchars(strip_tags($_POST['psw']));
-        // $role=htmlspecialchars(strip_tags($_POST['role']));
-        // $police_id=htmlspecialchars(strip_tags($_POST['police_id']));
-        // $admin_id=htmlspecialchars(strip_tags($_POST['admin_id']));
+        
         
         // Clean police and admin ids
         $police_id = (empty($police_id)) ? NULL : $police_id;
         $admin_id = (empty($admin_id)) ? NULL : $admin_id;
  
-        // bind the parameters
-        $stmt->bind_param($_POST['full_name'], $full_name);
-        $stmt->bind_param($_POST['email'], $email);
-        $stmt->bind_param($_POST['psw'], $psw);
-        $stmt->bind_param($_POST['role'], $role);
-        $stmt->bind_param($_POST['police_id'], $police_id);
-        $stmt->bind_param($_POST['admin_id'], $admin_id);
 
 
         // specify when this record was inserted to the database
         $date_joined=date('Y-m-d H:i:s');
-        $stmt->bind_param(':date_joined', $date_joined);
+        $stmt->bind_param('s', $date_joined);
         
  
         // Execute the query

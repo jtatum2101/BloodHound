@@ -2,7 +2,6 @@
 session_start();
 
 if($_POST){
-    include'database.php';
     include 'config.php';
     $role = $row['role'];
     $full_name = $row['full_name'];

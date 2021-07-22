@@ -2,13 +2,12 @@
 include_once 'header.php';
 include 'config.php';
 
-include 'database.php';
 if($_POST){
 
 $email = $_POST['email'];
 $psw = $_POST['psw'];
 $query = "SELECT * FROM users WHERE email='$email' AND psw='$psw'";
-$stmt = $con -> prepare($query);
+$stmt = $db-> prepare($query);
 $result = mysqli_query($db, $query);
 
 if(mysqli_num_rows($result) > 0){

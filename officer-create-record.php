@@ -2,50 +2,57 @@
 
 session_start();
 if($_POST){
-    include 'database.php';
     include 'config.php';
-        $query = "INSERT INTO records (mugshot, criminal_name, criminal_birth_date, criminal_weight, criminal_height, criminal_eye_color, criminal_hair_color, criminal_ethnicity, criminal_charges, criminal_date_of_arrest, criminal_county_of_arrest, author_of_record) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        $stmt = $con->prepare($query);
+    $query = "INSERT INTO records ( criminal_name, criminal_birth_date, criminal_weight, criminal_height, criminal_eye_color, criminal_hair_color, criminal_ethnicity, criminal_charges, criminal_date_of_arrest, criminal_county_of_arrest, author_of_record) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = mysqli_prepare($db, $query);
+    $stmt->bind_param('sssssssssss', $criminal_name, $criminal_birth_date, $criminal_weight, $criminal_height, $criminal_eye_color, $criminal_hair_color, $criminal_ethnicity, $criminal_charges, $criminal_date_of_arrest, $criminal_county_of_arrest, $author_of_record);
+    $mugshot = file_get_contents($_FILES['mugshot']['tmp_name']);
+    $criminal_name = $_POST['criminal_name'];
+    $criminal_birth_date = $_POST['criminal_birth_date'];
+    $criminal_weight = $_POST['criminal_weight'];
+    $criminal_height = $_POST['criminal_height'];
+    $criminal_eye_color = $_POST['criminal_eye_color'];
+    $criminal_hair_color = $_POST['criminal_hair_color'];
+    $criminal_ethnicity = $_POST['criminal_ethnicity'];
+    $criminal_charges = $_POST['criminal_charges'];
+    $criminal_date_of_arrest = $_POST['criminal_date_of_arrest'];
+    $criminal_county_of_arrest = $_POST['criminal_county_of_arrest'];
+    $author_of_record = $_POST['author_of_record'];
+    $stmt->execute();
+    if($stmt->execute()){
+        header("Location: uploadimage.php");
+    }else{
+        echo 'Try again!';
+    }
+    if(isset($_POST['submit'])){
+        $extension = array('jpeg', 'png', 'jpg', 'gif');
         
-        $params = [
-            file_get_contents($_FILES['mugshot']['tmp_name']),
-            $_POST['criminal_name'],
-            $_POST['criminal_birth_date'],
-            $_POST['criminal_weight'],
-            $_POST['criminal_height'],
-            $_POST['criminal_eye_color'],
-            $_POST['criminal_hair_color'],
-            $_POST['criminal_ethnicity'],
-            $_POST['criminal_charges'],
-            $_POST['criminal_date_of_arrest'],
-            $_POST['criminal_county_of_arrest'],
-            $_POST['author_of_record']
-        ];
-
-        $stmt->bind_param('bsssssssssss', $params);
-
-        // $stmt->bind_param(file_get_contents($_FILES['mugshot']['tmp_name']), $mugshot);
-        // $stmt->bind_param($_POST['criminal_name'], $criminal_name);
-        // $criminal_birth_date= date('Y-m-d');
-        // $stmt->bind_param($_POST['criminal_birth_date'], $criminal_birth_date);
-        // $stmt->bind_param($_POST['criminal_weight'], $criminal_weight);
-        // $stmt->bind_param($_POST['criminal_height'], $criminal_height);
-        // $stmt->bind_param($_POST['criminal_eye_color'], $criminal_eye_color);
-        // $stmt->bind_param($_POST['criminal_hair_color'], $criminal_hair_color);
-        // $stmt->bind_param($_POST['criminal_ethnicity'], $criminal_ethnicity);
-        // $stmt->bind_param($_POST['criminal_charges'], $criminal_charges);
-        // $criminal_date_of_arrest=date('Y-m-d');
-        // $stmt->bind_param($_POST['criminal_date_of_arrest'], $criminal_date_of_arrest);
-        // $stmt->bind_param($_POST['criminal_county_of_arrest'], $criminal_county_of_arrest);
-        // $stmt->bind_param($_POST['author_of_record'], $author_of_record);
-        $stmt->execute();
-        if($stmt->execute()){
+        echo $filename = $_FILES['mugshot']['name'];
+        $filename_tmp = $_FILES['mugshot']['tmp_name'];
+        echo '<br>';
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        $mugshot = '';
+        if(in_array($ext,$extension)){
+            if(!file_exists('img/'.$filename)){
+                move_uploaded_file($filename_tmp, '/opt/lampp/htdocs/BloodHound/img/'.$filename);
+                $mugshot = $filename;
+            }else{
+                $filename=str_replace('.', '-', basename($filename, $ext));
+                $newfilename=$filename.time(). ".".$ext;
+                move_uploaded_file($filename_tmp, '/opt/lampp/htdocs/BloodHound/img/'.basename($filename, $ext));
+                $mugshot = $newfilename;
+            }
+            $query = "INSERT INTO records (mugshot) VALUES (?)";
+            $db->query($db, $query);
+            $stmt->bind_param('s', $mugshot);
+            $stmt->execute();
             header("Location: officer-view-my-records.php");
-        }else{
-            echo 'Try again,' . $stmt->errorInfo()[0] . "!";
+    
         }
-        $stmt->close();
-        $con->close();
+        
+    }    
+    $stmt->close();
+    $db->close();
     }
 ?>
 <!DOCTYPE html>
@@ -511,7 +518,7 @@ $(document).ready(function() {
                         <span class="input-group-addon">
                             <i class="fa fa-camera"></i>
                         </span>
-                        <input type="file" class="form-control" name="mugshot" placeholder="Upload">
+                        <input type="file" class="form-control" name="mugshot">
                     </div>
                 </div>
                 <div class="form-group">
@@ -613,7 +620,7 @@ $(document).ready(function() {
                 </div>
                 <div class="form-group">
                     <button type="submit" name="submit" class="btn btn-block btn-lg"
-                        style="background-color: #5A4E4D;">Create
+                        style="background-color: #5A4E4D;" value="Upload">Create
                         Record</button>
                 </div>
 

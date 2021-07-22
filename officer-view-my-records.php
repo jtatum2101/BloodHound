@@ -3,54 +3,52 @@
 session_start();
 ?>
 <?php
- include_once 'config.php';
- include_once 'database.php';
 
- $query = "SELECT * FROM records WHERE author_of_record = 'Bob Dylan'";
-echo "<b> <center>Database Output</center> </b> <br> <br>";
-$stmt = $con->prepare($query);
-if ($result = $con->query($query)) {
+    include 'config.php';
+    $query = "SELECT * FROM records";
+     $stmt = $db->prepare($query);
+     if ($result = $db->query($query)) {
+         echo '<b><center>Database Output:</center></b>';
+        foreach ($result as $row) {
+            $allMugshot=mysqli_fetch_assoc($result);
+            echo '<img src="{$row[$allMugshot]}"/>';
+            $col1name = $row['id'];
+            $col2name = $row["criminal_name"];
+            $col3name = $row["criminal_birth_date"];
+            $col4name = $row["criminal_weight"];
+            $col5name = $row["criminal_height"];
+            $col6name = $row['criminal_eye_color'];
+            $col7name = $row['criminal_hair_color'];
+            $col8name = $row['criminal_ethnicity'];
+            $col9name = $row['criminal_charges'];
+            $col10name = $row['criminal_date_of_arrest'];
+            $col11name = $row['criminal_county_of_arrest'];
+            $col12name = $row['author_of_record'];
 
-    foreach ($result as $row) {
-        $result = $db->query($query);
-        //$imagick = new Imagick();
-        //$imagick->readImageBlob($row['mugshot']);        
-        //echo $imagick.getFormat();
-        $allMugshot=mysqli_fetch_array($result);
-        echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['mugshot'] ).'"/>';
-        $col1name = $row['id'];
-        $col2name = $row["criminal_name"];
-        $col3name = $row["criminal_birth_date"];
-        $col4name = $row["criminal_weight"];
-        $col5name = $row["criminal_height"];
-        $col6name = $row['criminal_eye_color'];
-        $col7name = $row['criminal_hair_color'];
-        $col8name = $row['criminal_ethnicity'];
-        $col9name = $row['criminal_charges'];
-        $col10name = $row['criminal_date_of_arrest'];
-        $col11name = $row['criminal_county_of_arrest'];
-        $col12name = $row['author_of_record'];
-
-        echo "\n";
-        echo '<b>'.$col1name.'<br />';
-        echo '</b>'.$col2name. '<br />';
-        echo $col3name.'<br />';
-        echo $col4name.'<br />';
-        echo $col5name. '<br />';
-        echo $col6name. '<br />';
-        echo $col7name. '<br />';
-        echo $col8name. '<br />';
-        echo $col9name. '<br />';
-        echo $col10name. '<br />';
-        echo $col11name. '<br />';
-        echo $col12name. '<br />';
-        $stmt ->execute();
+            echo "\n";
+            echo '<b>'.$col1name.'<br />';
+            echo '</b>'.$col2name. '<br />';
+            echo $col3name.'<br />';
+            echo $col4name.'<br />';
+            echo $col5name. '<br />';
+            echo $col6name. '<br />';
+            echo $col7name. '<br />';
+            echo $col8name. '<br />';
+            echo $col9name. '<br />';
+            echo $col10name. '<br />';
+            echo $col11name. '<br />';
+            echo $col12name. '<br />';
+            $stmt ->execute();
+        }
+        $db->close(); 
     }
-    $con->close();
-
-
-}
 ?>
+
+
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -305,7 +303,8 @@ $(document).ready(function() {
     <div class="app">
         <div id="sidenav">
             <div class="wrapper">
-                <h1 class="page-title" style="color:#5A4E4D; font-family: 'Playfair Display', serif;">BloodHound:</h1>
+                <h1 class="page-title" style="color:#5A4E4D; font-family: 'Playfair Display', serif;">BloodHound:
+                </h1>
                 <div class="accordion" id="accordionExample">
                     <div class="card">
                         <div class="card-header" id="headingOne">
@@ -381,8 +380,7 @@ $(document).ready(function() {
 
         </div>
     </div>
-    </div>
-</body>
 
+</body>
 
 </html>
