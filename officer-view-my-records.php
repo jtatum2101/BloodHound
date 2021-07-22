@@ -3,18 +3,18 @@
 session_start();
 ?>
 <?php
-
     include 'config.php';
-    $query = "SELECT * FROM records";
+    
+    $query = "SELECT * FROM records WHERE author_of_record = 'Bob Dylan";
      $stmt = $db->prepare($query);
      if ($result = $db->query($query)) {
          echo '<b><center>Database Output:</center></b>';
         foreach ($result as $row) {
-            $allMugshot=mysqli_fetch_assoc($result);
-            echo '<img src="{$row[$allMugshot]}"/>';
+            $row=mysqli_fetch_assoc($result);
+            echo '<img src="/opt/lampp/htdocs/BloodHound/img/{mugshot}"/>';
             $col1name = $row['id'];
-            $col2name = $row["criminal_name"];
-            $col3name = $row["criminal_birth_date"];
+            $col2name = $row['criminal_name'];
+            $col3name = $row['criminal_birth_date'];
             $col4name = $row["criminal_weight"];
             $col5name = $row["criminal_height"];
             $col6name = $row['criminal_eye_color'];
