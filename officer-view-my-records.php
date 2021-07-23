@@ -15,38 +15,45 @@
             $criminal_date_of_arrest = $_POST['criminal_date_of_arrest'];
             $criminal_county_of_arrest = $_POST['criminal_county_of_arrest'];
             $author_of_record = $_POST['author_of_record'];
-            $stmt = $con->prepare("SELECT * FROM records WHERE author_of_record = ?");
-            $stmt->bindParam(':mugshot', $mugshot);
-            $stmt->bindParam(':criminal_name', $criminal_name);
-            $stmt->bindParam(':criminal_birth_date', $criminal_birth_date);
-            $stmt->bindParam(':criminal_weight', $criminal_weight);
-            $stmt->bindParam(':criminal_height', $criminal_height);
-            $stmt->bindParam(':criminal_eye_color', $criminal_eye_color);
-            $stmt->bindParam(':criminal_hair_color', $criminal_hair_color);
-            $stmt->bindParam(':criminal_ethnicity', $criminal_ethnicity);
-            $stmt->bindParam(':criminal_charges', $criminal_charges);
-            $stmt->bindParam(':criminal_date_of_arrest', $criminal_date_of_arrest);
-            $stmt->bindParam(':criminal_county_of_arrest', $criminal_county_of_arrest);
-            $stmt->bindParam(':author_of_record', $author_of_record);
-            $stmt->execute([$_POST['author_of_record']]); 
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $mugshot = $row['mugshot'];
-                $criminal_name = $row['criminal_name'];
-                $criminal_birth_date = $row['criminal_birth_date'];
-                $criminal_weight = $row['criminal_weight'];
-                echo $criminal_height = $row['criminal_height'];
-                echo $criminal_eye_color = $row['criminal_eye_color'];
-                echo $criminal_hair_color = $row['criminal_hair_color'];
-                echo $criminal_ethnicity = $row['criminal_ethnicity'];
-                echo $criminal_charges = $row['criminal_charges'];
-                echo $criminal_date_of_arrest = $row['criminal_date_of_arrest'];
-                echo $criminal_county_of_arrest = $row['criminal_county_of_arrest'];
-                echo $author_of_record = $row['author_of_record'];
-            }
-        } catch(PDOException $e) {
+            $query = "SELECT * FROM records WHERE author_of_record = ?";
+            $stmt = $con->prepare($query);
+            $rows = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            if(count($stmt) > 0){
+                $stmt->bindParam(':mugshot', $mugshot);
+                $stmt->bindParam(':criminal_name', $criminal_name);
+                $stmt->bindParam(':criminal_birth_date', $criminal_birth_date);
+                $stmt->bindParam(':criminal_weight', $criminal_weight);
+                $stmt->bindParam(':criminal_height', $criminal_height);
+                $stmt->bindParam(':criminal_eye_color', $criminal_eye_color);
+                $stmt->bindParam(':criminal_hair_color', $criminal_hair_color);
+                $stmt->bindParam(':criminal_ethnicity', $criminal_ethnicity);
+                $stmt->bindParam(':criminal_charges', $criminal_charges);
+                $stmt->bindParam(':criminal_date_of_arrest', $criminal_date_of_arrest);
+                $stmt->bindParam(':criminal_county_of_arrest', $criminal_county_of_arrest);
+                $stmt->bindParam(':author_of_record', $author_of_record);
+                foreach($con->query($query) as $row){
+                    echo $row['criminal_name'];
+                }
+                // while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                //     $mugshot = $row['mugshot'];
+                //     $criminal_name = $row['criminal_name'];
+                //     $criminal_birth_date = $row['criminal_birth_date'];
+                //     $criminal_weight = $row['criminal_weight'];
+                //     $criminal_height = $row['criminal_height'];
+                //     $criminal_eye_color = $row['criminal_eye_color'];
+                //     $criminal_hair_color = $row['criminal_hair_color'];
+                //     $criminal_ethnicity = $row['criminal_ethnicity'];
+                //     $criminal_charges = $row['criminal_charges'];
+                //     $criminal_date_of_arrest = $row['criminal_date_of_arrest'];
+                //     $criminal_county_of_arrest = $row['criminal_county_of_arrest'];
+                //     $author_of_record = $row['author_of_record'];
+                // }
+         
+            } 
+        }catch(PDOException $e) {
             echo "Error: " . $e->getMessage();
-      }
-      $con = null;
+        }
+        $con = null;
     }
 //         $query = "SELECT * FROM records WHERE author_of_record = '$author_of_record'";
 //         $stmt = $con ->prepare($query);
