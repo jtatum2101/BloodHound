@@ -1,18 +1,22 @@
 <?php
-include_once 'header.php';
+session_start();
 include 'config.php';
-
 if($_POST){
-
-$email = $_POST['email'];
-$psw = $_POST['psw'];
-$query = "SELECT * FROM users WHERE email='$email' AND psw='$psw'";
-$stmt = $mysqli-> prepare($query);
-$result = mysqli_query($mysqli, $query);
-
-if(mysqli_num_rows($result) > 0){
-
-    while ($row = mysqli_fetch_array($result)){
+try {
+    $psw = $_POST['psw'];
+    $email = $_POST['email'];
+    // prepare sql and bind parameters
+    $query = "SELECT * FROM users WHERE email='$email' AND psw='$psw'";
+    $stmt = $con->prepare($query);
+    
+    $stmt->bindParam('email', $email);
+    $stmt->bindParam(':psw', $psw);
+    $stmt->bindParam(':role', $role);
+    $stmt->bindParam(':full_name', $full_name);
+    $row = $con->query($query);
+    $stmt->execute();
+    
+    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $psw = $row['psw'];
         $email = $row['email'];
         $role = $row['role'];
@@ -28,15 +32,18 @@ if(mysqli_num_rows($result) > 0){
             header("Location: dashboard-admin.php");
         }else if($_SESSION['role'] == 'officer'){
             header("Location: dashboard.php");
+        }else{
+            header("Location: register.php");
         }
-    }else{
-        die("error : This page does not exist. 404" );
     }
-    
-
-} else{
-    echo 'Invalid password or email';
 }
+
+
+    
+    catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+  }
+  $con = null;
 }
 ?>
 

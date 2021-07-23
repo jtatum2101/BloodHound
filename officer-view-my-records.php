@@ -1,14 +1,8 @@
 <?php
     session_start();
     include 'config.php';
-    if(isset($_POST['submit'])){
-        $mysqli = mysqli_connect("localhost", "root", "", "bloodhound");
-
-        /* check connection */
-        if (mysqli_connect_errno()) {
-            printf("Connect failed: %s\n", mysqli_connect_error());
-            exit();
-        }
+    if($_POST['submit']){
+        
         
         $query = "SELECT * FROM records";
         $result = mysqli_query($mysqli, $query);
