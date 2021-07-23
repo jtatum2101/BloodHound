@@ -1,25 +1,55 @@
 <?php
 
 session_start();
+include 'config.php';
 if($_POST){
-    include 'config.php';
-    $query = "INSERT INTO records (criminal_name, criminal_birth_date, criminal_weight, criminal_height, criminal_eye_color, criminal_hair_color, criminal_ethnicity, criminal_charges, criminal_date_of_arrest, criminal_county_of_arrest, author_of_record) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    $stmt = mysqli_prepare($db, $query);
-    if(mysqli_query($db,$query)){
-    $criminal_name = $_POST['criminal_name'];
-    $criminal_birth_date = $_POST['criminal_birth_date'];
-    $criminal_weight = $_POST['criminal_weight'];
-    $criminal_height = $_POST['criminal_height'];
-    $criminal_eye_color = $_POST['criminal_eye_color'];
-    $criminal_hair_color = $_POST['criminal_hair_color'];
-    $criminal_ethnicity = $_POST['criminal_ethnicity'];
-    $criminal_charges = $_POST['criminal_charges'];
-    $criminal_date_of_arrest = $_POST['criminal_date_of_arrest'];
-    $criminal_county_of_arrest = $_POST['criminal_county_of_arrest'];
-    $author_of_record = $_POST['author_of_record'];
-    $stmt->execute();
+    $mysqli = mysqli_connect("localhost","root","","bloodhound");
+
+// Check connection
+    if ($mysqli_connect_errno) {
+        echo "Failed to connect to MySQL: " . $mysqli_connect_error;
+        exit();
+    }
+    $extension = array('jpeg', 'png', 'jpg', 'gif');
+    
+    echo $filename = $_FILES['mugshot']['name'];
+    echo $mugshot = $_FILES['mugshot']['tmp_name'];
+    
+    echo '<br>';
+    $ext = pathinfo($filename, PATHINFO_EXTENSION);
+    $finalimg = '';
+    if(in_array($ext,$extension)){
+        if(!file_exists('img/'.$filename)){
+            move_uploaded_file($mugshot, '/opt/lampp/htdocs/BloodHound/img/'.$filename);
+            $finalimg = $filename;
+
+        }else{
+            $filename=str_replace('.', '-', basename($filename, $ext));
+            $newfilename=$filename.time(). ".".$ext;
+            $newfilename = move_uploaded_file($mugshot, '/opt/lampp/htdocs/BloodHound/img/'.basename($filename, $ext));
+            $finalimg = $newfilename;
+        }
+        $mugshot = $_FILES['mugshot']['tmp_name'];
+        $criminal_name = $_POST['criminal_name'];
+        $criminal_birth_date = $_POST['criminal_birth_date'];
+        $criminal_weight = $_POST['criminal_weight'];
+        $criminal_height = $_POST['criminal_height'];
+        $criminal_eye_color = $_POST['criminal_eye_color'];
+        $criminal_hair_color = $_POST['criminal_hair_color'];
+        $criminal_ethnicity = $_POST['criminal_ethnicity'];
+        $criminal_charges = $_POST['criminal_charges'];
+        $criminal_date_of_arrest = $_POST['criminal_date_of_arrest'];
+        $criminal_county_of_arrest = $_POST['criminal_county_of_arrest'];
+        $author_of_record = $_POST['author_of_record'];
+        $query = "INSERT INTO records (mugshot, criminal_name, criminal_birth_date, criminal_weight, criminal_height, criminal_eye_color, criminal_hair_color, criminal_ethnicity, criminal_charges, criminal_date_of_arrest, criminal_county_of_arrest, author_of_record) VALUES ( '$mugshot', '$criminal_name', '$criminal_birth_date', '$criminal_weight', '$criminal_height', '$criminal_eye_color', '$criminal_hair_color', '$criminal_ethnicity', '$criminal_charges', '$criminal_date_of_arrest', '$criminal_county_of_arrest', '$author_of_record')";
+        mysqli_query($mysqli, $query);
+        $stmt = mysqli_stmt_prepare($mysqli, $query);
+        mysqli_stmt_bind_param($stmt, 'ssssssssssss', $mugshot, $criminal_name, $criminal_birth_date, $criminal_weight, $criminal_height, $criminal_eye_color, $criminal_hair_color, $criminal_ethnicity, $criminal_charges, $criminal_date_of_arrest, $criminal_county_of_arrest, $author_of_record);
+        mysqli_stmt_execute($stmt);
+        header("Location: officer-view-my-records.php");
     }  
     }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -476,8 +506,8 @@ $(document).ready(function() {
             <br>
         </div>
         <div class="signup-form">
-            <form method="post" style="margin-left: 100px;margin-right: -100px;" action="uploadimage.php"
-                enctype="multipart/form-data">
+            <form method="post" style="margin-left: 100px;margin-right: -100px;" 
+                enctype="multipart/form-data" action="">
                 <h2>Create A Report</h2>
                 <p>Create a criminal record by providing this information!</p>
                 <div class="form-group">
@@ -587,7 +617,7 @@ $(document).ready(function() {
                 </div>
                 <div class="form-group">
                     <button type="submit" name="submit" class="btn btn-block btn-lg" style="background-color: #5A4E4D;"
-                        value="Upload">Create
+                        value="submit">Create
                         Record</button>
                 </div>
 

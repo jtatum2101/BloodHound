@@ -16,13 +16,13 @@ if($_POST){
         $admin_id= $_POST['admin_id'];
         $stmt->bind_param('sssssss', $full_name, $email, $psw, $role, $police_id, $admin_id);
         // prepare query for execution
-        if (mysqli_query($db, $query)) {
+        if (mysqli_query($mysqli, $query)) {
             echo "New record created successfully";
           } else {
-            echo "Error: " . $query . "<br>" . mysqli_error($db);
+            echo "Error: " . $query . "<br>" . mysqli_error($mysqli);
           }
           
-          mysqli_close($db);
+          mysqli_close($mysqli);
  
         // posted values
         

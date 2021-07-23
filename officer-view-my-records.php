@@ -1,47 +1,28 @@
 <?php
-
-session_start();
-?>
-<?php
+    session_start();
     include 'config.php';
-    
-    $query = "SELECT * FROM records WHERE author_of_record = 'Bob Dylan";
-     $stmt = $db->prepare($query);
-     if ($result = $db->query($query)) {
-         echo '<b><center>Database Output:</center></b>';
-        foreach ($result as $row) {
-            $row=mysqli_fetch_assoc($result);
-            echo '<img src="/opt/lampp/htdocs/BloodHound/img/{mugshot}"/>';
-            $col1name = $row['id'];
-            $col2name = $row['criminal_name'];
-            $col3name = $row['criminal_birth_date'];
-            $col4name = $row["criminal_weight"];
-            $col5name = $row["criminal_height"];
-            $col6name = $row['criminal_eye_color'];
-            $col7name = $row['criminal_hair_color'];
-            $col8name = $row['criminal_ethnicity'];
-            $col9name = $row['criminal_charges'];
-            $col10name = $row['criminal_date_of_arrest'];
-            $col11name = $row['criminal_county_of_arrest'];
-            $col12name = $row['author_of_record'];
+    if(isset($_POST['submit'])){
+        $mysqli = mysqli_connect("localhost", "root", "", "bloodhound");
 
-            echo "\n";
-            echo '<b>'.$col1name.'<br />';
-            echo '</b>'.$col2name. '<br />';
-            echo $col3name.'<br />';
-            echo $col4name.'<br />';
-            echo $col5name. '<br />';
-            echo $col6name. '<br />';
-            echo $col7name. '<br />';
-            echo $col8name. '<br />';
-            echo $col9name. '<br />';
-            echo $col10name. '<br />';
-            echo $col11name. '<br />';
-            echo $col12name. '<br />';
-            $stmt ->execute();
+        /* check connection */
+        if (mysqli_connect_errno()) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
         }
-        $db->close(); 
-    }
+        
+        $query = "SELECT * FROM records";
+        $result = mysqli_query($mysqli, $query);
+        if($stmt = mysqli_stmt_prepare($stmt, $query)){
+            mysqli_stmt_bind_param($stmt,'ssssssssssss', $mugshot, $criminal_name, $criminal_birth_date, $criminal_weight, $criminal_height, $criminal_eye_color, $criminal_hair_color, $criminal_ethnicity, $criminal_charges, $criminal_date_of_arrest, $criminal_county_of_arrest, $author_of_record);
+            mysqli_stmt_execute($stmt);
+            while($row = mysqli_fetch_assoc($result, MYSQLI_ASSOC)){
+                print_r("%s (%s)\n", $mugshot, $criminal_name, $criminal_birth_date, $criminal_weight, $criminal_height, $criminal_eye_color, $criminal_hair_color, $criminal_ethnicity, $criminal_charges, $criminal_date_of_arrest, $criminal_county_of_arrest, $author_of_record);
+            }
+            mysqli_stmt_close($stmt);
+        }
+        mysqli_close($mysqli); 
+        echo '<b><center>'.$_POST['criminal_name'].'</center></b>';
+}
 ?>
 
 

@@ -7,8 +7,8 @@ if($_POST){
 $email = $_POST['email'];
 $psw = $_POST['psw'];
 $query = "SELECT * FROM users WHERE email='$email' AND psw='$psw'";
-$stmt = $db-> prepare($query);
-$result = mysqli_query($db, $query);
+$stmt = $mysqli-> prepare($query);
+$result = mysqli_query($mysqli, $query);
 
 if(mysqli_num_rows($result) > 0){
 
