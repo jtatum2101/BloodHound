@@ -13,7 +13,7 @@ if($_POST){
     $extension = array('jpeg', 'png', 'jpg', 'gif');
     
     echo $filename = $_FILES['mugshot']['name'];
-    echo $mugshot = $_FILES['mugshot']['tmp_name'];
+    echo $mugshot = file_get_contents($_FILES['mugshot']['tmp_name']);
     
     echo '<br>';
     $ext = pathinfo($filename, PATHINFO_EXTENSION);
@@ -29,7 +29,7 @@ if($_POST){
             $newfilename = move_uploaded_file($mugshot, '/opt/lampp/htdocs/BloodHound/img/'.basename($filename, $ext));
             $finalimg = $newfilename;
         }
-        $mugshot = $_FILES['mugshot']['tmp_name'];
+        $mugshot = file_get_contents($_FILES['mugshot']['tmp_name']);
         $criminal_name = $_POST['criminal_name'];
         $criminal_birth_date = $_POST['criminal_birth_date'];
         $criminal_weight = $_POST['criminal_weight'];

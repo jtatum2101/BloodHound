@@ -9,7 +9,7 @@ try {
     $query = "SELECT * FROM users WHERE email='$email' AND psw='$psw'";
     $stmt = $con->prepare($query);
     
-    $stmt->bindParam('email', $email);
+    $stmt->bindParam(':email', $email);
     $stmt->bindParam(':psw', $psw);
     $stmt->bindParam(':role', $role);
     $stmt->bindParam(':full_name', $full_name);
@@ -45,6 +45,10 @@ try {
   }
   $con = null;
 }
+
+    
+
+
 ?>
 
 

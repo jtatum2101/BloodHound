@@ -1,22 +1,75 @@
 <?php
     session_start();
     include 'config.php';
-    if($_POST['submit']){
-        
-        
-        $query = "SELECT * FROM records";
-        $result = mysqli_query($mysqli, $query);
-        if($stmt = mysqli_stmt_prepare($stmt, $query)){
-            mysqli_stmt_bind_param($stmt,'ssssssssssss', $mugshot, $criminal_name, $criminal_birth_date, $criminal_weight, $criminal_height, $criminal_eye_color, $criminal_hair_color, $criminal_ethnicity, $criminal_charges, $criminal_date_of_arrest, $criminal_county_of_arrest, $author_of_record);
-            mysqli_stmt_execute($stmt);
-            while($row = mysqli_fetch_assoc($result, MYSQLI_ASSOC)){
-                print_r("%s (%s)\n", $mugshot, $criminal_name, $criminal_birth_date, $criminal_weight, $criminal_height, $criminal_eye_color, $criminal_hair_color, $criminal_ethnicity, $criminal_charges, $criminal_date_of_arrest, $criminal_county_of_arrest, $author_of_record);
+    if($_POST){
+        try{
+            $mugshot = file_get_contents($_FILES['mugshot']['tmp_name']);
+            $criminal_name = $_POST['criminal_name'];
+            $criminal_birth_date = $_POST['criminal_birth_date'];
+            $criminal_weight = $_POST['criminal_weight'];
+            $criminal_height = $_POST['criminal_height'];
+            $criminal_eye_color = $_POST['criminal_eye_color'];
+            $criminal_hair_color = $_POST['criminal_hair_color'];
+            $criminal_ethnicity = $_POST['criminal_ethnicity'];
+            $criminal_charges = $_POST['criminal_charges'];
+            $criminal_date_of_arrest = $_POST['criminal_date_of_arrest'];
+            $criminal_county_of_arrest = $_POST['criminal_county_of_arrest'];
+            $author_of_record = $_POST['author_of_record'];
+            $stmt = $con->prepare("SELECT * FROM records WHERE author_of_record = ?");
+            $stmt->bindParam(':mugshot', $mugshot);
+            $stmt->bindParam(':criminal_name', $criminal_name);
+            $stmt->bindParam(':criminal_birth_date', $criminal_birth_date);
+            $stmt->bindParam(':criminal_weight', $criminal_weight);
+            $stmt->bindParam(':criminal_height', $criminal_height);
+            $stmt->bindParam(':criminal_eye_color', $criminal_eye_color);
+            $stmt->bindParam(':criminal_hair_color', $criminal_hair_color);
+            $stmt->bindParam(':criminal_ethnicity', $criminal_ethnicity);
+            $stmt->bindParam(':criminal_charges', $criminal_charges);
+            $stmt->bindParam(':criminal_date_of_arrest', $criminal_date_of_arrest);
+            $stmt->bindParam(':criminal_county_of_arrest', $criminal_county_of_arrest);
+            $stmt->bindParam(':author_of_record', $author_of_record);
+            $stmt->execute([$_POST['author_of_record']]); 
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $mugshot = $row['mugshot'];
+                $criminal_name = $row['criminal_name'];
+                $criminal_birth_date = $row['criminal_birth_date'];
+                $criminal_weight = $row['criminal_weight'];
+                echo $criminal_height = $row['criminal_height'];
+                echo $criminal_eye_color = $row['criminal_eye_color'];
+                echo $criminal_hair_color = $row['criminal_hair_color'];
+                echo $criminal_ethnicity = $row['criminal_ethnicity'];
+                echo $criminal_charges = $row['criminal_charges'];
+                echo $criminal_date_of_arrest = $row['criminal_date_of_arrest'];
+                echo $criminal_county_of_arrest = $row['criminal_county_of_arrest'];
+                echo $author_of_record = $row['author_of_record'];
             }
-            mysqli_stmt_close($stmt);
-        }
-        mysqli_close($mysqli); 
-        echo '<b><center>'.$_POST['criminal_name'].'</center></b>';
-}
+        } catch(PDOException $e) {
+            echo "Error: " . $e->getMessage();
+      }
+      $con = null;
+    }
+//         $query = "SELECT * FROM records WHERE author_of_record = '$author_of_record'";
+//         $stmt = $con ->prepare($query);
+//         $data = $pdo->query("SELECT * FROM records")->fetchAll();
+// // and somewhere later:
+//         foreach ($data as $row) {
+//             echo $row['name']."<br />\n";
+//         }
+
+//         while ($row = $stmt->fetch()) {
+//             echo $row['criminal_name']."<br />\n";
+        // $result = mysqli_query($mysqli, $query);
+        // if($stmt = mysqli_stmt_prepare($stmt, $query)){
+        //     mysqli_stmt_bind_param($stmt,'ssssssssssss', $mugshot, $criminal_name, $criminal_birth_date, $criminal_weight, $criminal_height, $criminal_eye_color, $criminal_hair_color, $criminal_ethnicity, $criminal_charges, $criminal_date_of_arrest, $criminal_county_of_arrest, $author_of_record);
+        //     mysqli_stmt_execute($stmt);
+        //     while($row = mysqli_fetch_assoc($result, MYSQLI_ASSOC)){
+        //         print_r("%s (%s)\n", $mugshot, $criminal_name, $criminal_birth_date, $criminal_weight, $criminal_height, $criminal_eye_color, $criminal_hair_color, $criminal_ethnicity, $criminal_charges, $criminal_date_of_arrest, $criminal_county_of_arrest, $author_of_record);
+        //     }
+        //     mysqli_stmt_close($stmt);
+        // }
+        // mysqli_close($mysqli); 
+        // echo '<b><center>'.$_POST['criminal_name'].'</center></b>';
+        
 ?>
 
 
