@@ -20,7 +20,6 @@
             $stmt->bindParam(':author_of_record', $author_of_record);
             while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                 var_dump($row);
-                
                 }
                   
          
@@ -288,7 +287,7 @@ $(document).ready(function() {
     <?php
         include 'sidenav.php';
     ?>
-    <img src="<?php $mugshot= "uploads/${$row['mugshot']}" ?>" />
+    <img src="<?= "uploads/{$row['mugshot']}" ?>"" />
 
 </body>
 
