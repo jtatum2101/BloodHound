@@ -6,14 +6,10 @@ try {
     $psw = $_POST['psw'];
     $email = $_POST['email'];
     // prepare sql and bind parameters
-    $query = "SELECT * FROM users WHERE email='$email' AND psw='$psw'";
+    $query = "SELECT * FROM users WHERE email = :email AND psw = :psw";
     $stmt = $con->prepare($query);
-    
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':psw', $psw);
-    $stmt->bindParam(':role', $role);
-    $stmt->bindParam(':full_name', $full_name);
-    $row = $con->query($query);
     $stmt->execute();
     
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -21,7 +17,7 @@ try {
         $email = $row['email'];
         $role = $row['role'];
         $full_name = $row['full_name'];
-        session_start();
+        
         $_SESSION['psw'] = $psw;
         $_SESSION['email'] = $email;
         $_SESSION['role'] = $role;
@@ -212,6 +208,11 @@ try {
 </head>
 
 <body class="register">
+    <?php
+        include 'header.php';
+
+
+    ?>
     <div class="signup-form">
         <form method="post">
             <h2>Log In</h2>
