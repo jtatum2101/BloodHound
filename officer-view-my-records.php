@@ -1,82 +1,32 @@
 <?php
     session_start();
     include 'config.php';
-    if($_POST){
         try{
-            $mugshot = file_get_contents($_FILES['mugshot']['tmp_name']);
-            $criminal_name = $_POST['criminal_name'];
-            $criminal_birth_date = $_POST['criminal_birth_date'];
-            $criminal_weight = $_POST['criminal_weight'];
-            $criminal_height = $_POST['criminal_height'];
-            $criminal_eye_color = $_POST['criminal_eye_color'];
-            $criminal_hair_color = $_POST['criminal_hair_color'];
-            $criminal_ethnicity = $_POST['criminal_ethnicity'];
-            $criminal_charges = $_POST['criminal_charges'];
-            $criminal_date_of_arrest = $_POST['criminal_date_of_arrest'];
-            $criminal_county_of_arrest = $_POST['criminal_county_of_arrest'];
-            $author_of_record = $_POST['author_of_record'];
-            $query = "SELECT * FROM records WHERE author_of_record = ?";
+            
+            $query = "SELECT * FROM records";
             $stmt = $con->prepare($query);
-            $rows = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            if(count($stmt) > 0){
-                $stmt->bindParam(':mugshot', $mugshot);
-                $stmt->bindParam(':criminal_name', $criminal_name);
-                $stmt->bindParam(':criminal_birth_date', $criminal_birth_date);
-                $stmt->bindParam(':criminal_weight', $criminal_weight);
-                $stmt->bindParam(':criminal_height', $criminal_height);
-                $stmt->bindParam(':criminal_eye_color', $criminal_eye_color);
-                $stmt->bindParam(':criminal_hair_color', $criminal_hair_color);
-                $stmt->bindParam(':criminal_ethnicity', $criminal_ethnicity);
-                $stmt->bindParam(':criminal_charges', $criminal_charges);
-                $stmt->bindParam(':criminal_date_of_arrest', $criminal_date_of_arrest);
-                $stmt->bindParam(':criminal_county_of_arrest', $criminal_county_of_arrest);
-                $stmt->bindParam(':author_of_record', $author_of_record);
-                foreach($con->query($query) as $row){
-                    echo $row['criminal_name'];
+            $stmt->execute();
+            $stmt->bindParam(':mugshot', $mugshot);
+            $stmt->bindParam(':criminal_name', $criminal_name);
+            $stmt->bindParam(':criminal_birth_date', $criminal_birth_date);
+            $stmt->bindParam(':criminal_weight', $criminal_weight);
+            $stmt->bindParam(':criminal_height', $criminal_height);
+            $stmt->bindParam(':criminal_eye_color', $criminal_eye_color);
+            $stmt->bindParam(':criminal_hair_color', $criminal_hair_color);
+            $stmt->bindParam(':criminal_ethnicity', $criminal_ethnicity);
+            $stmt->bindParam(':criminal_charges', $criminal_charges);
+            $stmt->bindParam(':criminal_date_of_arrest', $criminal_date_of_arrest);
+            $stmt->bindParam(':criminal_county_of_arrest', $criminal_county_of_arrest);
+            $stmt->bindParam(':author_of_record', $author_of_record);
+            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                var_dump($row);
+                
                 }
-                // while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                //     $mugshot = $row['mugshot'];
-                //     $criminal_name = $row['criminal_name'];
-                //     $criminal_birth_date = $row['criminal_birth_date'];
-                //     $criminal_weight = $row['criminal_weight'];
-                //     $criminal_height = $row['criminal_height'];
-                //     $criminal_eye_color = $row['criminal_eye_color'];
-                //     $criminal_hair_color = $row['criminal_hair_color'];
-                //     $criminal_ethnicity = $row['criminal_ethnicity'];
-                //     $criminal_charges = $row['criminal_charges'];
-                //     $criminal_date_of_arrest = $row['criminal_date_of_arrest'];
-                //     $criminal_county_of_arrest = $row['criminal_county_of_arrest'];
-                //     $author_of_record = $row['author_of_record'];
-                // }
+                  
          
-            } 
-        }catch(PDOException $e) {
-            echo "Error: " . $e->getMessage();
-        }
-        $con = null;
-    }
-//         $query = "SELECT * FROM records WHERE author_of_record = '$author_of_record'";
-//         $stmt = $con ->prepare($query);
-//         $data = $pdo->query("SELECT * FROM records")->fetchAll();
-// // and somewhere later:
-//         foreach ($data as $row) {
-//             echo $row['name']."<br />\n";
-//         }
-
-//         while ($row = $stmt->fetch()) {
-//             echo $row['criminal_name']."<br />\n";
-        // $result = mysqli_query($mysqli, $query);
-        // if($stmt = mysqli_stmt_prepare($stmt, $query)){
-        //     mysqli_stmt_bind_param($stmt,'ssssssssssss', $mugshot, $criminal_name, $criminal_birth_date, $criminal_weight, $criminal_height, $criminal_eye_color, $criminal_hair_color, $criminal_ethnicity, $criminal_charges, $criminal_date_of_arrest, $criminal_county_of_arrest, $author_of_record);
-        //     mysqli_stmt_execute($stmt);
-        //     while($row = mysqli_fetch_assoc($result, MYSQLI_ASSOC)){
-        //         print_r("%s (%s)\n", $mugshot, $criminal_name, $criminal_birth_date, $criminal_weight, $criminal_height, $criminal_eye_color, $criminal_hair_color, $criminal_ethnicity, $criminal_charges, $criminal_date_of_arrest, $criminal_county_of_arrest, $author_of_record);
-        //     }
-        //     mysqli_stmt_close($stmt);
-        // }
-        // mysqli_close($mysqli); 
-        // echo '<b><center>'.$_POST['criminal_name'].'</center></b>';
-        
+            } catch(PDOException $e) {
+                 echo "Error: " . $e->getMessage();
+            }
 ?>
 
 
@@ -218,11 +168,11 @@ a:hover {
 
     #sidenav .logo a {
         font-size: 20px;
-    }
+    }   
 
-    #sidenav .logo a.nav-icon {
-        display: inline;
-    }
+    #sidenav .logo a.nav-icon { 
+        display: inline;    
+    }   
 
     #sidenav .menu {
         display: none;
@@ -335,86 +285,10 @@ $(document).ready(function() {
 
 
 <body style="margin-left: 300px;">
-    <div class="app">
-        <div id="sidenav">
-            <div class="wrapper">
-                <h1 class="page-title" style="color:#5A4E4D; font-family: 'Playfair Display', serif;">BloodHound:
-                </h1>
-                <div class="accordion" id="accordionExample">
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
-                            <h2 class="clearfix mb-0">
-                                <a class="btn btn-link" style="font-size: 20px; font-family: 'Playfair Display', serif;"
-                                    data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                                    aria-controls="collapseOne"><i
-                                        class="fa fa-chevron-circle-down"></i><?php echo $_SESSION['full_name']?></a>
-                            </h2>
-                        </div>
-                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-                            data-parent="#accordionExample">
-                            <div class="card-body">
-                                <ul>
-                                    <li><a href="officer-profile/officer-profile.php"
-                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
-                                            Profile</a></li>
-                                    <hr>
-                                    <li><a href="officer-profile/officer-profile-settings.php"
-                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Profile
-                                            Settings</a></li>
-                                    <hr>
-                                    <li><a href="officer-profile/officer-profile-change-password.php"
-                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Change
-                                            Password</a></li>
-                                    <hr>
-                                    <li><a href="logout.php"
-                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Log
-                                            Out</a></li>
-                                    <hr>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingTwo">
-                            <h2 class="mb-0">
-                                <a style="font-size: 20px; font-family: 'Playfair Display', serif;"
-                                    class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                                    aria-expanded="false" aria-controls="collapseTwo"><i
-                                        class="fa fa-chevron-circle-down"></i>Records</a>
-                            </h2>
-                        </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                            data-parent="#accordionExample">
-                            <div class="card-body">
-                                <ul style="text-align: left;">
-                                    <li><a href="officer-create-record.php"
-                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Create
-                                            A Record</a></li>
-                                    <hr>
-                                    <li><a href="officer-view-my-records.php"
-                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
-                                            My Records</a></li>
-                                    <hr>
-                                    <li><a href="officer-view-by-charge.php"
-                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
-                                            My Records by Charge</a></li>
-                                    <hr>
-                                    <li><a href="officer-view-by-name.php"
-                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
-                                            My Records by Name</a></li>
-                                    <hr>
-                                </ul>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <br>
-
-        </div>
-    </div>
+    <?php
+        include 'sidenav.php';
+    ?>
+    <img src="<?php $mugshot= "uploads/${$row['mugshot']}" ?>" />
 
 </body>
 
