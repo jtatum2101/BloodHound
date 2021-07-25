@@ -18,9 +18,6 @@
             $stmt->bindParam(':criminal_date_of_arrest', $criminal_date_of_arrest);
             $stmt->bindParam(':criminal_county_of_arrest', $criminal_county_of_arrest);
             $stmt->bindParam(':author_of_record', $author_of_record);
-            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                var_dump($row);
-                }
                   
          
             } catch(PDOException $e) {
@@ -287,7 +284,10 @@ $(document).ready(function() {
     <?php
         include 'sidenav.php';
     ?>
-    <img src="<?= "uploads/{$row['mugshot']}" ?>"" />
+    
+    <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
+                <img src="<?= "uploads/{$row['mugshot']}" ?>" height="64" width="64"/>
+             <?php endwhile; ?>
 
 </body>
 
