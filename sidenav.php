@@ -17,17 +17,6 @@
                         data-parent="#accordionExample">
                         <div class="card-body">
                             <ul>
-                                <li><a href="officer-profile/officer-profile.php"
-                                        style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
-                                        Profile</a></li>
-                                <hr>
-                                <li><a href="officer-profile/officer-profile-settings.php"
-                                        style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Profile
-                                        Settings</a></li>
-                                <hr>
-                                <li><a href="officer-profile/officer-profile-change-password.php"
-                                        style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Change
-                                        Password</a></li>
                                 <hr>
                                 <li><a href="logout.php"
                                         style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Log
@@ -57,14 +46,6 @@
                                 <li><a href="officer-view-my-records.php"
                                         style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                         My Records</a></li>
-                                <hr>
-                                <li><a href="officer-view-by-charge.php"
-                                        style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
-                                        My Records by Charge</a></li>
-                                <hr>
-                                <li><a href="officer-view-by-name.php"
-                                        style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
-                                        My Records by Name</a></li>
                                 <hr>
                             </ul>
 
