@@ -209,7 +209,7 @@ try {
 
 <body class="register">
     <?php
-        include 'header.php';
+        include 'navbar.php';
 
 
     ?>
