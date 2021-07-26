@@ -280,50 +280,46 @@ $(document).ready(function() {
 </script>
 
 
-<body style="margin-left: 300px;">
+<body style="margin-left: 300px; background-color: #5A4E4D;">
     <?php
         include 'sidenav.php';
     ?>
     
+    <table class="table table-bordered table-dark">
+  <tbody>
     <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
-        <img src="<?= "uploads/{$row['mugshot']}" ?>" height="120" width="120"/>
-        <ul>
-            <li>
-                 $row['criminal_name'];
-            </li>
-            <li>
-                $row['criminal_birth_date'];
-            </li>
-            <li>
-                $row['criminal_weight'];
-            </li>
-            <li>
-                $row['criminal_height'];
-            </li>
-            <li>
-                $row['criminal_eye_color'];
-            </li>
-            <li>
-                $row['criminal_hair_color'];
-            </li>
-            <li>
-                $row['criminal_ethinicity'];           
-            </li>
-            <li>
-                $row['criminal_charges'];
-            </li>
-            <li>
-                $row['criminal_date_of_arrest'];
-            </li>
-            <li>
-                $row['criminal_county_of_arrest'];
-            </li>
-            <li>
-                $row['author_of_record'];
-            </li>
-        </ul>
+      <tr>
+      <thead>
+    <tr>
+      <th scope="col">Mugshot</th>
+      <th scope="col">Name</th>
+      <th scope="col">Birth Date</th>
+      <th scope="col">Weight(lbs)</th>
+      <th scope="col">Height(inches)</th>
+      <th scope="col">Eye Color</th>
+      <th scope="col">Hair Color</th>
+      <th scope="col">Ethnicity</th>
+      <th scope="col">Charges</th>
+      <th scope="col">Date Of Arrest</th>
+      <th scope="col">County Of Arrest</th>
+      <th scope="col">Officer</th>
+    </tr>
+  </thead>
+        <td><img src="<?= "uploads/{$row['mugshot']}" ?>" height="120" width="120"/></td>
+        <td><?= $row['criminal_name']; ?></td>
+        <td><?= $row['criminal_birth_date']; ?></td>
+        <td><?= $row['criminal_weight']; ?></td>
+        <td><?= $row['criminal_height']; ?></td>
+        <td><?= $row['criminal_eye_color']; ?></td>
+        <td><?= $row['criminal_hair_color']; ?></td>
+        <td><?= $row['criminal_ethnicity']; ?></td>
+        <td><?= $row['criminal_charges']; ?></td>
+        <td><?= $row['criminal_date_of_arrest']; ?></td>
+        <td><?= $row['criminal_county_of_arrest']; ?></td>
+        <td><?= $row['author_of_record']; ?></td>
+      </tr>
     <?php endwhile; ?>
-
+  </tbody>
+</table>
 </body>
-
 </html>
