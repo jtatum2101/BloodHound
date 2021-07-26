@@ -292,11 +292,11 @@ $(document).ready(function() {
                             data-parent="#accordionExample">
                             <div class="card-body">
                                 <ul>
-                                    <li><a href="admin-users/admin-view-all-users.php"
+                                    <li><a href="admin-view-all-users.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             All Users</a></li>
                                     <hr>
-                                    <li><a href="admin-users/admin/delete-an-user.php"
+                                    <li><a href="admin/delete-an-user.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Delete
                                             A User</a></li>
                                     <hr>
@@ -318,7 +318,7 @@ $(document).ready(function() {
                             data-parent="#accordionExample">
                             <div class="card-body">
                                 <ul>
-                                    <li><a href="admin-records-edit.php"
+                                    <li><a href="admin-records-edit-a-record.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Edit
                                             A Record</a></li>
                                     <hr>
@@ -326,17 +326,8 @@ $(document).ready(function() {
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             All Records</a></li>
                                     <hr>
-                                    <li><a href="admin-records-view-by-charge.php"
-                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
-                                            A Record By Charge</a>
-                                        <hr>
                                     </li>
-                                    <li><a href="admin-records-view-by-name.php"
-                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
-                                            A Record By Name</a>
-                                        <hr>
-                                    </li>
-                                    <li><a href="admin-records-delete.php"
+                                    <li><a href="admin-records-delete-a-record.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Delete
                                             A Record</a></li>
                                     <hr>
@@ -357,22 +348,13 @@ $(document).ready(function() {
                             data-parent="#accordionExample">
                             <div class="card-body">
                                 <ul>
-                                    <li><a href="admin-counties-create.php"
+                                    <li><a href="admin-counties-create-a-county.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Create
                                             A County</a></li>
                                     <hr>
-                                    <li><a href="admin-counties-edit.php"
-                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Edit
-                                            A County</a></li>
-                                    <hr>
-                                    <li><a href="admin-counties-delete.php"
+                                    <li><a href="admin-counties-delete-a-county.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Delete
                                             A County</a></li>
-                                    <hr>
-                                    <li><a href="admin-counties-assign-officer-to-county.php"
-                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Assign
-                                            An Officer to A
-                                            County</a></li>
                                     <hr>
                                 </ul>
                             </div>
