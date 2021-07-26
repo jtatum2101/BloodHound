@@ -3,10 +3,9 @@
     session_start();
     include 'config.php';
         try{
-            print_r($_GET['id']);
             $id=isset($_GET['id']) ? $_GET['id'] : die('ERROR: Record ID not found.');
 
-            $query = "SELECT *  FROM records WHERE id = '$id' ";
+            $query = "SELECT *  FROM records WHERE id = '$id'";
             $stmt = $con->prepare($query);
             $stmt->execute();
             $stmt->bindParam(':criminal_eye_color', $criminal_eye_color);
@@ -35,7 +34,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.3/css/all.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
@@ -407,8 +409,7 @@ $(document).ready(function() {
                     <span class="input-group-addon">
                         <i class="fa fa-eye"></i>
                     </span>
-                    <input type="text" class="form-control" name="criminal_eye_color" placeholder="Criminal Eye Color"
-                        required="required">
+                    <input type="text" class="form-control" value="<?= $row['criminal_eye_color'] ?>" name="criminal_eye_color" />
                 </div>
             </div>
             <div class="form-group">
@@ -416,8 +417,7 @@ $(document).ready(function() {
                     <span class="input-group-addon">
                         <i class="fa fa-user"></i>
                     </span>
-                    <input type="text" class="form-control" name="criminal_hair_color" placeholder="Criminal Hair Color"
-                        required="required">
+                    <input type="text" class="form-control" value="<?= $row['criminal_hair_color'] ?>" name="criminal_hair_color" />
                 </div>
             </div>
             <div class="form-group">
@@ -425,17 +425,15 @@ $(document).ready(function() {
                         <span class="input-group-addon">
                             <i class="fa fa-gavel"></i>
                         </span>
-                        <input type="text" class="form-control" name="criminal_charges" placeholder="Criminal Charges"
-                            required="required">
+                        <input type="text" class="form-control" value="<?= $row['criminal_charges'] ?>" name="criminal_charges" />
                     </div>
             </div>
             <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon">
-                            <i class="fa fa-flag-usa"></i>
+                            <i class="fas fa-flag-usa"></i>
                         </span>
-                        <input type="text" class="form-control" name="criminal_county_of_arrest"
-                            placeholder="County of Arrest" required="required">
+                        <input type="text" class="form-control" value="<?= $row['criminal_county_of_arrest'] ?>" name="criminal_county_of_arrest" />
                     </div>
             </div>
             <div class="form-group">
@@ -443,8 +441,7 @@ $(document).ready(function() {
                         <span class="input-group-addon">
                             <i class="fa fa-id-badge"></i>
                         </span>
-                        <input type="text" class="form-control" name="author_of_record"
-                            placeholder="Who filed this report" required="required">
+                        <input type="text" class="form-control" value="<?= $row['author_of_record'] ?>" name="author_of_record" />
                     </div>
             </div>
             <input type="hidden" name="id" value="<?= $row['id'] ?>" />
@@ -455,6 +452,24 @@ $(document).ready(function() {
             </div>
         </form>
     </div>
+    <?php
+        if(isset($_POST['id'])){
+            echo 'Record is updated!!!';
+            try{
+            $query = "UPDATE records SET (criminal_eye_color = :criminal_eye_color, criminal_hair_color = :criminal_hair_color, criminal_charges = :criminal_charges, criminal_county_of_arrest = :criminal_county_of_arrest, author_of_record = :author_of_record) WHERE id = '" . $_POST['id'] . "'";
+            $stmt = $con->prepare($query);
+            $stmt->execute();
+            $stmt->bindParam(':criminal_eye_color', $criminal_eye_color);
+            $stmt->bindParam(':criminal_hair_color', $criminal_hair_color);
+            $stmt->bindParam(':criminal_charges', $criminal_charges);
+            $stmt->bindParam(':criminal_county_of_arrest', $criminal_county_of_arrest);
+            $stmt->bindParam(':author_of_record', $author_of_record);
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            }catch (Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+        }
+?>
 
 </body>
 </html>
