@@ -2,25 +2,32 @@
 
     session_start();
     include 'config.php';
+    if(isset($_POST['id'])){
+        try{
+            $updated = "UPDATE records SET criminal_eye_color = :criminal_eye_color, criminal_hair_color = :criminal_hair_color, criminal_charges = :criminal_charges, criminal_county_of_arrest = :criminal_county_of_arrest, author_of_record = :author_of_record WHERE id = '" . $_POST['id'] . "'";
+            $stmt = $con->prepare($updated);
+            $stmt->bindParam(':criminal_eye_color', $_POST['criminal_eye_color']);
+            $stmt->bindParam(':criminal_hair_color', $_POST['criminal_hair_color']);
+            $stmt->bindParam(':criminal_charges', $_POST['criminal_charges']);
+            $stmt->bindParam(':criminal_county_of_arrest', $_POST['criminal_county_of_arrest']);
+            $stmt->bindParam(':author_of_record', $_POST['author_of_record']);
+            $stmt->execute();
+            echo 'Record is updated!!!';
+        }catch (Exception $e){
+            echo "Error: " . $e->getMessage();
+        }
+    }
         try{
             $id=isset($_GET['id']) ? $_GET['id'] : die('ERROR: Record ID not found.');
 
             $query = "SELECT *  FROM records WHERE id = '$id'";
             $stmt = $con->prepare($query);
             $stmt->execute();
-            $stmt->bindParam(':criminal_eye_color', $criminal_eye_color);
-            $stmt->bindParam(':criminal_hair_color', $criminal_hair_color);
-            $stmt->bindParam(':criminal_charges', $criminal_charges);
-            $stmt->bindParam(':criminal_county_of_arrest', $criminal_county_of_arrest);
-            $stmt->bindParam(':author_of_record', $author_of_record);
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             
         }catch (PDOException $e){
             echo "Error: " . $e->getMessage();
         }
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -452,24 +459,7 @@ $(document).ready(function() {
             </div>
         </form>
     </div>
-    <?php
-        if(isset($_POST['id'])){
-            echo 'Record is updated!!!';
-            try{
-            $query = "UPDATE records SET (criminal_eye_color = :criminal_eye_color, criminal_hair_color = :criminal_hair_color, criminal_charges = :criminal_charges, criminal_county_of_arrest = :criminal_county_of_arrest, author_of_record = :author_of_record) WHERE id = '" . $_POST['id'] . "'";
-            $stmt = $con->prepare($query);
-            $stmt->execute();
-            $stmt->bindParam(':criminal_eye_color', $criminal_eye_color);
-            $stmt->bindParam(':criminal_hair_color', $criminal_hair_color);
-            $stmt->bindParam(':criminal_charges', $criminal_charges);
-            $stmt->bindParam(':criminal_county_of_arrest', $criminal_county_of_arrest);
-            $stmt->bindParam(':author_of_record', $author_of_record);
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            }catch (Exception $e){
-                echo "Error: " . $e->getMessage();
-            }
-        }
-?>
+    
 
 </body>
 </html>

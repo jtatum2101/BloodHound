@@ -5,7 +5,6 @@
             
             $query = "SELECT * FROM records";
             $stmt = $con->prepare($query);
-            $stmt->execute();
             $stmt->bindParam(':mugshot', $mugshot);
             $stmt->bindParam(':criminal_name', $criminal_name);
             $stmt->bindParam(':criminal_birth_date', $criminal_birth_date);
@@ -18,7 +17,7 @@
             $stmt->bindParam(':criminal_date_of_arrest', $criminal_date_of_arrest);
             $stmt->bindParam(':criminal_county_of_arrest', $criminal_county_of_arrest);
             $stmt->bindParam(':author_of_record', $author_of_record);
-                  
+            $stmt->execute();      
          
             } catch(PDOException $e) {
                  echo "Error: " . $e->getMessage();
@@ -317,8 +316,8 @@ $(document).ready(function() {
         <td><?= $row['criminal_date_of_arrest']; ?></td>
         <td><?= $row['criminal_county_of_arrest']; ?></td>
         <td><?= $row['author_of_record']; ?></td>
-        <td><a href="admin-records-edit-a-record.php?id=<?= $row['id'] ?>">Edit Record</a>
-        <td><a href="admin-records-delete-a-record.php?id={$row['id']}">Delete Record</a></td>
+        <td><a href="admin-records-edit-a-record.php?id=<?= $row['id'] ?>"><i class="fa fa-pencil"></i></a></td>
+        <td><a href="admin-records-delete-a-record.php?id={$row['id']}"><i class="fa fa-trash"></i></a></td>
       </tr>
     <?php endwhile; ?>
   </tbody>
