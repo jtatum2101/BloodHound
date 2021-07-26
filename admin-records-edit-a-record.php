@@ -6,7 +6,7 @@
             print_r($_GET['id']);
             $id=isset($_GET['id']) ? $_GET['id'] : die('ERROR: Record ID not found.');
 
-            $query = "SELECT * FROM records WHERE id = '$id' ";
+            $query = "SELECT *  FROM records WHERE id = '$id' ";
             $stmt = $con->prepare($query);
             $stmt->execute();
             $stmt->bindParam(':criminal_eye_color', $criminal_eye_color);
@@ -453,14 +453,6 @@ $(document).ready(function() {
                         value="submit">Update
                         Record</button>
             </div>
-            <?php
-
-                if(isset($_POST['id'])){
-                    $update = "UPDATE (criminal_eye_color, criminal_hair_color, criminal_charges, criminal_county_of_arrest, author_of_record";
-                   
-                }
-
-            ?>
         </form>
     </div>
 
