@@ -64,19 +64,11 @@
                             data-parent="#accordionExample">
                             <div class="card-body">
                                 <ul>
-                                    <li><a href="admin-records-edit-a-record.php"
-                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Edit
-                                            A Record</a></li>
-                                    <hr>
                                     <li><a href="admin-records-view-all-records.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             All Records</a></li>
                                     <hr>
-                                    </li>
-                                    <li><a href="admin-records-delete-a-record.php"
-                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Delete
-                                            A Record</a></li>
-                                    <hr>
+                                   
                                 </ul>
                             </div>
                         </div>
