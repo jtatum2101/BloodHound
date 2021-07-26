@@ -286,8 +286,8 @@ $(document).ready(function() {
     ?>
     
     <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
-                <img src="<?= "uploads/{$row['mugshot']}" ?>" height="64" width="64"/>
-             <?php endwhile; ?>
+        <img src="<?= "uploads/{$row['mugshot']}" ?>" height="64" width="64"/>
+    <?php endwhile; ?>
 
 </body>
 
