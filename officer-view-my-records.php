@@ -287,6 +287,41 @@ $(document).ready(function() {
     
     <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
         <img src="<?= "uploads/{$row['mugshot']}" ?>" height="64" width="64"/>
+        <ul>
+            <li>
+                 $row['criminal_name'];
+            </li>
+            <li>
+                $row['criminal_birth_date'];
+            </li>
+            <li>
+                $row['criminal_weight'];
+            </li>
+            <li>
+                $row['criminal_height'];
+            </li>
+            <li>
+                $row['criminal_eye_color'];
+            </li>
+            <li>
+                $row['criminal_hair_color'];
+            </li>
+            <li>
+                $row['criminal_ethinicity'];           
+            </li>
+            <li>
+                $row['criminal_charges'];
+            </li>
+            <li>
+                $row['criminal_date_of_arrest'];
+            </li>
+            <li>
+                $row['criminal_county_of_arrest'];
+            </li>
+            <li>
+                $row['author_of_record'];
+            </li>
+        </ul>
     <?php endwhile; ?>
 
 </body>
