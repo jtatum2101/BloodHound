@@ -4,20 +4,9 @@ session_start();
 include 'config.php';
 
 
-if(isset($_POST['id'])){
-    try{
-        $deleted = "DELETE FROM records WHERE id = '" . $_POST['id'] . "'";
-        $stmt = $con->prepare($deleted);
-        $stmt->execute();
-        echo 'Record is Deleteed!';
-        
-    }catch (Exception $e){
-        "Error: " . $e->getMessage();
-    }
-}
-    try{
-        $id=isset($_GET['id']) ? $_GET['id'] : die('ERROR: Record ID not found.');
+    $id=isset($_GET['id']) ? $_GET['id'] : die('ERROR: Record ID not found.');
 
+    try{
         $query = "SELECT *  FROM records WHERE id = '$id'";
         $stmt = $con->prepare($query);
         $stmt->execute();
@@ -26,6 +15,20 @@ if(isset($_POST['id'])){
     }catch (PDOException $e){
         echo "Error: " . $e->getMessage();
     }
+    if(isset($_POST['delete'])) {
+        try{
+            $deleted = "DELETE FROM records WHERE id = '" . $id . "'";
+            $stmt = $con->prepare($deleted);
+            $stmt->execute();
+            header("Location: admin-records-view-all-records.php");
+        
+        }catch (Exception $e){
+            "Error: " . $e->getMessage();
+        }
+    }
+
+
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -383,7 +386,6 @@ span {
 input {
     background: #F8F5F2;
 }
-
 </style>
 
 <script>
@@ -400,3 +402,124 @@ $(document).ready(function() {
     });
 });
 </script>
+
+<body class="register">
+    <?php
+        include 'sidenav-admin.php';
+    ?>
+    <div class="signup-form">
+        <form method="post" style="margin-left: 100px; margin-right: -100px;" action="" >
+            <div class="form-group">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-user"></i>
+                        </span>
+                        <input type="text" class="form-control" name="criminal_name"
+                            value="<?= $row['criminal_name'] ?>"
+                                required="required" readonly />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-birthday-cake"></i>
+                        </span>
+                        <input type="date" class="form-control" name="criminal_birth_date"
+                            value="<?= $row['criminal_birth_date'] ?>" required="required" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-weight"></i>
+                        </span>
+                        <input type="number" class="form-control" name="criminal_weight"
+                            value="<?= $row['criminal_weight'] ?>" required="required" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-ruler-vertical"></i>
+                        </span>
+                        <input type="number" class="form-control" name="criminal_height"
+                            value="<?= $row['criminal_height'] ?>" required="required" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-eye"></i>
+                        </span>
+                        <input type="text" class="form-control" name="criminal_eye_color"
+                            value="<?= $row['criminal_eye_color'] ?>" required="required" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-user"></i>
+                        </span>
+                        <input type="text" class="form-control" name="criminal_hair_color"
+                            value="<?= $row['criminal_hair_color'] ?>" required="required" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-user"></i>
+                        </span>
+                        <input type="text" class="form-control" name="criminal_ethnicity"
+                            value="<?= $row['criminal_ethnicity'] ?>" required="required" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-gavel"></i>
+                        </span>
+                        <input type="text" class="form-control" name="criminal_charges"
+                            value="<?= $row['criminal_charges'] ?>" required="required" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-calendar-week"></i>
+                        </span>
+                        <input type="date" class="form-control" name="criminal_date_of_arrest"
+                            value="<?= $row['criminal_date_of_arrest'] ?>" required="required" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-flag-usa"></i>
+                        </span>
+                        <input type="text" class="form-control" name="criminal_county_of_arrest"
+                            value="<?= $row['criminal_county_of_arrest'] ?>" required="required" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-id-badge"></i>
+                        </span>
+                        <input type="text" class="form-control" name="author_of_record"
+                            value="<?= $row['author_of_record'] ?>" required="required" readonly/>
+                    </div>
+                </div>
+                <input type="hidden" name="id" value="<?= $row['id'] ?>" />
+                <div class="form-group">
+                    <button type="submit" name="delete" class="btn btn-block btn-lg" style="background-color: #5A4E4D;"
+                        value="submit">Delete Record</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+</body>
+
+</html>
