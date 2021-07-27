@@ -317,7 +317,7 @@ $(document).ready(function() {
         <td><?= $row['criminal_county_of_arrest']; ?></td>
         <td><?= $row['author_of_record']; ?></td>
         <td><a href="admin-records-edit-a-record.php?id=<?= $row['id'] ?>"><i class="fa fa-pencil"></i></a></td>
-        <td><a href="admin-records-delete-a-record.php?id=<?$row['id']?>"><i class="fa fa-trash"></i></a></td>
+        <td><a href="admin-records-delete-a-record.php?id=<?= $row['id']?>"><i class="fa fa-trash"></i></a></td>
       </tr>
     <?php endwhile; ?>
   </tbody>

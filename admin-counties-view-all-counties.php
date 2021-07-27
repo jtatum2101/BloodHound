@@ -281,7 +281,7 @@ $(document).ready(function() {
                 <td><?= $row['county_name']; ?></td>
                 <td><?= $row['county_state']; ?></td>
                 <td><?= $row['county_population']; ?></td>
-                <td><a href="admin-records-delete-a-county.php?id={$row['id']}"><i class="fa fa-trash"></i></a></td>
+                <td><a href="admin-counties-delete-a-county.php?id=<?= $row['id']?>"><i class="fa fa-trash"></i></a></td>
             </tr>
             <?php endwhile; ?>
         </tbody>

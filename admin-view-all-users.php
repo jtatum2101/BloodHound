@@ -294,7 +294,7 @@ $(document).ready(function() {
                 <td><?= $row['admin_id']; ?></td>
                 <td><?= $row['county']; ?></td>
                 <td><?= $row['state']; ?></td>
-                <td><a href="admin-records-delete-an-user.php?id={$row['id']}"><i class="fa fa-trash"></i></a></td>
+                <td><a href="admin-delete-an-user.php?id=<?= $row['id']?>"<i class="fa fa-trash"></i></a></td>
             </tr>
             <?php endwhile; ?>
         </tbody>

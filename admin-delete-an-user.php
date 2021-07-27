@@ -6,26 +6,33 @@ include 'config.php';
 
 if(isset($_POST['id'])){
     try{
+        $id=isset($_GET['id']) ? $_GET['id'] : die('ERROR: Record ID not found.');
+
+        $query = "SELECT *  FROM users WHERE id = '" . $_POST['id'] . "'";
+        $stmt = $con->prepare($query);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
         $deleted = "DELETE FROM users WHERE id = '" . $_POST['id'] . "'";
         $stmt = $con->prepare($deleted);
         $stmt->execute();
-        echo 'Record is Deleteed!';
+        echo 'Record is Deleted!';
         
     }catch (Exception $e){
         "Error: " . $e->getMessage();
     }
 }
-    try{
-        $id=isset($_GET['id']) ? $_GET['id'] : die('ERROR: Record ID not found.');
+    // try{
+    //     $id=isset($_GET['id']) ? $_GET['id'] : die('ERROR: Record ID not found.');
 
-        $query = "SELECT *  FROM users WHERE id = '$id'";
-        $stmt = $con->prepare($query);
-        $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    //     $query = "SELECT *  FROM users WHERE id = '$id'";
+    //     $stmt = $con->prepare($query);
+    //     $stmt->execute();
+    //     $row = $stmt->fetch(PDO::FETCH_ASSOC);
         
-    }catch (PDOException $e){
-        echo "Error: " . $e->getMessage();
-    }
+    // }catch (PDOException $e){
+    //     echo "Error: " . $e->getMessage();
+    // }
 ?>
 <!DOCTYPE html>
 <html lang="en">
