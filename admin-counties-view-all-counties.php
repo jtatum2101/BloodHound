@@ -266,7 +266,7 @@ $(document).ready(function() {
     <?php 
         include 'sidenav-admin.php';
     ?>
-
+    <h2 style="color: #8593AE; font-size: 60px; font-family: 'Playfair Display', serif;"><center>COUNTIES:</center></h2>
     <table class="table table-bordered table-dark" style="margin-top: 108px;">
         <tbody>
             <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
