@@ -1,7 +1,7 @@
     <div class="app">
     <div id="sidenav">
         <div class="wrapper">
-            <h1 class="page-title" style="color:#5A4E4D; font-family: 'Playfair Display', serif;">BloodHound:
+            <h1 class="page-title" style="color:#5A4E4D; font-family: 'Playfair Display', serif;"><a href="dashboard.php" class="btn" style="font-size: 35px; font-family: 'Playfair Display', serif; color:#5A4E4D;"> BloodHound:</a>
             </h1>
             <div class="accordion" id="accordionExample">
                 <div class="card">

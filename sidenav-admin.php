@@ -2,7 +2,7 @@
     <div class="app">
         <div id="sidenav">
             <div class="wrapper">
-                <h1 class="page-title" style="color:#5A4E4D; font-family: 'Playfair Display', serif;">BloodHound:</h1>
+                <h1 class="page-title" style="color:#5A4E4D; font-family: 'Playfair Display', serif;"><a href="dashboard-admin.php" class="btn" style="font-size: 35px; font-family: 'Playfair Display', serif; color:#5A4E4D;">BloodHound:</a></h1>
                 <div class="accordion" id="accordionExample">
                     <div class="card">
                         <div class="card-header" id="headingOne">
@@ -41,10 +41,6 @@
                                     <li><a href="admin-view-all-users.php"
                                             style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                             All Users</a></li>
-                                    <hr>
-                                    <li><a href="admin/delete-an-user.php"
-                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Delete
-                                            A User</a></li>
                                     <hr>
                                 </ul>
 
