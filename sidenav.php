@@ -17,7 +17,6 @@
                         data-parent="#accordionExample">
                         <div class="card-body">
                             <ul>
-                                <hr>
                                 <li><a href="logout.php"
                                         style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Log
                                         Out</a></li>

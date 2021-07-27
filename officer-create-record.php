@@ -421,7 +421,7 @@ $(document).ready(function() {
 </script>
 
 
-<body class="register">
+<body class="register" style="background-image: url(img/record.jpg)">
     <?php
         include 'sidenav.php';
     ?>
