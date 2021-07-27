@@ -43,7 +43,7 @@ if($_POST){
         $stmt->bindParam(':criminal_county_of_arrest', $criminal_county_of_arrest);
         $stmt->bindParam(':author_of_record', $author_of_record);
         $stmt->execute();   
-        header("Location: officer-view-my-records.php"); 
+        header("Location: officer-view-all-records.php"); 
     }
     
 ?>

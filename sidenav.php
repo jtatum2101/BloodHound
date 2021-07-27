@@ -44,7 +44,7 @@
                                 <hr>
                                 <li><a href="officer-view-my-records.php"
                                         style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
-                                        My Records</a></li>
+                                        All Records</a></li>
                                 <hr>
                             </ul>
 
