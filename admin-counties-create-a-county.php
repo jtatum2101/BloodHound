@@ -8,13 +8,15 @@ if($_POST){
     $county_name = htmlspecialchars(strip_tags($_POST['county_name']));
     $county_state = htmlspecialchars(strip_tags($_POST['county_state']));
     $county_population = htmlspecialchars(strip_tags($_POST['county_population']));
-    $query = "INSERT INTO counties (county_name, county_state, county_population) VALUES (:county_name, :county_state, :county_population)";
-    $stmt = $con->prepare($query);
+    $county_query = "INSERT INTO counties
+    (county_name, county_state, county_population) VALUES
+    (:county_name, :county_state, :county_population)";
+    $stmt = $con->prepare($county_query);
     $stmt->bindParam(':county_name', $county_name);
     $stmt->bindParam(':county_state', $county_state);
     $stmt->bindParam(':county_population', $county_population);
     $stmt->execute();
-    header('Location: admin-view-all-counties.php');
+    header('Location: admin-counties-view-all-counties.php');
     
 }
 ?>
@@ -427,7 +429,7 @@ $(document).ready(function() {
                 </div>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-block btn-lg" style="background-color: #5A4E4D;"
+                <button type="submit" name="submit" class="btn btn-block btn-lg" style="background-color: #5A4E4D;"
                     value="submit">Create County</button>
             </div>
         </form>

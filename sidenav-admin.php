@@ -92,10 +92,6 @@
                                     <hr>
                                     <li><a href="admin-counties-view-all-counties.php" style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View All Counties</a></li>
                                     <hr>
-                                    <li><a href="admin-counties-delete-a-county.php"
-                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Delete
-                                            A County</a></li>
-                                    <hr>
                                 </ul>
                             </div>
                         </div>

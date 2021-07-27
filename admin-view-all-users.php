@@ -5,7 +5,6 @@
         try{
             $query = "SELECT * FROM users";
             $stmt = $con->prepare($query);
-            $stmt->execute();
             $stmt->bindParam(':full_name', $full_name);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':psw', $psw);
@@ -14,6 +13,7 @@
             $stmt->bindParam(':admin_id', $admin_id);
             $stmt->bindParam(':county', $county);
             $stmt->bindParam(':state', $state); 
+            $stmt->execute();
         } catch (Exception $e){
             echo "Error: " . $e->getMessage();
         }
@@ -294,6 +294,7 @@ $(document).ready(function() {
                 <td><?= $row['admin_id']; ?></td>
                 <td><?= $row['county']; ?></td>
                 <td><?= $row['state']; ?></td>
+                <td><a href="admin-records-delete-an-user.php?id={$row['id']}"><i class="fa fa-trash"></i></a></td>
             </tr>
             <?php endwhile; ?>
         </tbody>
