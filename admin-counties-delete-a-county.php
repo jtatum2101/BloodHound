@@ -2,30 +2,28 @@
 session_start();
 
 include 'config.php';
+$id=isset($_GET['id']) ? $_GET['id'] : die('ERROR: Record ID not found.');
 
-
-if(isset($_POST['id'])){
+try{
+    $query = "SELECT *  FROM counties WHERE id = '$id'";
+    $stmt = $con->prepare($query);
+    $stmt->execute();
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+}catch (PDOException $e){
+    echo "Error: " . $e->getMessage();
+}
+if(isset($_POST['delete'])) {
     try{
-        $deleted = "DELETE FROM counties WHERE id = '" . $_POST['id'] . "'";
+        $deleted = "DELETE FROM counties WHERE id = '" . $id . "'";
         $stmt = $con->prepare($deleted);
         $stmt->execute();
-        echo 'Record is Deleteed!';
-        
+        header("Location: admin-counties-view-all-counties.php");
+    
     }catch (Exception $e){
         "Error: " . $e->getMessage();
     }
 }
-    try{
-        $id=isset($_GET['id']) ? $_GET['id'] : die('ERROR: Record ID not found.');
-
-        $query = "SELECT *  FROM counties WHERE id = '$id'";
-        $stmt = $con->prepare($query);
-        $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        
-    }catch (PDOException $e){
-        echo "Error: " . $e->getMessage();
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -400,3 +398,42 @@ $(document).ready(function() {
     });
 });
 </script>
+<body class="register">
+    <?php
+        include 'sidenav-admin.php';
+    ?>
+    <div class="signup-form">
+        <form method="post" style="margin-left: 100px; margin-right: -100px;" action="" >
+            <div class="form-group">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-pencil-alt"></i>
+                        </span>
+                        <input type="text" class="form-control" name="county_name"
+                            value="<?= $row['county_name'] ?>"
+                                required="required" readonly />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-flag-usa"></i>
+                        </span>
+                        <input type="text" class="form-control" name="county_state"
+                            value="<?= $row['county_state'] ?>" required="required" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-users"></i>
+                        </span>
+                        <input type="number" class="form-control" name="county_population"
+                            value="<?= $row['county_population'] ?>" required="required" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                <button type="submit" name="delete" class="btn btn-block btn-lg" style="background-color: #5A4E4D;"
+                    value="submit">Delete County</button>
+            </div>

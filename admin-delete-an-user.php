@@ -2,37 +2,28 @@
 session_start();
 
 include 'config.php';
+$id=isset($_GET['id']) ? $_GET['id'] : die('ERROR: User ID not found.');
 
-
-if(isset($_POST['id'])){
+try{
+    $query = "SELECT *  FROM users WHERE id = '$id'";
+    $stmt = $con->prepare($query);
+    $stmt->execute();
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+}catch (PDOException $e){
+    echo "Error: " . $e->getMessage();
+}
+if(isset($_POST['delete'])) {
     try{
-        $id=isset($_GET['id']) ? $_GET['id'] : die('ERROR: Record ID not found.');
-
-        $query = "SELECT *  FROM users WHERE id = '" . $_POST['id'] . "'";
-        $stmt = $con->prepare($query);
-        $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        $deleted = "DELETE FROM users WHERE id = '" . $_POST['id'] . "'";
+        $deleted = "DELETE FROM users WHERE id = '" . $id . "'";
         $stmt = $con->prepare($deleted);
         $stmt->execute();
-        echo 'Record is Deleted!';
-        
+        header("Location: admin-view-all-users.php");
+    
     }catch (Exception $e){
         "Error: " . $e->getMessage();
     }
 }
-    // try{
-    //     $id=isset($_GET['id']) ? $_GET['id'] : die('ERROR: Record ID not found.');
-
-    //     $query = "SELECT *  FROM users WHERE id = '$id'";
-    //     $stmt = $con->prepare($query);
-    //     $stmt->execute();
-    //     $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        
-    // }catch (PDOException $e){
-    //     echo "Error: " . $e->getMessage();
-    // }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -407,3 +398,76 @@ $(document).ready(function() {
     });
 });
 </script>
+<body class="register">
+    <?php
+        include 'sidenav-admin.php';
+    ?>
+    <div class="signup-form">
+        <form method="post" style="margin-left: 100px; margin-right: -100px;" action="" >
+            <div class="form-group">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-user"></i>
+                        </span>
+                        <input type="text" class="form-control" name="full_name"
+                            value="<?= $row['full_name'] ?>"
+                                required="required" readonly />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-at"></i>
+                        </span>
+                        <input type="text" class="form-control" name="email"
+                            value="<?= $row['email'] ?>" required="required" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-key"></i>
+                        </span>
+                        <input type="password" class="form-control" name="psw"
+                            value="<?= $row['psw'] ?>" required="required" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-users"></i>
+                        </span>
+                        <input type="text" class="form-control" name="role"
+                            value="<?= $row['role'] ?>" required="required" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-user"></i>
+                        </span>
+                        <input type="text" class="form-control" name="police_id"
+                            value="<?= $row['police_id'] ?>" required="required" readonly/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-user"></i>
+                        </span>
+                        <input type="text" class="form-control" name="admin_id"
+                            value="<?= $row['admin_id'] ?>" required="required" readonly/>
+                    </div>
+                </div>
+                    <button type="submit" name="delete" class="btn btn-block btn-lg" style="background-color: #5A4E4D;"
+                        value="submit">Delete User</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+</body>
+
+</html>
