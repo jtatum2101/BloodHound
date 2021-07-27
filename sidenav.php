@@ -42,7 +42,7 @@
                                         style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Create
                                         A Record</a></li>
                                 <hr>
-                                <li><a href="officer-view-my-records.php"
+                                <li><a href="officer-view-all-records.php"
                                         style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
                                         All Records</a></li>
                                 <hr>
