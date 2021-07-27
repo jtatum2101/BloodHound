@@ -22,10 +22,10 @@ include_once 'navbar.php';
     </style>
 </head>
 
-<body style="background-color: #5A4E4D">
+<body style="background-image: url(img/indexbackground.jpg)">
 
     <div class="container">
-        <h1 class="text-center" style="color: #8593AE; font-size: 75px; font-family: ">Welcome to BloodHound!</h1>
+        <h1 class="text-center" style="color: #8593AE; font-size: 75px; font-family: 'Playfair Display', serif; ">Welcome to BloodHound!</h1>
     </div>
 
     <div class="container mt-3">
@@ -209,19 +209,19 @@ include_once 'navbar.php';
     <div class="container-lg">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-title" style="color:#8593AE">FAQs:</h1>
+                <h1 class="page-title" style="color:#8593AE; font-family: 'Playfair Display', serif;">FAQs:</h1>
                 <div class="accordion" id="accordionExample">
                     <div class="card">
                         <div class="card-header" id="headingOne">
                             <h2 class="clearfix mb-0">
                                 <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
-                                    aria-expanded="true" aria-controls="collapseOne"><i
+                                    aria-expanded="true" aria-controls="collapseOne" style="font-family: 'Playfair Display', serif;"><i
                                         class="fa fa-chevron-circle-down"></i> What is Bloodhound?</a>
                             </h2>
                         </div>
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                             data-parent="#accordionExample">
-                            <div class="card-body">BloodHound is a Crime Record Management System that is accessible to
+                            <div class="card-body" style="font-family: 'Playfair Display', serif;">BloodHound is a Crime Record Management System that is accessible to
                                 Police Officers and Adminstration! This website and its functionality was created by
                                 only one Software Developer.
                                 The System is written to manage not only records but also all the users both admin and
@@ -232,13 +232,13 @@ include_once 'navbar.php';
                         <div class="card-header" id="headingTwo">
                             <h2 class="mb-0">
                                 <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                                    aria-expanded="false" aria-controls="collapseTwo"><i
+                                    aria-expanded="false" aria-controls="collapseTwo" style="font-family: 'Playfair Display', serif;"><i
                                         class="fa fa-chevron-circle-down"></i>What is your Main Goal?</a>
                             </h2>
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                             data-parent="#accordionExample">
-                            <div class="card-body">BloodHound's main goal is to reach to all the police stations across
+                            <div class="card-body" style="font-family: 'Playfair Display', serif;">BloodHound's main goal is to reach to all the police stations across
                                 the United States. We are currently used in 5 different states and 20 different counties
                                 across those 5 states! Help us reach our goal to reach across the United States!</div>
                         </div>
@@ -247,13 +247,13 @@ include_once 'navbar.php';
                         <div class="card-header" id="headingThree">
                             <h2 class="mb-0">
                                 <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
-                                    aria-expanded="false" aria-controls="collapseThree"><i
+                                    aria-expanded="false" aria-controls="collapseThree" style="font-family: 'Playfair Display', serif;"><i
                                         class="fa fa-chevron-circle-down"></i>What is the admin's role?</a>
                             </h2>
                         </div>
                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                             data-parent="#accordionExample">
-                            <div class="card-body"> As an Admin, You will have full control over the system. You will
+                            <div class="card-body" style="font-family: 'Playfair Display', serif;"> As an Admin, You will have full control over the system. You will
                                 have the responsibilities like:
                                 <ul>
                                     <li>Management of records and edit or deleting those records.</li>
@@ -267,13 +267,13 @@ include_once 'navbar.php';
                         <div class="card-header" id="headingFour">
                             <h2 class="mb-0">
                                 <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
-                                    aria-expanded="false" aria-controls="collapseFour"><i
+                                    aria-expanded="false" aria-controls="collapseFour" style="font-family: 'Playfair Display', serif;"><i
                                         class="fa fa-chevron-circle-down"></i> What is the officer's role?</a>
                             </h2>
                         </div>
                         <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
                             data-parent="#accordionExample">
-                            <div class="card-body">As an Officer, you have have a smaller portion of responsibilities
+                            <div class="card-body" style="font-family: 'Playfair Display', serif;">As an Officer, you have have a smaller portion of responsibilities
                                 like:
                                 <ul>
                                     <li>Creating Criminal Records.</li>
@@ -378,22 +378,22 @@ include_once 'navbar.php';
     <hr id="contact">
     <div class="contact-form">
         <form method="post">
-            <h1>Contact Us</h1>
-            <p class="hint-text">We'd love to hear from you, please drop us a line if you've any query related to our
+            <h1 style="font-family: 'Playfair Display', serif;">Contact Us</h1>
+            <p class="hint-text" style="font-family: 'Playfair Display', serif;">We'd love to hear from you, please drop us a line if you've any query related to our
                 products or services.</p>
             <div class="form-group">
-                <label for="inputName">Name</label>
+                <label for="inputName" style="font-family: 'Playfair Display', serif;">Name</label>
                 <input type="text" class="form-control" id="inputName" required>
             </div>
             <div class="form-group">
-                <label for="inputEmail">Email Address</label>
+                <label for="inputEmail" style="font-family: 'Playfair Display', serif;">Email Address</label>
                 <input type="email" class="form-control" id="inputEmail" required>
             </div>
             <div class="form-group">
-                <label for="inputMessage">Message</label>
+                <label for="inputMessage" style="font-family: 'Playfair Display', serif;">Message</label>
                 <textarea class="form-control" id="inputMessage" rows="5" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-paper-plane"></i> Send
+            <button type="submit" class="btn btn-primary btn-block" style="font-family: 'Playfair Display', serif;"><i class="fa fa-paper-plane"></i> Send
                 Message</button>
         </form>
     </div>

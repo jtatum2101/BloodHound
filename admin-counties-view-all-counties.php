@@ -263,7 +263,7 @@ $(document).ready(function() {
 });
 </script>
 
-<body style="margin-left: 300px;">
+<body style="margin-left: 300px; background-image: url(img/county.jpg)">
     <?php 
         include 'sidenav-admin.php';
     ?>
