@@ -398,7 +398,7 @@ $(document).ready(function() {
         include 'sidenav-admin.php';
     ?>
     <div class="signup-form">
-        <form method="post" style="margin-left: 100px; margin-right: -100px;">
+        <form method="post" style="margin-left: 100px; margin-right: -100px;" action="">
             <h2>Create A County</h2>
             <p>Create a County to assign our officer to!</p>
             <div class="form-group">
