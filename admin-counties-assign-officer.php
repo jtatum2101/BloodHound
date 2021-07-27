@@ -1,22 +1,34 @@
 <?php
 
-    session_start();
-    include 'config.php';
-        try{
-            $query = "SELECT * FROM users";
-            $stmt = $con->prepare($query);
-            $stmt->bindParam(':full_name', $full_name);
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':psw', $psw);
-            $stmt->bindParam(':role', $role);
-            $stmt->bindParam(':police_id', $police_id);
-            $stmt->bindParam(':admin_id', $admin_id);
-            $stmt->bindParam(':county', $county);
-            $stmt->bindParam(':state', $state); 
-            $stmt->execute();
-        } catch (Exception $e){
-            echo "Error: " . $e->getMessage();
-        }
+session_start();
+
+include 'config.php';
+
+if(isset($_POST['id'])){
+    try{
+        $assign_query = "UPDATE users SET county= :county, state= :state WHERE id = '" . $_POST['id'] . "'";
+        $stmt = $con->prepare($assign_query);
+        $stmt->bindParam(':county', $_POST['county']);
+        $stmt->bindParam(':state', $_POST['state']);
+        $stmt->execute();
+        header('Location: admin-view-all-users.php');
+    }catch(Exception $e){
+        echo "Error: " . $e->getMessage();
+    }
+}
+    try{
+        $id=isset($_GET['id']) ? $_GET['id'] : die('ERROR: Record ID not found.');
+
+        $query = "SELECT *  FROM users WHERE id = '$id'";
+        $stmt = $con->prepare($query);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+    }catch (PDOException $e){
+        echo "Error: " . $e->getMessage();
+    }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,13 +37,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BloodHound || Admin-Users</title>
+    <title>BloodHound || Admin-Edit-Record</title>
     <link rel="shortcut icon" type="image/png" href="img/admin-tab-logo.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.3/css/all.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
@@ -250,6 +265,129 @@ a:hover {
     transform: rotate(180deg);
     color: #F8F5F2;
 }
+
+body {
+    color: #999;
+    background: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-control,
+.form-control:focus,
+.input-group-addon {
+    border-color: #e1e1e1;
+    border-radius: 0;
+    background: #F8F5F2;
+}
+
+.signup-form {
+    width: 390px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+.signup-form h2 {
+    color: #636363;
+    margin: 0 0 15px;
+    text-align: center;
+}
+
+.signup-form .lead {
+    font-size: 14px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.signup-form form {
+    border-radius: 1px;
+    margin-bottom: 15px;
+    background: #F8F5F2;
+    border: 1px solid #f3f3f3;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+
+.signup-form .form-group {
+    margin-bottom: 20px;
+}
+
+.signup-form label {
+    font-weight: normal;
+    font-size: 13px;
+}
+
+.signup-form .form-control {
+    min-height: 38px;
+    box-shadow: none !important;
+    border-width: 0 0 1px 0;
+}
+
+.signup-form .input-group-addon {
+    max-width: 42px;
+    text-align: center;
+    background: none;
+    border-bottom: 1px solid #e1e1e1;
+    padding-left: 5px;
+}
+
+.signup-form .btn,
+.signup-form .btn:active {
+    font-size: 16px;
+    color: #8593AE;
+    font-weight: bold;
+    background: #5A4E4D !important;
+    border-radius: 3px;
+    border: none;
+    min-width: 140px;
+}
+
+.signup-form .btn:hover,
+.signup-form .btn:focus {
+    background: #8593AE !important;
+    color: #5A4E4D;
+}
+
+.signup-form a {
+    color: #F8F5F2;
+    text-decoration: none;
+}
+
+.signup-form a:hover {
+    text-decoration: underline;
+}
+
+.signup-form .fa {
+    font-size: 21px;
+    position: relative;
+    top: 8px;
+}
+
+.signup-form .fa-paper-plane {
+    font-size: 17px;
+}
+
+.signup-form .fa-check {
+    color: #fff;
+    left: 9px;
+    top: 18px;
+    font-size: 7px;
+    position: absolute;
+}
+
+.register {
+    background-color: #5A4E4D;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+span {
+    background: #F8F5F2;
+}
+
+input {
+    background: #F8F5F2;
+}
+
 </style>
 
 <script>
@@ -267,42 +405,39 @@ $(document).ready(function() {
 });
 </script>
 
-<body style="margin-left: 300px; background-image: url(img/users.png)">
+<body class="register" style="background-image: url(img/editrecord.jpg);">
     <?php 
         include 'sidenav-admin.php';
     ?>
-    <h2 style="color: #8593AE; font-size: 60px; font-family: 'Playfair Display', serif;"><center>USERS:</center></h2>
-    <table class="table table-bordered table-dark" style="margin-top: 108px;">
-        <tbody>
-            <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
-            <tr>
-                <thead>
-                    <tr>
-                        <th scope="col">Full Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Password</th>
-                        <th scope="col">Role</th>
-                        <th scope="col">Police ID</th>
-                        <th scope="col">Admin ID</th>
-                        <th scope="col">County</th>
-                        <th scope="col">State</th>
-                    </tr>
-                </thead>
-                <td><?= $row['full_name']; ?></td>
-                <td><?= $row['email']; ?></td>
-                <td><?= $row['psw']; ?></td>
-                <td><?= $row['role']; ?></td>
-                <td><?= $row['police_id']; ?></td>
-                <td><?= $row['admin_id']; ?></td>
-                <td><?= $row['county']; ?></td>
-                <td><?= $row['state']; ?></td>
-                <td><a href="admin-delete-an-user.php?id=<?= $row['id']?>"<i class="fa fa-trash"></i></a></td>
-                <td><a href="admin-counties-assign-officer.php?id=<?=$row['id']?>"<i class="fa fa-clipboard"></i></a></td>
-            </tr>
-            <?php endwhile; ?>
-        </tbody>
+    <div class="signup-form">
+        <form method="post" style="margin-left: 100px; margin-right: -100px;" action="">
+            <h2 style="text-align: center;">Assign An Officer</h2>
+            <p>Assign An Officer to a County!</p>
+            <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-flag-usa"></i>
+                        </span>
+                        <input type="text" class="form-control" value="<?= $row['county'] ?>" name="county" />
+                    </div>
+            </div>
+            <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-flag-usa"></i>
+                        </span>
+                        <input type="text" class="form-control" value="<?= $row['state'] ?>" name="state" />
+                    </div>
+            </div>
+            <input type="hidden" name="id" value="<?= $row['id'] ?>" />
+            <div class="form-group">
+                    <button type="submit" name="submit" class="btn btn-block btn-lg" style="background-color: #5A4E4D;"
+                        value="submit">Assign
+                        Officer</button>
+            </div>
+        </form>
+    </div>
+    
 
-    </table>
 </body>
-
 </html>
