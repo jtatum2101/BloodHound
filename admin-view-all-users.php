@@ -270,7 +270,7 @@ $(document).ready(function() {
     <?php 
         include 'sidenav-admin.php';
     ?>
-    <table class="table table-bordered table-dark">
+    <table class="table table-bordered table-dark" style="margin-top: 108px;">
         <tbody>
             <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
             <tr>
