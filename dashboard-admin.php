@@ -27,7 +27,7 @@ body {
     font-size: 14px;
     font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #666;
-    background: #f2f2f2;
+    background-image: url('img/adminbackground.gif');
     /*-webkit-text-size-adjust: 100%;*/
     -moz-osx-font-smoothing: grayscale;
     /*-webkit-font-smoothing: antialiased;*/
@@ -253,7 +253,7 @@ $(document).ready(function() {
 });
 </script>
 
-<body style="background-color: #5A4E4D;">
+<body>
     <?php 
         include 'sidenav-admin.php';
     ?>
