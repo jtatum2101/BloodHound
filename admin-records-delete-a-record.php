@@ -404,12 +404,14 @@ $(document).ready(function() {
 });
 </script>
 
-<body class="register">
+<body class="register" style="background-image: url(img/deleterecord.jpg)">
     <?php
         include 'sidenav-admin.php';
     ?>
     <div class="signup-form">
         <form method="post" style="margin-left: 100px; margin-right: -100px;" action="" >
+        <h2 style="text-align: center;">Delete A Report</h2>
+            <p style="text-align:center;">Erase this record from this website!</p>
             <div class="form-group">
                 <div class="form-group">
                     <div class="input-group">

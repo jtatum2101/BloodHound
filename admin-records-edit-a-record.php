@@ -404,7 +404,7 @@ $(document).ready(function() {
 });
 </script>
 
-<body class="register">
+<body class="register" style="background-image: url(img/editrecord.jpg);">
     <?php 
         include 'sidenav-admin.php';
     ?>

@@ -399,12 +399,14 @@ $(document).ready(function() {
     });
 });
 </script>
-<body class="register">
+<body class="register" style="background-image: url(img/county.gif)">
     <?php
         include 'sidenav-admin.php';
     ?>
     <div class="signup-form">
         <form method="post" style="margin-left: 100px; margin-right: -100px;" action="" >
+        <h2 style="text-align: center;">Delete A County</h2>
+            <p style="text-align:center;">Erase this county from this website!</p>
             <div class="form-group">
                 <div class="form-group">
                     <div class="input-group">

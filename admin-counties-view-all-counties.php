@@ -263,7 +263,7 @@ $(document).ready(function() {
 });
 </script>
 
-<body style="margin-left: 300px; background-color: #5A4E4D;">
+<body style="margin-left: 300px;">
     <?php 
         include 'sidenav-admin.php';
     ?>
