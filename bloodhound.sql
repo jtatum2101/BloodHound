@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 23, 2021 at 10:26 PM
+-- Generation Time: Jul 28, 2021 at 09:57 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.4.20
 
@@ -31,8 +31,36 @@ CREATE TABLE `counties` (
   `id` int(11) NOT NULL,
   `county_name` varchar(255) NOT NULL,
   `county_state` varchar(255) NOT NULL,
-  `county_population` smallint(6) NOT NULL
+  `county_population` mediumint(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `counties`
+--
+
+INSERT INTO `counties` (`id`, `county_name`, `county_state`, `county_population`) VALUES
+(1, 'Sardis County', 'Mississippi', 1572),
+(2, 'Panola County', 'Mississippi', 34190);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `id` int(11) NOT NULL,
+  `feedback_name` varchar(100) NOT NULL,
+  `feedback_email` varchar(100) NOT NULL,
+  `feedback_message` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`id`, `feedback_name`, `feedback_email`, `feedback_message`) VALUES
+(1, 'Test me', 'testme01@aol.com', 'This website is awesome! I love this website!');
 
 -- --------------------------------------------------------
 
@@ -61,7 +89,7 @@ CREATE TABLE `records` (
 --
 
 INSERT INTO `records` (`id`, `mugshot`, `criminal_name`, `criminal_birth_date`, `criminal_weight`, `criminal_height`, `criminal_eye_color`, `criminal_hair_color`, `criminal_ethnicity`, `criminal_charges`, `criminal_date_of_arrest`, `criminal_county_of_arrest`, `author_of_record`) VALUES
-(40, '/opt/lampp/temp/phpA8CgqI', 'Jeremiah Tatum', '2021-07-08', '123', '1234', 'Blue', 'Blonde', 'Black', 'gun charges', '2021-07-14', 'Panola County', 'Bob Dylan');
+(45, 'pictureofmyfather.jpeg', 'Christopher Word', '1982-01-28', '180', '70', 'Green', 'Blonde', 'White', 'Possession of Controlled Substance', '2018-02-07', 'Panola County', 'Bob Dylan');
 
 -- --------------------------------------------------------
 
@@ -87,10 +115,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `full_name`, `email`, `psw`, `role`, `police_id`, `admin_id`, `county`, `state`, `date_joined`) VALUES
-(3, 'Bob Dylan', 'bobdylan@bloodhound.org', 'D2rXEufyFkxK59c', 'officer', 1234567, NULL, NULL, NULL, '2021-07-13 22:17:33'),
-(4, 'Jeremiah Tatum', 'jeremiahtatum@yahoo.com', 'jeremiah5', 'admin', NULL, 364813, NULL, NULL, '2021-07-15 20:30:28'),
-(5, 'Lathe Ward', 'latheward@gmail.com', 'password1', 'admin', NULL, 123456789, NULL, NULL, '2021-07-16 16:44:51'),
-(6, 'David Sing', 'davidsing@bloodhound.org', 'password123', 'officer', 4596766, NULL, NULL, NULL, '2021-07-23 20:17:29');
+(3, 'Bob Dylan', 'bobdylan@bloodhound.org', 'D2rXEufyFkxK59c', 'officer', 1234567, NULL, 'Sardis County', 'MS', '2021-07-27 20:51:54'),
+(4, 'Jeremiah Tatum', 'jeremiahtatum@yahoo.com', 'jeremiah5', 'admin', NULL, 364813, NULL, NULL, '2021-07-15 20:30:28');
 
 --
 -- Indexes for dumped tables
@@ -100,6 +126,12 @@ INSERT INTO `users` (`id`, `full_name`, `email`, `psw`, `role`, `police_id`, `ad
 -- Indexes for table `counties`
 --
 ALTER TABLE `counties`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `feedback`
+--
+ALTER TABLE `feedback`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -119,10 +151,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `counties`
+--
+ALTER TABLE `counties`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `records`
 --
 ALTER TABLE `records`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `users`
