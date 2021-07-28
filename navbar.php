@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light" style="background-color: white;font-family: 'Playfair Display', serif;">
+<nav class="navbar navbar-expand-md navbar-light" style="background-color: white; font-family: 'Playfair Display', serif;">
     <a class="navbar-brand" href="index.php"><img src="img/navbarlogo.jpg" alt="logo" style="height: 50px; width:60px"/></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
