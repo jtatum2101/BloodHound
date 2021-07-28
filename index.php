@@ -163,8 +163,8 @@ if($_POST){
     </script>
     
     <main id="moreInfo">
-        <div class="container-lg" style="background-color: #060606;">
-        <div class=" row">
+        <div class="container-lg" id="moreInfo" style="background-color: #060606;">
+        <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-title" style="color:#DF1F2D; font-family: 'Playfair Display', serif;">FAQs:</h1>
                 <div class="accordion" id="accordionExample">
@@ -182,9 +182,9 @@ if($_POST){
                             <div class="card-body" style="font-family: 'Playfair Display', serif;">BloodHound is a Crime
                                 Record Management System that is accessible to
                                 Police Officers and Adminstration! This website and its functionality was created by
-                                only one Software Developer.
+                                only one Software Developer, Jeremiah Tatum.
                                 The System is written to manage not only records but also all the users both admin and
-                                police officers. I hope that you are ready to start working with us.</div>
+                                police officers. I hope that you are ready to start working with us!</div>
                         </div>
                     </div>
                     <div class="card">
@@ -200,8 +200,7 @@ if($_POST){
                             data-parent="#accordionExample">
                             <div class="card-body" style="font-family: 'Playfair Display', serif;">BloodHound's main
                                 goal is to reach to all the police stations across
-                                the United States. We are currently used in 5 different states and 20 different counties
-                                across those 5 states! Help us reach our goal to reach across the United States!</div>
+                                the United States. We are currently based in Mississippi and have about 10 counties in Mississippi!</div>
                         </div>
                     </div>
                     <div class="card">
@@ -220,8 +219,8 @@ if($_POST){
                                 have the responsibilities like:
                                 <ul>
                                     <li>Management of records and edit or deleting those records.</li>
-                                    <li>Management of the users.</li>
-                                    <li>View all records and users details.</li>
+                                    <li>Management of both the admins and officers.</li>
+                                    <li>View all records and both the admins and officers details.</li>
                                 </ul>
                             </div>
                         </div>
@@ -242,7 +241,6 @@ if($_POST){
                                 like:
                                 <ul>
                                     <li>Creating Criminal Records.</li>
-                                    <li>Search Criminal by Charges and Name.</li>
                                     <li>View all records.</li>
                                 </ul>
                             </div>
