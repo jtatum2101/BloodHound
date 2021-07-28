@@ -38,7 +38,7 @@ include 'config.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BloodHound || Admin-Delete-Record</title>
-    <link rel="shortcut icon" type="image/png" href="img/admin-tab-logo.png"/>
+    <link rel="shortcut icon" type="image/png" href="img/navbarlogo.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
