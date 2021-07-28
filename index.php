@@ -33,15 +33,12 @@ if($_POST){
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/home.css">
-    <style>
-
-    </style>
 </head>
 
 <body>
     <section id="top">
         <img id="top-city" src="img/city.gif" alt="city" />
-        <h1>Welcome to BloodHound!</h1>
+        <h1 class= "type-js text-js">Welcome to BloodHound!</h1>
         <h2>Crime Record Management System</h2>
 
     </section>
@@ -161,94 +158,98 @@ if($_POST){
         });
     });
     </script>
-    
+
     <main id="moreInfo">
         <div class="container-lg" id="moreInfo" style="background-color: #060606;">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-title" style="color:#DF1F2D; font-family: 'Playfair Display', serif;">FAQs:</h1>
-                <div class="accordion" id="accordionExample">
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
-                            <h2 class="clearfix mb-0">
-                                <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
-                                    aria-expanded="true" aria-controls="collapseOne"
-                                    style="font-family: 'Playfair Display', serif;"><i
-                                        class="fa fa-chevron-circle-down"></i> What is Bloodhound?</a>
-                            </h2>
-                        </div>
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                            data-parent="#accordionExample">
-                            <div class="card-body" style="font-family: 'Playfair Display', serif;">BloodHound is a Crime
-                                Record Management System that is accessible to
-                                Police Officers and Adminstration! This website and its functionality was created by
-                                only one Software Developer, Jeremiah Tatum.
-                                The System is written to manage not only records but also all the users both admin and
-                                police officers. I hope that you are ready to start working with us!</div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingTwo">
-                            <h2 class="mb-0">
-                                <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                                    aria-expanded="false" aria-controls="collapseTwo"
-                                    style="font-family: 'Playfair Display', serif;"><i
-                                        class="fa fa-chevron-circle-down"></i>What is your Main Goal?</a>
-                            </h2>
-                        </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                            data-parent="#accordionExample">
-                            <div class="card-body" style="font-family: 'Playfair Display', serif;">BloodHound's main
-                                goal is to reach to all the police stations across
-                                the United States. We are currently based in Mississippi and have about 10 counties in Mississippi!</div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingThree">
-                            <h2 class="mb-0">
-                                <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
-                                    aria-expanded="false" aria-controls="collapseThree"
-                                    style="font-family: 'Playfair Display', serif;"><i
-                                        class="fa fa-chevron-circle-down"></i>What is the admin's role?</a>
-                            </h2>
-                        </div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                            data-parent="#accordionExample">
-                            <div class="card-body" style="font-family: 'Playfair Display', serif;"> As an Admin, You
-                                will have full control over the system. You will
-                                have the responsibilities like:
-                                <ul>
-                                    <li>Management of records and edit or deleting those records.</li>
-                                    <li>Management of both the admins and officers.</li>
-                                    <li>View all records and both the admins and officers details.</li>
-                                </ul>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-title" style="color:#DF1F2D; font-family: 'Playfair Display', serif;">FAQs:</h1>
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="clearfix mb-0">
+                                    <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                        aria-expanded="true" aria-controls="collapseOne"
+                                        style="font-family: 'Playfair Display', serif;"><i
+                                            class="fa fa-chevron-circle-down"></i> What is Bloodhound?</a>
+                                </h2>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#accordionExample">
+                                <div class="card-body" style="font-family: 'Playfair Display', serif;">BloodHound is a
+                                    Crime
+                                    Record Management System that is accessible to
+                                    Police Officers and Adminstration! This website and its functionality was created by
+                                    only one Software Developer, Jeremiah Tatum.
+                                    The System is written to manage not only records but also all the users both admin
+                                    and
+                                    police officers. I hope that you are ready to start working with us!</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingFour">
-                            <h2 class="mb-0">
-                                <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
-                                    aria-expanded="false" aria-controls="collapseFour"
-                                    style="font-family: 'Playfair Display', serif;"><i
-                                        class="fa fa-chevron-circle-down"></i> What is the officer's role?</a>
-                            </h2>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h2 class="mb-0">
+                                    <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                                        aria-expanded="false" aria-controls="collapseTwo"
+                                        style="font-family: 'Playfair Display', serif;"><i
+                                            class="fa fa-chevron-circle-down"></i>What is your Main Goal?</a>
+                                </h2>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                data-parent="#accordionExample">
+                                <div class="card-body" style="font-family: 'Playfair Display', serif;">BloodHound's main
+                                    goal is to reach to all the police stations across
+                                    the United States. We are currently based in Mississippi and have about 10 counties
+                                    in Mississippi!</div>
+                            </div>
                         </div>
-                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
-                            data-parent="#accordionExample">
-                            <div class="card-body" style="font-family: 'Playfair Display', serif;">As an Officer, you
-                                have have a smaller portion of responsibilities
-                                like:
-                                <ul>
-                                    <li>Creating Criminal Records.</li>
-                                    <li>View all records.</li>
-                                </ul>
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                    <a class="btn btn-link collapsed" data-toggle="collapse"
+                                        data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
+                                        style="font-family: 'Playfair Display', serif;"><i
+                                            class="fa fa-chevron-circle-down"></i>What is the admin's role?</a>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                data-parent="#accordionExample">
+                                <div class="card-body" style="font-family: 'Playfair Display', serif;"> As an Admin, You
+                                    will have full control over the system. You will
+                                    have the responsibilities like:
+                                    <ul>
+                                        <li>Management of records and edit or deleting those records.</li>
+                                        <li>Management of both the admins and officers.</li>
+                                        <li>View all records and both the admins and officers details.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFour">
+                                <h2 class="mb-0">
+                                    <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
+                                        aria-expanded="false" aria-controls="collapseFour"
+                                        style="font-family: 'Playfair Display', serif;"><i
+                                            class="fa fa-chevron-circle-down"></i> What is the officer's role?</a>
+                                </h2>
+                            </div>
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                                data-parent="#accordionExample">
+                                <div class="card-body" style="font-family: 'Playfair Display', serif;">As an Officer,
+                                    you
+                                    have have a smaller portion of responsibilities
+                                    like:
+                                    <ul>
+                                        <li>Creating Criminal Records.</li>
+                                        <li>View all records.</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
         <style>
         html,
@@ -340,7 +341,7 @@ if($_POST){
         </style>
         <hr id="contact">
         <div class="contact-form">
-            <form method="post" >
+            <form method="post">
                 <h1 style="font-family: 'Playfair Display', serif;">Contact Us</h1>
                 <p class="hint-text" style="font-family: 'Playfair Display', serif;">We'd love to hear from you, please
                     drop us a line if you've any query related to our
