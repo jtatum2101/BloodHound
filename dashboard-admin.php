@@ -26,11 +26,18 @@ session_start();
 body {
     font-size: 14px;
     font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #666;
-    background-image: url('img/adminbackground.gif');
+    background-color: #060606;
     /*-webkit-text-size-adjust: 100%;*/
     -moz-osx-font-smoothing: grayscale;
     /*-webkit-font-smoothing: antialiased;*/
+}
+body img{
+    min-height: 100vh;
+    min-width: 100vw;
+    filter: brightness(69%) blur(3px);
+    bottom: 0px;
+    z-index: -1;
+    position: fixed;
 }
 
 a {
@@ -258,6 +265,7 @@ $(document).ready(function() {
     <?php 
         include 'sidenav-admin.php';
     ?>
+    <img src="img/adminbackground.jpg" alt="admin dashboard" />
 </body>
 
 </html>

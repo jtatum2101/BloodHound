@@ -56,6 +56,14 @@ body {
     -moz-osx-font-smoothing: grayscale;
     /*-webkit-font-smoothing: antialiased;*/
 }
+body img{
+    min-height: 100vh;
+    min-width: 100vw;
+    filter: brightness(69%) blur(3px);
+    bottom: 0px;
+    z-index: -1;
+    position: fixed;
+}
 
 a {
     text-decoration: none;
@@ -278,10 +286,11 @@ $(document).ready(function() {
 </script>
 
 
-<body style="background-image: url(img/officerbackground.jpg)">
+<body>
     <?php
         include 'sidenav.php';
     ?>
+    <img src="img/officerbackground.jpg" alt="officerdashboard" />
 </body>
 
 </html>
