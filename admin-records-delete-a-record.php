@@ -411,7 +411,7 @@ $(document).ready(function() {
     <div class="signup-form">
         <form method="post" style="margin-left: 100px; margin-right: -100px;" action="" >
         <h2 style="text-align: center;">Delete A Report</h2>
-            <p style="text-align:center;">Erase this record from this website!</p>
+            <p style="font-family: 'Playfair Display', serif; color: #DF1F2D; text-align: center;">Erase this record from this website!</p>
             <div class="form-group">
                 <div class="form-group">
                     <div class="input-group">

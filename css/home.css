@@ -1,0 +1,37 @@
+#top {
+    height: 65vh;
+    width: 100%;
+  }
+  #top-city  {
+    min-height: 100vh;
+    min-width: 100vw;
+    filter: brightness(69%) blur(3px);
+    bottom: 0px;
+    z-index: -1;
+    position: fixed;
+    
+  }
+
+  main {
+      background-color: #060606;
+  }
+
+  section h1 {
+     font-size: 75px;
+     font-weight: bold;
+     color:white; 
+     text-align: center;
+     text-shadow: 3px 3px 5px #060606;
+     margin-top: 30vh;
+     font-family:'Playfair Display', serif;
+
+  }
+  section h2{
+      font-weight: bold;
+      color:white;
+      text-align: center;
+      text-shadow: 3px 3px 5px #060606;
+      margin-top: 5vh;
+      font-family:'Playfair Display', serif;
+  }
+  

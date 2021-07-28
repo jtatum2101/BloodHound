@@ -2,7 +2,7 @@
     <div class="app">
         <div id="sidenav">
             <div class="wrapper">
-                <h1 class="page-title" style="color:#5A4E4D; font-family: 'Playfair Display', serif;"><a href="dashboard-admin.php" class="btn" style="font-size: 35px; font-family: 'Playfair Display', serif; color:#5A4E4D;">BloodHound:</a></h1>
+                <h1 class="page-title" style="color:#060606; font-family: 'Playfair Display', serif;"><a href="dashboard-admin.php" class="btn" style="font-size: 35px; font-family: 'Playfair Display', serif; color:#060606;">BloodHound:</a></h1>
                 <div class="accordion" id="accordionExample">
                     <div class="card">
                         <div class="card-header" id="headingOne">
@@ -18,7 +18,7 @@
                             <div class="card-body">
                                 <ul>
                                     <li><a href="logout.php"
-                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Log
+                                            style="font-size: 18px; color: #060606; font-family: 'Playfair Display', serif;">Log
                                             Out</a></li>
                                     <hr>
                                 </ul>
@@ -39,7 +39,7 @@
                             <div class="card-body">
                                 <ul>
                                     <li><a href="admin-view-all-users.php"
-                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
+                                            style="font-size: 18px; color:#060606; font-family: 'Playfair Display', serif;">View
                                             All Users</a></li>
                                     <hr>
                                 </ul>
@@ -61,7 +61,7 @@
                             <div class="card-body">
                                 <ul>
                                     <li><a href="admin-records-view-all-records.php"
-                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
+                                            style="font-size: 18px; color:#060606; font-family: 'Playfair Display', serif;">View
                                             All Records</a></li>
                                     <hr>
                                    
@@ -83,10 +83,10 @@
                             <div class="card-body">
                                 <ul>
                                     <li><a href="admin-counties-create-a-county.php"
-                                            style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Create
+                                            style="font-size: 18px; color:#060606; font-family: 'Playfair Display', serif;">Create
                                             A County</a></li>
                                     <hr>
-                                    <li><a href="admin-counties-view-all-counties.php" style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View All Counties</a></li>
+                                    <li><a href="admin-counties-view-all-counties.php" style="font-size: 18px; color:#060606; font-family: 'Playfair Display', serif;">View All Counties</a></li>
                                     <hr>
                                 </ul>
                             </div>

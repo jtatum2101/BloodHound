@@ -77,7 +77,7 @@ a:hover {
     bottom: 0;
     left: 0;
     z-index: 99999;
-    background: #8593AE;
+    background: white;
 }
 
 #sidenav.open {
@@ -87,7 +87,7 @@ a:hover {
 #sidenav .logo {
     width: 100%;
     padding: 20px 50px;
-    background-color: #8593AE;
+    background-color: white;
     display: block;
 }
 
@@ -106,7 +106,7 @@ a:hover {
 
 #sidenav .menu ul {
     list-style: none;
-    background-color: #8593AE;
+    background-color: white;
     padding: 10% 0;
     margin: 0;
 }
@@ -124,7 +124,7 @@ a:hover {
     color: rgba(255, 255, 255, 0.7);
     font-weight: 300;
     display: block;
-    background-color: #8593AE;
+    background-color: white;
 }
 
 #sidenav .menu ul li a:hover {
@@ -132,7 +132,7 @@ a:hover {
 }
 
 #sidenav .menu ul li a.logout:hover {
-    color: #F8F5F2;
+    color: #DF1F2D;
 }
 
 #sidenav .menu ul li ul {
@@ -165,11 +165,11 @@ a:hover {
 
     #sidenav .logo a {
         font-size: 20px;
-    }   
+    }
 
-    #sidenav .logo a.nav-icon { 
-        display: inline;    
-    }   
+    #sidenav .logo a.nav-icon {
+        display: inline;
+    }
 
     #sidenav .menu {
         display: none;
@@ -186,7 +186,7 @@ a:hover {
     }
 
     #sidenav .menu ul {
-        border-top: solid 1px #5A4E4D;
+        border-top: solid 1px #060606;
     }
 
     #sidenav .menu ul li {
@@ -212,7 +212,7 @@ a:hover {
 }
 
 .accordion .card-header .btn {
-    color: #5A4E4D;
+    color: #060606;
     font-size: 1.04rem;
     text-align: left;
     position: relative;
@@ -226,15 +226,16 @@ a:hover {
     position: absolute;
     left: 0;
     top: 9px;
-    color: #5A4E4D;
+    color: #060606;
 }
 
 .accordion .card-header .btn:hover {
-    color: #F8F5F2;
+    color: #DF1F2D;
+    text-decoration: none;
 }
 
 .accordion .card-body {
-    color: #8593AE;
+    color: white;
     padding: 0rem 0rem;
 }
 
@@ -256,12 +257,137 @@ a:hover {
 }
 
 .accordion .highlight .btn {
-    color: #F8F5F2;
+    color: #DF1F2D;
 }
 
 .accordion .highlight i {
     transform: rotate(180deg);
+    color: #DF1F2D;
+}
+
+body {
+    color: #999;
+    background: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-control,
+.form-control:focus,
+.input-group-addon {
+    border-color: #e1e1e1;
+    border-radius: 0;
+    background: #F8F5F2;
+}
+
+.signup-form {
+    width: 390px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+.signup-form h2 {
+    color: #060606;
+    margin: 0 0 15px;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+}
+
+.signup-form .lead {
+    font-size: 14px;
+    margin-bottom: 30px;
+    text-align: center;
+    
+}
+
+.signup-form form {
+    border-radius: 1px;
+    margin-bottom: 15px;
+    background: #F8F5F2;
+    border: 1px solid #f3f3f3;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+
+.signup-form .form-group {
+    margin-bottom: 20px;
+}
+
+.signup-form label {
+    font-weight: normal;
+    font-size: 13px;
+}
+
+.signup-form .form-control {
+    min-height: 38px;
+    box-shadow: none !important;
+    border-width: 0 0 1px 0;
+}
+
+.signup-form .input-group-addon {
+    max-width: 42px;
+    text-align: center;
+    background: none;
+    border-bottom: 1px solid #e1e1e1;
+    padding-left: 5px;
+}
+
+.signup-form .btn,
+.signup-form .btn:active {
+    font-size: 16px;
+    font-family: 'Playfair Display', serif;
+    color: #DF1F2D;
+    font-weight: bold;
+    background: #060606 !important;
+    border-radius: 3px;
+    border: none;
+    min-width: 140px;
+}
+
+.signup-form .btn:hover,
+.signup-form .btn:focus {
+    background: #DF1F2D !important;
+    color: #060606;
+}
+
+.signup-form a {
     color: #F8F5F2;
+    text-decoration: none;
+}
+
+.signup-form a:hover {
+    text-decoration: underline;
+}
+
+.signup-form .fa {
+    font-size: 21px;
+    position: relative;
+    top: 8px;
+}
+
+.signup-form .fa-paper-plane {
+    font-size: 17px;
+}
+
+.signup-form .fa-check {
+    color: #fff;
+    left: 9px;
+    top: 18px;
+    font-size: 7px;
+    position: absolute;
+}
+
+.register {
+    background-color: #060606;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+span {
+    background: #F8F5F2;
+}
+
+input {
+    background: #F8F5F2;
 }
 </style>
 

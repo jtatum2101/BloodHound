@@ -150,9 +150,9 @@ try {
     .signup-form .btn,
     .signup-form .btn:active {
         font-size: 16px;
-        color: #8593AE;
+        color: #DF1F2D;
         font-weight: bold;
-        background: #5A4E4D !important;
+        background: #060606 !important;
         border-radius: 3px;
         border: none;
         min-width: 140px;
@@ -160,8 +160,8 @@ try {
 
     .signup-form .btn:hover,
     .signup-form .btn:focus {
-        background: #8593AE !important;
-        color: #5A4E4D;
+        background: #DF1F2D !important;
+        color: #060606;
     }
 
     .signup-form a {
@@ -232,7 +232,7 @@ try {
             </div>
 
             <div class="form-group">
-                <button type="submit" value="Log In" class="btn btn-block btn-lg" style="background-color: #5A4E4D;">Log
+                <button type="submit" value="Log In" class="btn btn-block btn-lg" style="background-color: #060606;">Log
                     In</button>
             </div>
 

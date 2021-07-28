@@ -1,7 +1,7 @@
     <div class="app">
     <div id="sidenav">
         <div class="wrapper">
-            <h1 class="page-title" style="color:#5A4E4D; font-family: 'Playfair Display', serif;"><a href="dashboard.php" class="btn" style="font-size: 35px; font-family: 'Playfair Display', serif; color:#5A4E4D;"> BloodHound:</a>
+            <h1 class="page-title" style="color:#060606; font-family: 'Playfair Display', serif;"><a href="dashboard.php" class="btn" style="font-size: 35px; font-family: 'Playfair Display', serif; color:#060606;"> BloodHound:</a>
             </h1>
             <div class="accordion" id="accordionExample">
                 <div class="card">
@@ -18,7 +18,7 @@
                         <div class="card-body">
                             <ul>
                                 <li><a href="logout.php"
-                                        style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Log
+                                        style="font-size: 18px; color: #060606; font-family: 'Playfair Display', serif;">Log
                                         Out</a></li>
                                 <hr>
                             </ul>
@@ -39,11 +39,11 @@
                         <div class="card-body">
                             <ul style="text-align: left;">
                                 <li><a href="officer-create-record.php"
-                                        style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">Create
+                                        style="font-size: 18px; color: #060606; font-family: 'Playfair Display', serif;">Create
                                         A Record</a></li>
                                 <hr>
                                 <li><a href="officer-view-all-records.php"
-                                        style="font-size: 18px; color: #5A4E4D; font-family: 'Playfair Display', serif;">View
+                                        style="font-size: 18px; color: #060606; font-family: 'Playfair Display', serif;">View
                                         All Records</a></li>
                                 <hr>
                             </ul>

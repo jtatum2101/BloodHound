@@ -41,7 +41,7 @@ body {
     font-size: 14px;
     font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #666;
-    background: #f2f2f2;
+    background-image: url('img/adminbackground.gif');
     /*-webkit-text-size-adjust: 100%;*/
     -moz-osx-font-smoothing: grayscale;
     /*-webkit-font-smoothing: antialiased;*/
@@ -64,7 +64,7 @@ a:hover {
     bottom: 0;
     left: 0;
     z-index: 99999;
-    background: #8593AE;
+    background: white;
 }
 
 #sidenav.open {
@@ -74,7 +74,7 @@ a:hover {
 #sidenav .logo {
     width: 100%;
     padding: 20px 50px;
-    background-color: #8593AE;
+    background-color: white;
     display: block;
 }
 
@@ -93,25 +93,25 @@ a:hover {
 
 #sidenav .menu ul {
     list-style: none;
-    background-color: #8593AE;
+    background-color: white;
     padding: 10% 0;
     margin: 0;
 }
 
 #sidenav .menu ul li {
-    padding: 6px 14%;
+    padding: 5px 14%;
 }
 
 #sidenav .menu ul li.active {
-    border-left: solid 4px #F8F5F2;
+    border-left: solid 4px red;
 }
 
 #sidenav .menu ul li a {
-    font-size: 22px;
+    font-size: 18px;
     color: rgba(255, 255, 255, 0.7);
     font-weight: 300;
     display: block;
-    background-color: #8593AE;
+    background-color: white;
 }
 
 #sidenav .menu ul li a:hover {
@@ -119,7 +119,7 @@ a:hover {
 }
 
 #sidenav .menu ul li a.logout:hover {
-    color: #F8F5F2;
+    color: #DF1F2D;
 }
 
 #sidenav .menu ul li ul {
@@ -135,7 +135,7 @@ a:hover {
 }
 
 #sidenav .menu ul li ul li a {
-    font-size: 18px;
+    font-size: 15px;
     color: rgba(255, 255, 255, 0.7);
 }
 
@@ -173,7 +173,7 @@ a:hover {
     }
 
     #sidenav .menu ul {
-        border-top: solid 1px #5A4E4D;
+        border-top: solid 1px #333;
     }
 
     #sidenav .menu ul li {
@@ -199,7 +199,7 @@ a:hover {
 }
 
 .accordion .card-header .btn {
-    color: #5A4E4D;
+    color: #060606;
     font-size: 1.04rem;
     text-align: left;
     position: relative;
@@ -213,15 +213,16 @@ a:hover {
     position: absolute;
     left: 0;
     top: 9px;
-    color: #5A4E4D;
+    color: #060606;
 }
 
 .accordion .card-header .btn:hover {
-    color: #F8F5F2;
+    color: #DF1F2D;
+    text-decoration: none;
 }
 
 .accordion .card-body {
-    color: #8593AE;
+    color: white;
     padding: 0rem 0rem;
 }
 
@@ -237,21 +238,20 @@ a:hover {
     position: absolute;
     height: 3px;
     border-radius: 1px;
-    background: #F8F5F2;
+    background: #DF1F2D;
     left: 0;
     bottom: -15px;
 }
 
 .accordion .highlight .btn {
-    color: #F8F5F2;
+    color: #DF1F2D;
 }
 
 .accordion .highlight i {
     transform: rotate(180deg);
-    color: #F8F5F2;
+    color: #DF1F2D;
 }
 </style>
-
 <script>
 $(document).ready(function() {
     // Add minus icon for collapse element which is open by default
@@ -267,11 +267,11 @@ $(document).ready(function() {
 });
 </script>
 
-<body style="margin-left: 300px; background-image: url(img/users.png)">
+<body style="margin-left: 300px;  background-image: url(img/users.png)">
     <?php 
         include 'sidenav-admin.php';
     ?>
-    <h2 style="color: #8593AE; font-size: 60px; font-family: 'Playfair Display', serif;"><center>USERS:</center></h2>
+    <h2 style="color: white; font-size: 60px; font-family: 'Playfair Display', serif; text-shadow: 3px 3px 5px #060606;"><center>USERS:</center></h2>
     <table class="table table-bordered table-dark" style="margin-top: 108px;">
         <tbody>
             <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>

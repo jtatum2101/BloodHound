@@ -96,7 +96,7 @@ a:hover {
     bottom: 0;
     left: 0;
     z-index: 99999;
-    background: #8593AE;
+    background: white;
 }
 
 #sidenav.open {
@@ -106,7 +106,7 @@ a:hover {
 #sidenav .logo {
     width: 100%;
     padding: 20px 50px;
-    background-color: #8593AE;
+    background-color: white;
     display: block;
 }
 
@@ -125,7 +125,7 @@ a:hover {
 
 #sidenav .menu ul {
     list-style: none;
-    background-color: #8593AE;
+    background-color: white;
     padding: 10% 0;
     margin: 0;
 }
@@ -143,7 +143,7 @@ a:hover {
     color: rgba(255, 255, 255, 0.7);
     font-weight: 300;
     display: block;
-    background-color: #8593AE;
+    background-color: white;
 }
 
 #sidenav .menu ul li a:hover {
@@ -151,7 +151,7 @@ a:hover {
 }
 
 #sidenav .menu ul li a.logout:hover {
-    color: #F8F5F2;
+    color: #DF1F2D;
 }
 
 #sidenav .menu ul li ul {
@@ -205,7 +205,7 @@ a:hover {
     }
 
     #sidenav .menu ul {
-        border-top: solid 1px #5A4E4D;
+        border-top: solid 1px #060606;
     }
 
     #sidenav .menu ul li {
@@ -231,7 +231,7 @@ a:hover {
 }
 
 .accordion .card-header .btn {
-    color: #5A4E4D;
+    color: #060606;
     font-size: 1.04rem;
     text-align: left;
     position: relative;
@@ -245,15 +245,16 @@ a:hover {
     position: absolute;
     left: 0;
     top: 9px;
-    color: #5A4E4D;
+    color: #060606;
 }
 
 .accordion .card-header .btn:hover {
-    color: #F8F5F2;
+    color: #DF1F2D;
+    text-decoration: none;
 }
 
 .accordion .card-body {
-    color: #8593AE;
+    color: white;
     padding: 0rem 0rem;
 }
 
@@ -275,12 +276,12 @@ a:hover {
 }
 
 .accordion .highlight .btn {
-    color: #F8F5F2;
+    color: #DF1F2D;
 }
 
 .accordion .highlight i {
     transform: rotate(180deg);
-    color: #F8F5F2;
+    color: #DF1F2D;
 }
 
 body {
@@ -304,15 +305,17 @@ body {
 }
 
 .signup-form h2 {
-    color: #636363;
+    color: #060606;
     margin: 0 0 15px;
     text-align: center;
+    font-family: 'Playfair Display', serif;
 }
 
 .signup-form .lead {
     font-size: 14px;
     margin-bottom: 30px;
     text-align: center;
+    
 }
 
 .signup-form form {
@@ -350,9 +353,10 @@ body {
 .signup-form .btn,
 .signup-form .btn:active {
     font-size: 16px;
-    color: #8593AE;
+    font-family: 'Playfair Display', serif;
+    color: #DF1F2D;
     font-weight: bold;
-    background: #5A4E4D !important;
+    background: #060606 !important;
     border-radius: 3px;
     border: none;
     min-width: 140px;
@@ -360,8 +364,8 @@ body {
 
 .signup-form .btn:hover,
 .signup-form .btn:focus {
-    background: #8593AE !important;
-    color: #5A4E4D;
+    background: #DF1F2D !important;
+    color: #060606;
 }
 
 .signup-form a {
@@ -392,7 +396,7 @@ body {
 }
 
 .register {
-    background-color: #5A4E4D;
+    background-color: #060606;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -430,7 +434,7 @@ $(document).ready(function() {
             <form method="post" style="margin-left: 100px;margin-right: -100px;" 
                 enctype="multipart/form-data" action="">
                 <h2>Create A Report</h2>
-                <p>Create a criminal record by providing this information!</p>
+                <p style="font-family: 'Playfair Display', serif; color: #DF1F2D; text-align: center;">Create a criminal record by providing this information!</p>
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon">
@@ -537,7 +541,7 @@ $(document).ready(function() {
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" name="submit" class="btn btn-block btn-lg" style="background-color: #5A4E4D;"
+                    <button type="submit" name="submit" class="btn btn-block btn-lg" style="background-color: #060606;"
                         value="submit">Create
                         Record</button>
                 </div>

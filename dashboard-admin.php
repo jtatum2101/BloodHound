@@ -50,7 +50,7 @@ a:hover {
     bottom: 0;
     left: 0;
     z-index: 99999;
-    background: #8593AE;
+    background: white;
 }
 
 #sidenav.open {
@@ -60,7 +60,7 @@ a:hover {
 #sidenav .logo {
     width: 100%;
     padding: 20px 50px;
-    background-color: #8593AE;
+    background-color: white;
     display: block;
 }
 
@@ -79,7 +79,7 @@ a:hover {
 
 #sidenav .menu ul {
     list-style: none;
-    background-color: #8593AE;
+    background-color: white;
     padding: 10% 0;
     margin: 0;
 }
@@ -97,7 +97,7 @@ a:hover {
     color: rgba(255, 255, 255, 0.7);
     font-weight: 300;
     display: block;
-    background-color: #8593AE;
+    background-color: white;
 }
 
 #sidenav .menu ul li a:hover {
@@ -105,7 +105,7 @@ a:hover {
 }
 
 #sidenav .menu ul li a.logout:hover {
-    color: #F8F5F2;
+    color: #DF1F2D;
 }
 
 #sidenav .menu ul li ul {
@@ -185,7 +185,7 @@ a:hover {
 }
 
 .accordion .card-header .btn {
-    color: #5A4E4D;
+    color: #060606;
     font-size: 1.04rem;
     text-align: left;
     position: relative;
@@ -199,15 +199,16 @@ a:hover {
     position: absolute;
     left: 0;
     top: 9px;
-    color: #5A4E4D;
+    color: #060606;
 }
 
 .accordion .card-header .btn:hover {
-    color: #F8F5F2;
+    color: #DF1F2D;
+    text-decoration: none;
 }
 
 .accordion .card-body {
-    color: #8593AE;
+    color: white;
     padding: 0rem 0rem;
 }
 
@@ -223,18 +224,18 @@ a:hover {
     position: absolute;
     height: 3px;
     border-radius: 1px;
-    background: #F8F5F2;
+    background: #DF1F2D;
     left: 0;
     bottom: -15px;
 }
 
 .accordion .highlight .btn {
-    color: #F8F5F2;
+    color: #DF1F2D;
 }
 
 .accordion .highlight i {
     transform: rotate(180deg);
-    color: #F8F5F2;
+    color: #DF1F2D;
 }
 </style>
 
@@ -257,15 +258,6 @@ $(document).ready(function() {
     <?php 
         include 'sidenav-admin.php';
     ?>
-        <div class="container">
-            <img src="img/navbarlogo.png" alt="Logo" style="padding-left: 400px; margin-top: 300px;" />
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            
-        </div>
 </body>
 
 </html>
