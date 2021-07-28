@@ -411,7 +411,7 @@ $(document).ready(function() {
     <?php
         include 'sidenav.php';
     ?>
-    
+    <h2 style="color: white; font-size: 60px; font-family: 'Playfair Display', serif; text-shadow: 3px 3px 5px #060606;"><center>RECORDS:</center></h2>
     <table class="table table-bordered table-dark">
   <tbody>
     <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
