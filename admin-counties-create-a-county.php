@@ -332,6 +332,7 @@ body {
     border-radius: 3px;
     border: none;
     min-width: 140px;
+    font-family: 'Playfair Display', serif;
 }
 
 .signup-form .btn:hover,

@@ -38,7 +38,7 @@ if($_POST){
 
 <body>
     <section id="top">
-        <img id="top-city" src="img/city.gif" alt="city" />
+        <img id="top-city" src="img/bloodhound.gif" alt="city" />
         <h1 class= "type-js text-js">Welcome to BloodHound!</h1>
         <h2>Crime Record Management System</h2>
 
