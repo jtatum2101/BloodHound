@@ -189,7 +189,7 @@ if($_POST){
                                     only one Software Developer, Jeremiah Tatum.
                                     The System is written to manage not only records but also all the users both admin
                                     and
-                                    police officers. I hope that you are ready to start working with us!</div>
+                                    police officers. We hope that you are ready to start working with us!</div>
                             </div>
                         </div>
                         <div class="card">
