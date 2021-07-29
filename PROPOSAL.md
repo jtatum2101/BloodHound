@@ -27,23 +27,13 @@ I made two other Crime Record Management System Projects, one in Java and one in
    - The record will need the criminal's eye color.
    - The record will need the criminal's ethnicity, or race.
    - The record will need the criminal's charges.
- - There are also optional information as well:
-   - The record can have the criminal's min sentence.
-   - The record can have the criminal's max sentence.
-   - The record can have the criminal's released date.
-   - The record can have the criminal's mugshot. 
-- Profile settings(Officer Only):
-  - The officer will be able to edit their own profile settings.
-  - Settings like their password and email. 
-  - They can change those piece of information through their profile settings.
+   - The record will need the criminal's mugshot. 
  
 - If the user is signed up as a admin, their role is far more advanced than police officers. 
 - As an admin, the user will have full control over the management of the website. 
 - The abilities that the admin will have are listed below:
   - The admin will be able to access all records that police officers create. 
-  - The admin can also search for files by charges and the criminal's name.
   - The admin will be able to update or delete the records that police officers create.
-  - The admin will also be able to access all users that are created in both the application and the database. 
   - The admin will also be able to edit and delete any users' information.
   - The admin will also be to assign police officers to their designated county and state.
   - The admin will also be able to create new counties and states that police officer can be assigned to.
@@ -51,18 +41,15 @@ I made two other Crime Record Management System Projects, one in Java and one in
    - The county's information will be listed down below:
      - The county will need the name of the county.
      - The county will need the name of the state. 
-     - The county will need the crime rate of the county.
-     - The county will need the dangerous cities of the county.
-   - Access to all records(Admin Only):
-     - The records will be displayed by a table.
-     - The records can be filter out by a search of the charge and name of the criminal.
-     - The records will have a link to access all the details of that certain record.
+     - The county will need the population of the county.
+   - Management to all records(Admin Only):
+     - The records will be displayed on a table.
      - The records will have an edit option to make changes to the record.
      - The records will have a delete option to remove the record for both the application and the database.
    - Access to all users on the application(Admin Only):
-     - The users will be displayed by a table.
-     - The users will have a link to access all the details of that certain user's details.
-     - The users will have a delete option that will remove the user from both the application and the database.
+     - The admin will be displayed by a table.
+     - The admin will have a delete option that will remove the user from both the application and the database.
+
 
 ## Project Timeline:
 
@@ -72,7 +59,7 @@ I made two other Crime Record Management System Projects, one in Java and one in
  - I will be learning the basics and the connection between PHP and the databases as well. 
  - I will make sure that both the login page and the registration page will be connected to the database and able to use the information stored in that database.
 
-### Second Week (Functionality for different users):
+### Second Week (Officer side of the website):
 
 - I will be completed with the login and registration system of the application, and making sure that the user is directed to the correct dashboard to access their own features.
 
@@ -86,52 +73,35 @@ I made two other Crime Record Management System Projects, one in Java and one in
   - Date of Arrest
   - County of Arrest
   - Charge
-  - Sentence (Min and Max)
   - Arrest Date 
-  - Possible Release date
-- Also can change profile settings like password.
+- View of all records.
+
+
+### Third Week(Admin side of the website):
+- Completed Tasks by this week:
+ - Officers will have the ability to create and view records for both the application and the database.
 
 #### Admin:
 - Full control over the website.
 - Can view all users on the website and have the option to delete their profile
-- Can view all record and have the option to delete the record
+- Can view all record and have the option to edit or delete the record.
 - Can assign police officers to counties and remove them.
 - Can also add and remove counties to the systems.
-- Has the ability to update and delete records. The admin can also delete users, as well as assign officers to a certain county and state.
 - Updating a record requirement: 
-  - Name of Criminal
-  - Date of Arrest 
-  - County
+  - Criminal Eye Color
+  - Criminal Hair Color
   - Charge
-- Deleting a record requirements:
-  - Charge 
   - County
-  - Name of Criminal 
-  - Date of Arrest 
-
-### Third Week(Profile page for the different users):
-- Completed Tasks by this week:
- - Officers will have the ability to create records for both the application and the database. 
- - Admin will have the ability to update and delete records from both the application and the database.
- - Admin will also have the abilit to create, update and delete counties from both the application and the database.
-
-- The tasks for this week:
- - Officer Only:
-  - The officer will be shown their profile details that will include that their ability to change their password or email.
-  - The officer will also be able to include a profile picture or have a default profile picture.
- - Admin Only:
-  - The admin will have access to all user's information.
-  - The admin will have the ability to delete the user's information from both the application and database.
-  - The admin will have the ability to edit their profile information by changing their password or email.
-  - The admin will also have the ability to include a profile picture or have a default profile picture.
-
+  - Name of Officer that created the record. 
+- Deleting a record requirements:
+  - Deletes the record by id and grabs the information that relates to that id. 
 ### Fourth Week (The styling of the website):
 - Completed Tasks by this week:
- - Officers will have the ability to create records and access their profile information.
+ - Officer will have the ability to create and view all the records that are made in both the database and application. 
  - Admin will have the ability to update and delete records from both the appilcation and the database.
  - Admin will have the ability to delete users from both the application and the database.
- - Admin will also have the ability to create, update, and delete the details of counties for both the application and the database.
- - The admin will also have the ability to update their own profile settings by changing their password or email.
+ - Admin will also have the ability to create, delete the details of counties for both the application and the database.
+ - Admin will also have the ability to assign officer of the site to a county through the county name and state.
 
 -The tasks for this week:
  - The user will be welcomed with a color scheme that will make the website pop and give more character to the website. 
