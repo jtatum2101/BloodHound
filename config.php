@@ -1,12 +1,20 @@
 <?php
-// used to connect to the database
-$host = "localhost";
-$db_name = "bloodhound";
-$username = "root";
-$password = "";
+// Local connection
+// $host = "localhost";
+// $db_name = "bloodhound";
+// $username = "root";
+// $password = "";
+
+// Remote Connection to database
+
+$host = "remotemysql.com";
+$db_name = "jAHhcM6Ah5";
+$username ="jAHhcM6Ah5";
+$password = "wfUku9gowM";
+$charset = "utf8";
  
 try {
-    $con = new PDO("mysql:host={$host};dbname={$db_name}", $username, $password);
+    $con = new PDO("mysql:host={$host};dbname={$db_name};charset={$charset}" $username, $password);
 }
  
 // show error
