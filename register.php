@@ -237,7 +237,7 @@ if($_POST){
             <p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#" style="color: #5A4E4D;">Terms &amp;
                     Conditions</a>, and <a href="#" style="color: #5A4E4D;">Privacy Policy</a>.</p>
         </form>
-        <div class="text-center" style="color: #F8F5F2;">Already have an account? <a href="login.php">Login here</a>.</div>
+        <div class="text-center" style="color: #DF1F2D;">Already have an account? <a href="login.php" style="color: #DF1F2D;">Login here</a>.</div>
     </div>
     </div>
 
