@@ -169,7 +169,7 @@ if($_POST){
         <div class="container-lg" id="moreInfo" style="background-color: #060606;">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-title" style="color:#DF1F2D; font-family: 'Playfair Display', serif;">FAQs:</h1>
+                    <h1 class="page-title" style="color:#DF1F2D; font-family: 'Playfair Display', serif;">About Us:</h1>
                     <div class="accordion" id="accordionExample">
                         <div class="card">
                             <div class="card-header" id="headingOne">
