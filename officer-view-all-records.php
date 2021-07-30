@@ -432,22 +432,6 @@ $(document).ready(function() {
   <tbody>
     <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
       <tr>
-      <!-- <thead>
-    <tr>
-      <th scope="col">Mugshot</th>
-      <th scope="col">Name</th>
-      <th scope="col">Birth Date</th>
-      <th scope="col">Weight(lbs)</th>
-      <th scope="col">Height(inches)</th>
-      <th scope="col">Eye Color</th>
-      <th scope="col">Hair Color</th>
-      <th scope="col">Ethnicity</th>
-      <th scope="col">Charges</th>
-      <th scope="col">Date Of Arrest</th>
-      <th scope="col">County Of Arrest</th>
-      <th scope="col">Officer</th>
-    </tr>
-  </thead> -->
         <td><img src="<?= "uploads/{$row['mugshot']}" ?>" height="120" width="120"/></td>
         <td><?= $row['criminal_name']; ?></td>
         <td><?= $row['criminal_birth_date']; ?></td>

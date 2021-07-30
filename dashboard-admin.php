@@ -266,6 +266,7 @@ $(document).ready(function() {
         include 'sidenav-admin.php';
     ?>
     <img src="img/adminbackground.jpg" alt="admin dashboard" />
+    <h2 style="color: white; font-size: 60px; font-family: 'Playfair Display', serif; text-shadow: 3px 3px 5px #060606;margin-top: 250px;margin-right: 150px;"><center style="margin-left: 100px;">Welcome, <?php echo $_SESSION['full_name'] ?> !</center></h2>
 </body>
 
 </html>

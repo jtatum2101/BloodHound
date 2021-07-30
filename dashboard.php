@@ -291,6 +291,7 @@ $(document).ready(function() {
         include 'sidenav.php';
     ?>
     <img src="img/officerbackground.jpg" alt="officerdashboard" />
+    <h2 style="color: white; font-size: 60px; font-family: 'Playfair Display', serif; text-shadow: 3px 3px 5px #060606;margin-top: 250px;margin-right: 150px;"><center>Welcome, <?php echo $_SESSION['full_name'] ?> !</center></h2>
 </body>
 
 </html>
