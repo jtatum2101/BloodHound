@@ -22,7 +22,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BloodHound || Admin-Counties</title>
-    <link rel="shortcut icon" href="img/bloodhound.ico"/>
+    <link rel="shortcut icon" href="img/bloodhound.ico" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -268,22 +268,26 @@ $(document).ready(function() {
     <?php 
         include 'sidenav-admin.php';
     ?>
-    <h2 style="color: white; font-size: 60px; font-family: 'Playfair Display', serif; text-shadow: 3px 3px 5px #060606;"><center>COUNTIES:</center></h2>
+    <h2
+        style="color: white; font-size: 60px; font-family: 'Playfair Display', serif; text-shadow: 3px 3px 5px #060606;">
+        <center>COUNTIES:</center>
+    </h2>
     <table class="table table-bordered table-dark">
+        <thead>
+            <tr>
+                <th scope="col">County Name</th>
+                <th scope="col">County State</th>
+                <th scope="col">County Population</th>
+            </tr>
+        </thead>
         <tbody>
             <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
             <tr>
-                <thead>
-                    <tr>
-                        <th scope="col">County Name</th>
-                        <th scope="col">County State</th>
-                        <th scope="col">County Population</th>
-                    </tr>
-                </thead>
                 <td><?= $row['county_name']; ?></td>
                 <td><?= $row['county_state']; ?></td>
                 <td><?= $row['county_population']; ?></td>
-                <td><a href="admin-counties-delete-a-county.php?id=<?= $row['id']?>"><i class="fa fa-trash"></i></a></td>
+                <td><a href="admin-counties-delete-a-county.php?id=<?= $row['id']?>"><i class="fa fa-trash"></i></a>
+                </td>
             </tr>
             <?php endwhile; ?>
         </tbody>

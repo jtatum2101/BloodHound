@@ -287,10 +287,7 @@ $(document).ready(function() {
     ?>
     <h2 style="color: white; font-size: 60px; font-family: 'Playfair Display', serif; text-shadow: 3px 3px 5px #060606;"><center>RECORDS:</center></h2>
     <table class="table table-bordered table-dark" style="margin-top: 108px;">
-  <tbody>
-    <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
-      <tr>
-      <thead>
+    <thead>
     <tr>
       <th scope="col">Mugshot</th>
       <th scope="col">Name</th>
@@ -306,6 +303,9 @@ $(document).ready(function() {
       <th scope="col">Officer</th>
     </tr>
   </thead>
+  <tbody>
+    <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
+      <tr>
         <td><img src="<?= "uploads/{$row['mugshot']}" ?>" height="120" width="120"/></td>
         <td><?= $row['criminal_name']; ?></td>
         <td><?= $row['criminal_birth_date']; ?></td>

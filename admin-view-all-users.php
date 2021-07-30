@@ -26,7 +26,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BloodHound || Admin-Users</title>
-    <link rel="shortcut icon" href="img/bloodhound.ico"/>
+    <link rel="shortcut icon" href="img/bloodhound.ico" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -271,23 +271,26 @@ $(document).ready(function() {
     <?php 
         include 'sidenav-admin.php';
     ?>
-    <h2 style="color: white; font-size: 60px; font-family: 'Playfair Display', serif; text-shadow: 3px 3px 5px #060606;"><center>USERS:</center></h2>
+    <h2
+        style="color: white; font-size: 60px; font-family: 'Playfair Display', serif; text-shadow: 3px 3px 5px #060606;">
+        <center>USERS:</center>
+    </h2>
     <table class="table table-bordered table-dark" style="margin-top: 108px;">
+        <thead>
+            <tr>
+                <th scope="col">Full Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+                <th scope="col">Role</th>
+                <th scope="col">Police ID</th>
+                <th scope="col">Admin ID</th>
+                <th scope="col">County</th>
+                <th scope="col">State</th>
+            </tr>
+        </thead>
         <tbody>
             <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
             <tr>
-                <thead>
-                    <tr>
-                        <th scope="col">Full Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Password</th>
-                        <th scope="col">Role</th>
-                        <th scope="col">Police ID</th>
-                        <th scope="col">Admin ID</th>
-                        <th scope="col">County</th>
-                        <th scope="col">State</th>
-                    </tr>
-                </thead>
                 <td><?= $row['full_name']; ?></td>
                 <td><?= $row['email']; ?></td>
                 <td><?= $row['psw']; ?></td>
@@ -296,8 +299,9 @@ $(document).ready(function() {
                 <td><?= $row['admin_id']; ?></td>
                 <td><?= $row['county']; ?></td>
                 <td><?= $row['state']; ?></td>
-                <td><a href="admin-delete-an-user.php?id=<?= $row['id']?>"<i class="fa fa-trash"></i></a></td>
-                <td><a href="admin-counties-assign-officer.php?id=<?=$row['id']?>"<i class="fa fa-clipboard"></i></a></td>
+                <td><a href="admin-delete-an-user.php?id=<?= $row['id']?>" <i class="fa fa-trash"></i></a></td>
+                <td><a href="admin-counties-assign-officer.php?id=<?=$row['id']?>" <i class="fa fa-clipboard"></i></a>
+                </td>
             </tr>
             <?php endwhile; ?>
         </tbody>
