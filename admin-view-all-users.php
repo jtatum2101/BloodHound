@@ -300,7 +300,7 @@ $(document).ready(function() {
                 <td><?= $row['county']; ?></td>
                 <td><?= $row['state']; ?></td>
                 <td><a href="admin-delete-an-user.php?id=<?= $row['id']?>" <i class="fa fa-trash"></i></a></td>
-                <td><a href="admin-counties-assign-officer.php?id=<?=$row['id']?>" <i class="fa fa-clipboard"></i></a>
+                <td><a href="admin-counties-assign-officer.php?id=<?=$row['id']?>" <i class="fa fa-book"></i></a>
                 </td>
             </tr>
             <?php endwhile; ?>

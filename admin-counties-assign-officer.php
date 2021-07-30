@@ -413,8 +413,8 @@ $(document).ready(function() {
     ?>
     <div class="signup-form">
         <form method="post" style="margin-left: 100px; margin-right: -100px;" action="">
-            <h2 style="text-align: center;">Assign An Officer</h2>
-            <p style="font-family: 'Playfair Display', serif; color: #DF1F2D; text-align: center;">Assign An Officer to a County!</p>
+            <h2 style="text-align: center;">Assign An Officer or Admin</h2>
+            <p style="font-family: 'Playfair Display', serif; color: #DF1F2D; text-align: center;">Assign An Officer or Admin to a County!</p>
             <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon">
@@ -435,7 +435,7 @@ $(document).ready(function() {
             <div class="form-group">
                     <button type="submit" name="submit" class="btn btn-block btn-lg" style="background-color: #5A4E4D;"
                         value="submit">Assign
-                        Officer</button>
+                        Officer/Admin</button>
             </div>
         </form>
     </div>
