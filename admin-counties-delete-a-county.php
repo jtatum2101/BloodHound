@@ -2,7 +2,7 @@
 session_start();
 
 include 'config.php';
-$id=isset($_GET['id']) ? $_GET['id'] : die('ERROR: Record ID not found.');
+$id=isset($_GET['id']) ? $_GET['id'] : die('ERROR: County ID not found.');
 
 try{
     $query = "SELECT *  FROM counties WHERE id = '$id'";
