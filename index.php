@@ -198,7 +198,7 @@ if($_POST){
                                     <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
                                         aria-expanded="false" aria-controls="collapseTwo"
                                         style="font-family: 'Playfair Display', serif;"><i
-                                            class="fa fa-chevron-circle-down"></i>What is your Main Goal?</a>
+                                            class="fa fa-chevron-circle-down"></i>What is our Main Goal?</a>
                                 </h2>
                             </div>
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
@@ -215,7 +215,7 @@ if($_POST){
                                     <a class="btn btn-link collapsed" data-toggle="collapse"
                                         data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
                                         style="font-family: 'Playfair Display', serif;"><i
-                                            class="fa fa-chevron-circle-down"></i>What is the admin's role?</a>
+                                            class="fa fa-chevron-circle-down"></i>Responsibilities of the admin's role</a>
                                 </h2>
                             </div>
                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
@@ -237,7 +237,7 @@ if($_POST){
                                     <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
                                         aria-expanded="false" aria-controls="collapseFour"
                                         style="font-family: 'Playfair Display', serif;"><i
-                                            class="fa fa-chevron-circle-down"></i> What is the officer's role?</a>
+                                            class="fa fa-chevron-circle-down"></i> Responsibilities of the officer's role</a>
                                 </h2>
                             </div>
                             <div id="collapseFour" class="collapse" aria-labelledby="headingFour"

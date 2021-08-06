@@ -432,7 +432,7 @@ $(document).ready(function() {
   <tbody>
     <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
       <tr>
-        <td><img src="<?= "uploads/{$row['mugshot']}" ?>" height="120" width="120"/></td>
+        <td><img src="<?= "uploads/{$row['mugshot']}" ?>" height="100" width="100"/></td>
         <td><?= $row['criminal_name']; ?></td>
         <td><?= $row['criminal_birth_date']; ?></td>
         <td><?= $row['criminal_weight']; ?></td>
