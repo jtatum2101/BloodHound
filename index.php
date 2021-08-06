@@ -177,7 +177,7 @@ if($_POST){
                                     <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
                                         aria-expanded="true" aria-controls="collapseOne"
                                         style="font-family: 'Playfair Display', serif;"><i
-                                            class="fa fa-chevron-circle-down"></i> What is Bloodhound?</a>
+                                            class="fa fa-chevron-circle-down"></i> Who are we?</a>
                                 </h2>
                             </div>
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
@@ -205,7 +205,7 @@ if($_POST){
                                 data-parent="#accordionExample">
                                 <div class="card-body" style="font-family: 'Playfair Display', serif;">BloodHound's main
                                     goal is to reach to all the police stations across
-                                    the United States. We are currently based in Mississippi and have about 10 counties
+                                    the United States. We are currently based in Mississippi and have 10 counties
                                     in Mississippi!</div>
                             </div>
                         </div>
