@@ -5,14 +5,17 @@ if($_POST){
 try {
     $psw = $_POST['psw'];
     $email = $_POST['email'];
-    // prepare sql and bind parameters
+
+
     $query = "SELECT * FROM users WHERE email = :email AND psw = :psw";
     $stmt = $con->prepare($query);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':psw', $psw);
     $stmt->execute();
     
+
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+
         $psw = $row['psw'];
         $email = $row['email'];
         $role = $row['role'];
@@ -24,12 +27,19 @@ try {
         $_SESSION['full_name'] = $full_name;
     }
     if(isset($_SESSION['role'])){
+
         if($_SESSION['role'] == 'admin'){
+
             header("Location: dashboard-admin.php");
+
         }else if($_SESSION['role'] == 'officer'){
+
             header("Location: dashboard.php");
+
         }else{
+
             header("Location: register.php");
+            
         }
     }
 }
