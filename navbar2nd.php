@@ -4,7 +4,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav" style="padding-left: 1200px;">
             <li class="nav-item">
                 <a class="nav-link" href="login.php" style="color: #060606;">Login</a>
             </li>
