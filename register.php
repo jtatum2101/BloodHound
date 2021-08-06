@@ -1,5 +1,5 @@
 <?php
-include_once 'navbar.php';
+include_once 'navbar2nd.php';
 ?>
 <?php
 if($_POST){

@@ -200,7 +200,7 @@ try {
 
 <body class="register">
     <?php
-        include 'navbar.php';
+        include 'navbar2nd.php';
 
 
     ?>
