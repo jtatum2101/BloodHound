@@ -292,8 +292,8 @@ $(document).ready(function() {
       <th scope="col">Mugshot</th>
       <th scope="col">Name</th>
       <th scope="col">Birth Date</th>
-      <th scope="col">Weight(lbs)</th>
-      <th scope="col">Height(inches)</th>
+      <th scope="col">Weight (lbs)</th>
+      <th scope="col">Height (inches)</th>
       <th scope="col">Eye Color</th>
       <th scope="col">Hair Color</th>
       <th scope="col">Ethnicity</th>

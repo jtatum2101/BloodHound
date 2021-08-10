@@ -251,7 +251,7 @@ a:hover {
     position: absolute;
     height: 3px;
     border-radius: 1px;
-    background: #F8F5F2;
+    background: #DF1F2D;
     left: 0;
     bottom: -15px;
 }
@@ -418,8 +418,8 @@ $(document).ready(function() {
       <th scope="col">Mugshot</th>
       <th scope="col">Name</th>
       <th scope="col">Birth Date</th>
-      <th scope="col">Weight(lbs)</th>
-      <th scope="col">Height(inches)</th>
+      <th scope="col">Weight (lbs)</th>
+      <th scope="col">Height (inches)</th>
       <th scope="col">Eye Color</th>
       <th scope="col">Hair Color</th>
       <th scope="col">Ethnicity</th>

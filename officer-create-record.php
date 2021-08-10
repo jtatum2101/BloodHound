@@ -270,7 +270,7 @@ a:hover {
     position: absolute;
     height: 3px;
     border-radius: 1px;
-    background: #F8F5F2;
+    background: #DF1F2D;
     left: 0;
     bottom: -15px;
 }
