@@ -420,7 +420,7 @@ $(document).ready(function() {
                         <span class="input-group-addon">
                             <i class="fa fa-flag-usa"></i>
                         </span>
-                        <input type="text" class="form-control" value="<?= $row['county'] ?>" name="county" />
+                        <input type="text" class="form-control" value="<?= $row['county'] ?>" name="county" placeholder= "County Name" />
                     </div>
             </div>
             <div class="form-group">
@@ -428,7 +428,7 @@ $(document).ready(function() {
                         <span class="input-group-addon">
                             <i class="fa fa-flag-usa"></i>
                         </span>
-                        <input type="text" class="form-control" value="<?= $row['state'] ?>" name="state" />
+                        <input type="text" class="form-control" value="<?= $row['state'] ?>" name="state" placeholder= "County State" />
                     </div>
             </div>
             <input type="hidden" name="id" value="<?= $row['id'] ?>" />
