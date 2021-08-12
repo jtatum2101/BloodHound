@@ -205,7 +205,7 @@ if($_POST){
                                 data-parent="#accordionExample">
                                 <div class="card-body" style="font-family: 'Playfair Display', serif;">BloodHound's main
                                     goal is to reach to all the police stations across
-                                    the United States. We are currently based in Mississippi and have 10 counties
+                                    the United States. We are currently based in Mississippi and covered at least 10 counties
                                     in Mississippi!</div>
                             </div>
                         </div>
