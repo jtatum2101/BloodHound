@@ -5,10 +5,11 @@
     
             $query = "SELECT * FROM counties";
             $stmt = $con->prepare($query);
+            $stmt->execute();
             $stmt->bindParam(':county_name', $county_name);
             $stmt->bindParam(':county_state', $county_state);
             $stmt->bindParam(':county_population', $county_population);
-            $stmt->execute();
+            
            
         }catch(PDOException $e) {
             echo "Error: " . $e->getMessage();

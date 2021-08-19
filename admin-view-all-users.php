@@ -5,6 +5,7 @@
         try{
             $query = "SELECT * FROM users";
             $stmt = $con->prepare($query);
+            $stmt->execute();
             $stmt->bindParam(':full_name', $full_name);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':psw', $psw);
@@ -13,7 +14,7 @@
             $stmt->bindParam(':admin_id', $admin_id);
             $stmt->bindParam(':county', $county);
             $stmt->bindParam(':state', $state); 
-            $stmt->execute();
+            
         } catch (Exception $e){
             echo "Error: " . $e->getMessage();
         }
