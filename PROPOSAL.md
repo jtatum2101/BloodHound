@@ -13,7 +13,7 @@ I made two other Crime Record Management System Projects, one in Java and one in
   - Admin
   - Police Officers
 - The user(s), depending on their role, will be brought to a different dashboard where they have full access to the features that their roles can perform in the application.
-- If the user is signed up as a police officer, Their role is create the records in the application.
+- If the user is signed up as a police officer, Their role is create and view all the records in the application.
 - Creating the record(Police Officers Only):
  - The requirements for every criminal record is shown below:
    - The record will need the criminal's name.
@@ -67,6 +67,9 @@ I made two other Crime Record Management System Projects, one in Java and one in
 - Creating a record requirements:
   - Mugshot
   - Name
+  - Birth Date
+  - Weight
+  - Height
   - Eye Color
   - Hair Color
   - Ethnicity
@@ -83,7 +86,7 @@ I made two other Crime Record Management System Projects, one in Java and one in
 
 #### Admin:
 - Full control over the website.
-- Can view all users on the website and have the option to delete their profile
+- Can view all users on the website and have the option to delete their profile.
 - Can view all record and have the option to edit or delete the record.
 - Can assign police officers to counties and remove them.
 - Can also add and remove counties to the systems.
@@ -98,9 +101,9 @@ I made two other Crime Record Management System Projects, one in Java and one in
 ### Fourth Week (The styling of the website):
 - Completed Tasks by this week:
  - Officer will have the ability to create and view all the records that are made in both the database and application. 
- - Admin will have the ability to update and delete records from both the appilcation and the database.
+ - Admin will have the ability to update and delete records from both the application and the database.
  - Admin will have the ability to delete users from both the application and the database.
- - Admin will also have the ability to create, delete the details of counties for both the application and the database.
+ - Admin will also have the ability to create and delete the details of counties for both the application and the database.
  - Admin will also have the ability to assign officer of the site to a county through the county name and state.
 
 -The tasks for this week:
